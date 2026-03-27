@@ -11,6 +11,13 @@
         "description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier."
       }
     },
+    "usage": {
+      "type": "product-usage",
+      "settings": {
+        "label": "HOW TO USE",
+        "heading": "When to Use"
+      }
+    },
     "testimonials": {
       "type": "product-testimonials",
       "settings": {
@@ -24,5 +31,5 @@
       }
     }
   },
-  "order": ["main", "ingredients", "testimonials", "related"]
+  "order": ["main", "ingredients", "usage", "testimonials", "related"]
 }

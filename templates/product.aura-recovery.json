@@ -61,6 +61,31 @@
         "description": "Formulated for post-race recovery, soothing irritated skin and accelerating the healing process."
       }
     },
+    "usage": {
+      "type": "product-usage",
+      "settings": {
+        "label": "HOW TO USE",
+        "heading": "When to Use",
+        "description": "Immediately post-run (especially after long efforts or ultras), post-race recovery, evening application during peak training weeks, on rest days to support skin barrier repair, when skin shows early signs of irritation, preventively during multi-day training blocks or stage races."
+      },
+      "blocks": {
+        "dosage": {
+          "type": "detail",
+          "settings": {
+            "name": "Dosage",
+            "text": "Generous nickel-sized amount per affected area. This is treatment, not protection—use enough to thoroughly coat compromised zones. Massage gently until absorbed."
+          }
+        },
+        "texture": {
+          "type": "detail",
+          "settings": {
+            "name": "Texture",
+            "text": "Rich, therapeutic cream. More substantial than Stride. Absorbs slowly (2-3 minutes) delivering active ingredients to deeper skin layers. Leaves skin feeling fortified, not greasy."
+          }
+        }
+      },
+      "block_order": ["dosage", "texture"]
+    },
     "testimonials": {
       "type": "product-testimonials",
       "blocks": {
@@ -91,6 +116,7 @@
   "order": [
     "main",
     "ingredients",
+    "usage",
     "testimonials",
     "related"
   ]

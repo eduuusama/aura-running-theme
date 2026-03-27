@@ -58,6 +58,31 @@
         "description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
       }
     },
+    "usage": {
+      "type": "product-usage",
+      "settings": {
+        "label": "HOW TO USE",
+        "heading": "When to Use",
+        "description": "Daily training runs, tempo efforts, long runs under 20 miles, recovery runs, any standard training session."
+      },
+      "blocks": {
+        "dosage": {
+          "type": "detail",
+          "settings": {
+            "name": "Dosage",
+            "text": "Pea-sized amount per zone. Build thin, even layer. Less is more—excess product doesn't increase protection."
+          }
+        },
+        "texture": {
+          "type": "detail",
+          "settings": {
+            "name": "Texture",
+            "text": "Lightweight balm. Solid at room temperature, melts on contact with skin. Absorbs within 60 seconds leaving silky, non-greasy finish."
+          }
+        }
+      },
+      "block_order": ["dosage", "texture"]
+    },
     "testimonials": {
       "type": "product-testimonials",
       "blocks": {
@@ -96,6 +121,7 @@
   "order": [
     "main",
     "ingredients",
+    "usage",
     "testimonials",
     "related"
   ]
