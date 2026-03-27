@@ -41,7 +41,7 @@
     <p class="text-white/90 text-base font-light mb-10">{{ section.settings.description }}</p>
     <div class="accordion-group">
       {%- for block in section.blocks -%}
-        <div class="accordion-item border-t border-white/30" {{ block.shopify_attributes }}>
+        <div class="accordion-item border-t border-white/30" data-ingredient-trigger="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
           <button class="accordion-trigger w-full py-5 flex items-center justify-between">
             <div class="flex items-baseline gap-3">
               <span class="text-white/60 text-sm font-light">0{{ forloop.index }}</span>

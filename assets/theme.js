@@ -76,8 +76,15 @@
   });
 
   /* ========================================
-     Ingredient Hover (Desktop)
+     Ingredient Background Swap
      ======================================== */
+  function switchIngredientBg(section, index) {
+    section.querySelectorAll('.ingredient-bg').forEach(function(bg) {
+      bg.classList.toggle('is-active', bg.dataset.ingredientBg === index);
+    });
+  }
+
+  // Desktop — hover
   document.addEventListener('mouseenter', function(e) {
     const trigger = e.target.closest('[data-ingredient-trigger]');
     if (!trigger) return;
@@ -86,15 +93,11 @@
     const section = trigger.closest('[data-ingredient-section]');
     if (!section) return;
 
-    // Update all triggers opacity
     section.querySelectorAll('[data-ingredient-trigger]').forEach(function(t) {
       t.style.opacity = t.dataset.ingredientTrigger === index ? '1' : '0.4';
     });
 
-    // Update background images
-    section.querySelectorAll('.ingredient-bg').forEach(function(bg) {
-      bg.classList.toggle('is-active', bg.dataset.ingredientBg === index);
-    });
+    switchIngredientBg(section, index);
   }, true);
 
   document.addEventListener('mouseleave', function(e) {
@@ -104,15 +107,23 @@
     const section = trigger.closest('[data-ingredient-section]');
     if (!section) return;
 
-    // Reset all triggers
     section.querySelectorAll('[data-ingredient-trigger]').forEach(function(t) {
       t.style.opacity = '1';
     });
 
-    // Show default background
-    section.querySelectorAll('.ingredient-bg').forEach(function(bg, i) {
-      bg.classList.toggle('is-active', i === 0);
-    });
+    switchIngredientBg(section, '0');
+  }, true);
+
+  // Mobile — click/tap (accordion items)
+  document.addEventListener('click', function(e) {
+    const trigger = e.target.closest('.accordion-item[data-ingredient-trigger]');
+    if (!trigger) return;
+
+    const index = trigger.dataset.ingredientTrigger;
+    const section = trigger.closest('[data-ingredient-section]');
+    if (!section) return;
+
+    switchIngredientBg(section, index);
   }, true);
 
 })();
