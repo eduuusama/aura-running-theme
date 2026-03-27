@@ -1,0 +1,77 @@
+{%- comment -%}
+  Brand Story — Extended brand narrative section
+{%- endcomment -%}
+
+{%- if section.settings.enabled -%}
+<section class="py-24 md:py-32 bg-background">
+  <div class="container max-w-4xl mx-auto">
+    <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-8 font-light text-center">
+      {{ section.settings.label | default: 'Our Story' }}
+    </p>
+    <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-center font-light italic leading-relaxed mb-8">
+      {{ section.settings.heading | default: 'Born from the miles' }}
+    </h2>
+    <div class="text-center text-muted-foreground font-light leading-relaxed space-y-6 max-w-2xl mx-auto">
+      {{ section.settings.content }}
+    </div>
+
+    {%- if section.settings.button_text != blank -%}
+      <div class="text-center mt-12">
+        <a
+          href="{{ section.settings.button_link | default: '/pages/about' }}"
+          class="inline-flex items-center justify-center border border-foreground hover:bg-foreground hover:text-background px-10 py-3 rounded-none transition-colors duration-500 tracking-[0.15em] text-xs uppercase font-medium"
+        >
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Show section",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Born from the miles"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Story"
+    }
+  ]
+}
+{% endschema %}

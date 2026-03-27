@@ -1,0 +1,47 @@
+{%- comment -%}
+  About Values — Three value cards (numbered)
+{%- endcomment -%}
+
+<section class="py-20 md:py-28 bg-secondary">
+  <div class="container">
+    <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-12 font-light text-center">
+      {{ section.settings.heading | default: 'What We Believe' }}
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {%- for block in section.blocks -%}
+        <div class="bg-background p-8 md:p-10" {{ block.shopify_attributes }}>
+          <span class="text-5xl font-light text-muted-foreground/30 mb-4 block">0{{ forloop.index }}</span>
+          <h3 class="text-xl font-medium tracking-tight mb-3">{{ block.settings.title }}</h3>
+          <p class="text-sm text-muted-foreground font-light leading-relaxed">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Values",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What We Believe" }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Science First" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Every formula is developed with scientific rigor and tested across thousands of miles." }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "About Values",
+    "blocks": [
+      { "type": "value", "settings": { "title": "Science First", "description": "Every formula is developed with scientific rigor and tested across thousands of miles." } },
+      { "type": "value", "settings": { "title": "Clean Formula", "description": "No synthetic fragrances, no parabens, no petroleum. Just ingredients that work." } },
+      { "type": "value", "settings": { "title": "Athlete Proven", "description": "Tested by ultrarunners, marathoners, and triathletes in the most demanding conditions." } }
+    ]
+  }]
+}
+{% endschema %}

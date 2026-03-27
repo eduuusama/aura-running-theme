@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": {
+      "type": "collection-hero",
+      "settings": {
+        "heading": "Shop",
+        "subtitle": "Premium anti-chafe solutions engineered for distance runners."
+      }
+    },
+    "grid": {
+      "type": "collection-grid",
+      "settings": {
+        "products_per_page": 12
+      }
+    }
+  },
+  "order": ["hero", "grid"]
+}

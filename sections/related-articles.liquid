@@ -1,0 +1,29 @@
+{%- comment -%}
+  Related Articles — Grid of blog articles at bottom of product pages
+{%- endcomment -%}
+
+{%- assign blog_handle = section.settings.blog | default: 'editorial' -%}
+
+<section class="py-20 md:py-28 bg-background">
+  <div class="container">
+    <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-12 font-light">
+      {{ section.settings.heading | default: 'From the Editorial' }}
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {%- for article in blogs[blog_handle].articles limit: 3 -%}
+        {% render 'article-card', article: article %}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Related Articles",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From the Editorial" },
+    { "type": "blog", "id": "blog", "label": "Blog" }
+  ],
+  "presets": [{ "name": "Related Articles" }]
+}
+{% endschema %}

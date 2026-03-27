@@ -1,0 +1,52 @@
+{%- comment -%}
+  Collection Grid — Product grid for shop/collection pages
+{%- endcomment -%}
+
+<section class="py-16 md:py-24">
+  <div class="container">
+    {%- if collection.products.size > 0 -%}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="mt-16 flex justify-center gap-2" aria-label="Pagination">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="px-4 py-2 border border-border hover:bg-muted transition-colors text-sm">&larr; Previous</a>
+          {%- endif -%}
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}
+              <a href="{{ part.url }}" class="px-4 py-2 border border-border hover:bg-muted transition-colors text-sm">{{ part.title }}</a>
+            {%- else -%}
+              <span class="px-4 py-2 bg-foreground text-background text-sm">{{ part.title }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="px-4 py-2 border border-border hover:bg-muted transition-colors text-sm">Next &rarr;</a>
+          {%- endif -%}
+        </nav>
+      {%- endif -%}
+    {%- else -%}
+      <p class="text-center text-muted-foreground py-12">No products found.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

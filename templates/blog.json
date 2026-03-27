@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "hero": {
+      "type": "blog-hero",
+      "settings": {
+        "label": "Stories & Science",
+        "heading": "Editorial"
+      }
+    },
+    "grid": {
+      "type": "blog-grid",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "grid"]
+}

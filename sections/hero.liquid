@@ -1,0 +1,100 @@
+{%- comment -%}
+  Hero — Full-viewport hero with "Go Further" headline
+  Matches React: h-[calc(85vh-104px)] md:h-[calc(100vh-104px)]
+{%- endcomment -%}
+
+<section class="relative h-[calc(85vh-104px)] md:h-[calc(100vh-104px)] overflow-hidden flex flex-col justify-end">
+  {%- comment -%} Background Image {%- endcomment -%}
+  {%- if section.settings.image -%}
+    <img
+      src="{{ section.settings.image | image_url: width: 2000 }}"
+      alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+    >
+  {%- else -%}
+    <img
+      src="{{ 'runners-desert-road-golden-hour.jpg' | asset_url }}"
+      alt="{{ section.settings.heading }}"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+    >
+  {%- endif -%}
+
+  {%- comment -%} Dark Overlay {%- endcomment -%}
+  <div class="absolute inset-0 bg-black/20"></div>
+
+  {%- comment -%} Content — pinned to bottom {%- endcomment -%}
+  <div class="relative z-10 w-full">
+    {%- comment -%} Giant Headline {%- endcomment -%}
+    <div class="w-full flex justify-center">
+      <h1
+        class="whitespace-nowrap text-[15vw] md:text-[13vw] lg:text-[12vw] font-serif italic font-light text-white leading-[0.85] tracking-tighter animate-fade-in"
+        style="animation-delay: 0.2s;"
+      >
+        {{ section.settings.heading | default: 'Go Further' }}
+      </h1>
+    </div>
+
+    {%- comment -%} Divider {%- endcomment -%}
+    <div class="w-full border-t border-white/20 mt-4"></div>
+
+    {%- comment -%} Subtitle + CTA {%- endcomment -%}
+    <div class="container py-6 md:py-8 flex flex-col items-center gap-5 animate-fade-in" style="animation-delay: 0.4s;">
+      <p class="text-white/80 text-sm md:text-base tracking-wide font-light text-center">
+        {{ section.settings.subtitle | default: 'Elite Foot Protection for Long Distance Runners' }}
+      </p>
+      {%- if section.settings.button_text != blank -%}
+        <a
+          href="{{ section.settings.button_link | default: '/collections/all' }}"
+          class="inline-flex items-center justify-center bg-transparent text-white border border-white/40 hover:bg-white hover:text-black px-10 py-3 rounded-none transition-colors duration-500 tracking-[0.15em] text-xs uppercase font-medium"
+        >
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Go Further"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Elite Foot Protection for Long Distance Runners"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop All Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

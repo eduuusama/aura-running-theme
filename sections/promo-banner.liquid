@@ -1,0 +1,23 @@
+{%- comment -%}
+  Promo Banner — Black bar with configurable text
+{%- endcomment -%}
+
+<div class="h-10 bg-black flex items-center justify-center px-4">
+  <p class="text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/90 uppercase whitespace-nowrap font-light">
+    {{ section.settings.text | default: settings.promo_banner_text }}
+  </p>
+</div>
+
+{% schema %}
+{
+  "name": "Promo Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Banner Text",
+      "default": "Free shipping on orders over $50"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,52 @@
+{%- comment -%}
+  About Story — Alternating text + image sections
+{%- endcomment -%}
+
+<section class="py-16 md:py-24 bg-background">
+  <div class="container">
+    {%- for block in section.blocks -%}
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center {% if forloop.index0 > 0 %}mt-20 md:mt-32{% endif %}" {{ block.shopify_attributes }}>
+        {%- if forloop.index0 == 1 -%}
+          {%- comment -%} Image first on even items {%- endcomment -%}
+          <div class="aspect-[4/3] overflow-hidden bg-muted order-2 md:order-1">
+            {%- if block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.title }}" class="w-full h-full object-cover" loading="lazy">
+            {%- endif -%}
+          </div>
+          <div class="order-1 md:order-2">
+            <h2 class="text-2xl md:text-3xl font-light tracking-tight mb-6">{{ block.settings.title }}</h2>
+            <div class="text-muted-foreground font-light leading-relaxed space-y-4">{{ block.settings.content }}</div>
+          </div>
+        {%- else -%}
+          <div>
+            <h2 class="text-2xl md:text-3xl font-light tracking-tight mb-6">{{ block.settings.title }}</h2>
+            <div class="text-muted-foreground font-light leading-relaxed space-y-4">{{ block.settings.content }}</div>
+          </div>
+          <div class="aspect-[4/3] overflow-hidden bg-muted">
+            {%- if block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.title }}" class="w-full h-full object-cover" loading="lazy">
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Story",
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Story Section",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "content", "label": "Content" },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "About Story" }]
+}
+{% endschema %}

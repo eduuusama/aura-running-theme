@@ -1,0 +1,60 @@
+{%- comment -%}
+  Blog Grid — Article listing with category tag filtering
+  Categories are implemented as Shopify blog tags
+{%- endcomment -%}
+
+<section class="py-16 md:py-24 bg-background">
+  <div class="container">
+
+    {%- comment -%} Category Filter (tags) {%- endcomment -%}
+    {%- if blog.all_tags.size > 0 -%}
+      <div class="flex flex-wrap gap-3 mb-12">
+        <a
+          href="{{ blog.url }}"
+          class="px-4 py-2 text-xs uppercase tracking-[0.1em] font-medium border transition-colors {% if current_tags == blank %}bg-foreground text-background{% else %}border-border hover:border-foreground{% endif %}"
+        >
+          All
+        </a>
+        {%- for tag in blog.all_tags -%}
+          <a
+            href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+            class="px-4 py-2 text-xs uppercase tracking-[0.1em] font-medium border transition-colors {% if current_tags contains tag %}bg-foreground text-background{% else %}border-border hover:border-foreground{% endif %}"
+          >
+            {{ tag }}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Article Grid {%- endcomment -%}
+    {%- paginate blog.articles by 12 -%}
+      {%- if blog.articles.size > 0 -%}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {%- for article in blog.articles -%}
+            {% render 'article-card', article: article %}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="mt-16 flex justify-center gap-2" aria-label="Pagination">
+            {%- if paginate.previous -%}
+              <a href="{{ paginate.previous.url }}" class="px-4 py-2 border border-border hover:bg-muted transition-colors text-sm">&larr; Previous</a>
+            {%- endif -%}
+            {%- if paginate.next -%}
+              <a href="{{ paginate.next.url }}" class="px-4 py-2 border border-border hover:bg-muted transition-colors text-sm">Next &rarr;</a>
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- else -%}
+        <p class="text-center text-muted-foreground py-12">No articles found.</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Grid",
+  "settings": []
+}
+{% endschema %}

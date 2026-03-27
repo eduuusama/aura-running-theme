@@ -1,0 +1,29 @@
+{%- comment -%}
+  Blog Hero — Editorial listing page hero
+{%- endcomment -%}
+
+<section class="relative h-[50vh] min-h-[350px] overflow-hidden flex items-end">
+  {%- if section.settings.image -%}
+    <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="Editorial" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+  {%- else -%}
+    <div class="absolute inset-0 bg-foreground"></div>
+  {%- endif -%}
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative z-10 container pb-12 md:pb-16">
+    <p class="text-[10px] uppercase tracking-[0.3em] text-white/60 font-light mb-3">{{ section.settings.label | default: 'Stories & Science' }}</p>
+    <h1 class="font-serif italic text-4xl md:text-6xl text-white font-light tracking-tight animate-fade-in">
+      {{ section.settings.heading | default: 'Editorial' }}
+    </h1>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background Image" },
+    { "type": "text", "id": "label", "label": "Label", "default": "Stories & Science" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Editorial" }
+  ]
+}
+{% endschema %}

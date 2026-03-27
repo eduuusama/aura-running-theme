@@ -1,0 +1,80 @@
+{%- comment -%}
+  Header — Sticky with scroll-based color change
+  Mobile: hamburger + centered logo + cart
+  Desktop: nav left + centered logo + search/cart right
+{%- endcomment -%}
+
+<header class="site-header bg-transparent text-foreground transition-all duration-300" role="banner">
+  <div class="container flex h-16 items-center justify-between relative">
+
+    {%- comment -%} Mobile Menu Toggle (md:hidden) {%- endcomment -%}
+    <button
+      onclick="window.MobileMenu.open()"
+      class="md:hidden p-2 hover:opacity-60 transition-opacity"
+      aria-label="{{ 'general.menu' | t }}"
+    >
+      {% render 'icon-menu' %}
+    </button>
+
+    {%- comment -%} Desktop Nav Left (hidden on mobile) {%- endcomment -%}
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+      <a href="/collections/all" class="text-xs font-medium tracking-[0.1em] uppercase hover:opacity-60 transition-opacity">
+        {{ 'general.shop' | t }}
+      </a>
+      <a href="/blogs/editorial" class="text-xs font-medium tracking-[0.1em] uppercase hover:opacity-60 transition-opacity">
+        {{ 'general.editorial' | t }}
+      </a>
+    </nav>
+
+    {%- comment -%} Centered Logo {%- endcomment -%}
+    <a href="/" class="absolute left-1/2 -translate-x-1/2">
+      {%- if section.settings.logo -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 200 }}"
+          alt="{{ shop.name }}"
+          class="header-logo h-5 md:h-6 w-auto transition-all duration-300"
+          width="200"
+          height="24"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'logo.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          class="header-logo h-5 md:h-6 w-auto transition-all duration-300"
+        >
+      {%- endif -%}
+    </a>
+
+    {%- comment -%} Right: Search + Cart {%- endcomment -%}
+    <div class="flex items-center gap-4">
+      <a href="/search" class="hidden md:flex p-2 hover:opacity-60 transition-opacity" aria-label="{{ 'general.search' | t }}">
+        {% render 'icon-search' %}
+      </a>
+      <button
+        onclick="window.CartDrawer.open()"
+        class="p-2 hover:opacity-60 transition-opacity relative"
+        aria-label="{{ 'general.cart' | t }}"
+      >
+        {% render 'icon-cart' %}
+        <span
+          class="cart-count-badge absolute -top-1 -right-1 w-4 h-4 bg-foreground text-background text-[10px] rounded-full items-center justify-center font-medium"
+          style="display: none;"
+        ></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    }
+  ]
+}
+{% endschema %}

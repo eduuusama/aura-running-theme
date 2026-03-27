@@ -1,0 +1,29 @@
+{%- comment -%}
+  About Hero — Brand story hero section
+{%- endcomment -%}
+
+<section class="py-24 md:py-32 bg-background">
+  <div class="container max-w-4xl mx-auto text-center">
+    <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6 font-light">
+      {{ section.settings.label | default: 'Our Story' }}
+    </p>
+    <h1 class="font-serif italic text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight mb-8">
+      {{ section.settings.heading | default: 'Born From The Miles' }}
+    </h1>
+    <p class="text-lg text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
+      {{ section.settings.subtitle | default: 'Aura Running was born at mile 67 of a 100-mile ultra, when every product had failed.' }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Hero",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Born From The Miles" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Aura Running was born at mile 67 of a 100-mile ultra, when every product had failed." }
+  ],
+  "presets": [{ "name": "About Hero" }]
+}
+{% endschema %}

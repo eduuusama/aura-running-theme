@@ -1,0 +1,119 @@
+{%- comment -%}
+  Three Pillars — 3-column image grid with overlay text and hover zoom
+{%- endcomment -%}
+
+<section class="w-full">
+  <div class="grid md:grid-cols-3">
+    {%- for block in section.blocks -%}
+      <a
+        href="{{ block.settings.link | default: '#' }}"
+        class="relative aspect-[4/5] md:aspect-[3/4] overflow-hidden group block"
+        {{ block.shopify_attributes }}
+      >
+        {%- comment -%} Background Image {%- endcomment -%}
+        {%- if block.settings.image -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            alt="{{ block.settings.title }}"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="absolute inset-0 bg-muted"></div>
+        {%- endif -%}
+
+        {%- comment -%} Overlay {%- endcomment -%}
+        <div class="absolute inset-0 bg-black/20"></div>
+
+        {%- comment -%} Content {%- endcomment -%}
+        <div class="relative h-full flex flex-col items-center justify-between py-12 md:py-16 z-10">
+          <div class="text-center px-6">
+            <h3 class="text-2xl md:text-3xl text-white font-light tracking-tight mb-2">
+              {{ block.settings.title }}
+            </h3>
+            <p class="text-sm text-white/70 font-light tracking-wide">
+              {{ block.settings.subtitle }}
+            </p>
+          </div>
+
+          <div class="flex-1"></div>
+
+          <span class="relative text-xs text-white/80 uppercase tracking-[0.15em] font-light pillar-link pb-1">
+            {{ 'general.discover' | t }}
+          </span>
+        </div>
+
+        {%- comment -%} Vertical Divider (hidden on mobile, not on last item) {%- endcomment -%}
+        {%- unless forloop.last -%}
+          <div class="hidden md:block absolute right-0 top-0 bottom-0 w-px bg-white/30 z-10"></div>
+        {%- endunless -%}
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Three Pillars",
+  "max_blocks": 3,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Protection"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Barrier technology for the long haul"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Protection",
+            "subtitle": "Barrier technology for the long haul"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Presence",
+            "subtitle": "Forget the friction, find the flow"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "Longevity",
+            "subtitle": "Formulated to outlast every mile"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

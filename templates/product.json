@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-hero",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "product-ingredients",
+      "settings": {
+        "heading": "Key Ingredients",
+        "description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier."
+      }
+    },
+    "testimonials": {
+      "type": "product-testimonials",
+      "settings": {
+        "heading": "What Runners Say"
+      }
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": {
+        "heading": "From the Editorial"
+      }
+    }
+  },
+  "order": ["main", "ingredients", "testimonials", "related"]
+}

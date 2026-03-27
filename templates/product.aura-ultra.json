@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-hero",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "product-ingredients",
+      "settings": {
+        "heading": "Key Ingredients",
+        "description": "Engineered for 6+ hours of continuous protection. Every ingredient is chosen for maximum endurance performance."
+      },
+      "blocks": {
+        "coconut": { "type": "ingredient", "settings": { "name": "Coconut Oil", "benefit": "Deep moisture", "description": "Creates an enduring moisture barrier engineered for 6+ hours of continuous protection." } },
+        "cocoa": { "type": "ingredient", "settings": { "name": "Cocoa Butter", "benefit": "Long-lasting shield", "description": "Rich natural butter that maintains its protective properties even under extreme conditions." } },
+        "beeswax": { "type": "ingredient", "settings": { "name": "Beeswax", "benefit": "Friction defense", "description": "Creates a durable, breathable film that reduces friction without clogging pores." } },
+        "vitamine": { "type": "ingredient", "settings": { "name": "Vitamin E", "benefit": "Recovery support", "description": "Supports skin recovery during and after ultra-distance events." } }
+      },
+      "block_order": ["coconut", "cocoa", "beeswax", "vitamine"]
+    },
+    "testimonials": {
+      "type": "product-testimonials",
+      "settings": { "heading": "What Ultra Runners Say" },
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "100 miles through the Sierra Nevada and not a single hotspot. Aura Ultra is non-negotiable race kit.", "author": "Jake M.", "attribution": "Western States Finisher" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "Applied once at the start of UTMB. Still working at mile 80.", "author": "Elena V.", "attribution": "UTMB Finisher" } }
+      },
+      "block_order": ["t1", "t2"]
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": { "heading": "From the Editorial" }
+    }
+  },
+  "order": ["main", "ingredients", "testimonials", "related"]
+}

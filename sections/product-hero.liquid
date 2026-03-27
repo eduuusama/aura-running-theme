@@ -1,0 +1,141 @@
+{%- comment -%}
+  Product Hero — Image gallery + product info with variant selector and add to cart
+{%- endcomment -%}
+
+<section class="py-12 md:py-20">
+  <div class="container">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-16">
+
+      {%- comment -%} Left — Product Images {%- endcomment -%}
+      <div>
+        <div class="aspect-square bg-[#f5f5f3] overflow-hidden mb-4">
+          <img
+            src="{{ product.featured_image | image_url: width: 1200 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            class="w-full h-full object-cover"
+            id="product-main-image"
+            loading="eager"
+          >
+        </div>
+        {%- if product.images.size > 1 -%}
+          <div class="grid grid-cols-4 gap-2">
+            {%- for image in product.images -%}
+              <button
+                class="aspect-square bg-[#f5f5f3] overflow-hidden border-2 {% if forloop.first %}border-foreground{% else %}border-transparent{% endif %} hover:border-foreground transition-colors"
+                onclick="document.getElementById('product-main-image').src='{{ image | image_url: width: 1200 }}'; this.parentElement.querySelectorAll('button').forEach(b => b.classList.replace('border-foreground','border-transparent')); this.classList.replace('border-transparent','border-foreground');"
+              >
+                <img
+                  src="{{ image | image_url: width: 300 }}"
+                  alt="{{ image.alt | default: product.title }}"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                >
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Right — Product Info {%- endcomment -%}
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
+          {{ product.vendor | default: 'Aura Running' }}
+        </p>
+        <h1 class="text-3xl md:text-4xl font-light tracking-tight mb-2">
+          {{ product.title }}
+        </h1>
+        <p class="text-xl font-light mb-6" id="product-price">
+          {{ product.selected_or_first_available_variant.price | money }}
+        </p>
+
+        {%- comment -%} Variant Selector {%- endcomment -%}
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="mb-6">
+              <label class="text-xs font-medium uppercase tracking-[0.15em] mb-3 block">
+                {{ option.name }}
+              </label>
+              <div class="flex flex-wrap gap-2">
+                {%- for value in option.values -%}
+                  <button
+                    class="variant-option px-4 py-2 text-xs border border-border hover:border-foreground transition-colors {% if option.selected_value == value %}bg-foreground text-background{% endif %}"
+                    data-option-index="{{ forloop.parentloop.index0 }}"
+                    data-value="{{ value }}"
+                    onclick="window.ProductForm.selectOption(this)"
+                  >
+                    {{ value }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        {%- comment -%} Quantity + Add to Cart {%- endcomment -%}
+        <div class="flex flex-col gap-4 mt-8">
+          <div class="flex items-center gap-4">
+            <label class="text-xs font-medium uppercase tracking-[0.15em]">{{ 'general.quantity' | t }}</label>
+            <div class="flex items-center border border-border">
+              <button onclick="window.ProductForm.updateQty(-1)" class="w-10 h-10 flex items-center justify-center hover:bg-muted transition-colors">
+                {% render 'icon-minus' %}
+              </button>
+              <input
+                type="number"
+                id="product-quantity"
+                value="1"
+                min="1"
+                class="w-12 h-10 text-center text-sm border-x border-border bg-transparent outline-none"
+              >
+              <button onclick="window.ProductForm.updateQty(1)" class="w-10 h-10 flex items-center justify-center hover:bg-muted transition-colors">
+                {% render 'icon-plus' %}
+              </button>
+            </div>
+          </div>
+
+          <button
+            id="add-to-cart-btn"
+            class="w-full h-14 bg-foreground text-background flex items-center justify-center text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            {% unless product.available %}disabled{% endunless %}
+            onclick="window.ProductForm.addToCart()"
+          >
+            {%- if product.available -%}
+              {{ 'general.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'general.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        </div>
+
+        {%- comment -%} Description Accordion {%- endcomment -%}
+        <div class="accordion-group mt-10">
+          <div class="accordion-item is-open border-t border-border">
+            <button class="accordion-trigger w-full flex items-center justify-between py-5 text-left">
+              <span class="text-sm font-medium tracking-wide">{{ 'product.description' | t }}</span>
+              <span class="accordion-icon text-lg text-muted-foreground">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-5 text-sm text-muted-foreground font-light leading-relaxed prose prose-sm">
+                {{ product.description }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Product Form JS Data {%- endcomment -%}
+  <script type="application/json" id="product-variants-json">
+    {{ product.variants | json }}
+  </script>
+</section>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Hero",
+  "tag": "div",
+  "settings": []
+}
+{% endschema %}

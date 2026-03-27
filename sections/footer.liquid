@@ -1,0 +1,122 @@
+{%- comment -%}
+  Footer — 4-column grid: Brand | Shop | Company | Policies
+{%- endcomment -%}
+
+<footer class="border-t border-border bg-primary text-primary-foreground" role="contentinfo">
+  <div class="container py-16">
+    <div class="grid gap-12 md:grid-cols-4">
+
+      {%- comment -%} Brand Column {%- endcomment -%}
+      <div class="md:col-span-1">
+        <img
+          src="{{ 'logo.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          class="h-6 w-auto invert mb-6"
+          loading="lazy"
+        >
+        <p class="text-lg font-serif italic text-primary-foreground/80 mb-4">
+          {{ 'footer.tagline' | t }}
+        </p>
+        <p class="text-sm text-primary-foreground/60 font-light leading-relaxed max-w-xs">
+          {{ 'footer.description' | t }}
+        </p>
+      </div>
+
+      {%- comment -%} Shop Column {%- endcomment -%}
+      <div>
+        <h4 class="text-xs font-medium tracking-[0.15em] uppercase mb-6 text-primary-foreground/60">
+          {{ 'footer.shop' | t }}
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="/collections/all" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.all_products' | t }}
+            </a>
+          </li>
+          {%- for product in collections.all.products limit: 3 -%}
+            <li>
+              <a href="{{ product.url }}" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+                {{ product.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Company Column {%- endcomment -%}
+      <div>
+        <h4 class="text-xs font-medium tracking-[0.15em] uppercase mb-6 text-primary-foreground/60">
+          {{ 'footer.company' | t }}
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="/pages/about" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.about_us' | t }}
+            </a>
+          </li>
+          <li>
+            <a href="/blogs/editorial" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'general.editorial' | t }}
+            </a>
+          </li>
+          <li>
+            <a href="/pages/contact" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.contact_us' | t }}
+            </a>
+          </li>
+          {%- if settings.social_instagram != blank -%}
+            <li>
+              <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+                Instagram
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Policies Column {%- endcomment -%}
+      <div>
+        <h4 class="text-xs font-medium tracking-[0.15em] uppercase mb-6 text-primary-foreground/60">
+          {{ 'footer.policies' | t }}
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="/policies/shipping-policy" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.shipping_policy' | t }}
+            </a>
+          </li>
+          <li>
+            <a href="/policies/refund-policy" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.return_policy' | t }}
+            </a>
+          </li>
+          <li>
+            <a href="/policies/privacy-policy" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.privacy_policy' | t }}
+            </a>
+          </li>
+          <li>
+            <a href="/policies/terms-of-service" class="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors font-light">
+              {{ 'footer.terms_of_service' | t }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    {%- comment -%} Copyright {%- endcomment -%}
+    <div class="mt-12 pt-8 border-t border-primary-foreground/10">
+      <p class="text-xs text-primary-foreground/40 text-center tracking-wide">
+        &copy; {{ 'now' | date: '%Y' }} {{ 'footer.copyright' | t }}
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

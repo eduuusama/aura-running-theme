@@ -1,0 +1,92 @@
+{%- comment -%}
+  Athletes Marquee — CSS-only infinite scroll of race logos
+{%- endcomment -%}
+
+<section class="py-20 md:py-28 bg-background overflow-hidden">
+  <div class="text-center mb-12">
+    <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground font-light">
+      {{ section.settings.heading | default: 'Used by athletes in' }}
+    </p>
+  </div>
+
+  <div class="relative w-full overflow-hidden">
+    {%- comment -%} Fade Edges {%- endcomment -%}
+    <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
+
+    {%- comment -%} Marquee Strip (duplicated for seamless loop) {%- endcomment -%}
+    <div class="flex w-max animate-marquee">
+      {%- for copy in (1..2) -%}
+        <div class="flex items-center gap-12 md:gap-20 shrink-0 px-6 md:px-10">
+          {%- for block in section.blocks -%}
+            <div class="flex flex-col items-center gap-2 shrink-0" {{ block.shopify_attributes }}>
+              {%- if block.settings.logo -%}
+                <img
+                  src="{{ block.settings.logo | image_url: width: 120 }}"
+                  alt="{{ block.settings.name }}"
+                  class="h-8 md:h-10 w-auto grayscale opacity-60"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <span class="text-[10px] md:text-xs tracking-[0.1em] uppercase text-foreground/30 font-light">
+                {{ block.settings.name }}
+              </span>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Athletes Marquee",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Used by athletes in"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "race",
+      "name": "Race / Event",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Race Name",
+          "default": "Western States"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Athletes Marquee",
+      "blocks": [
+        { "type": "race", "settings": { "name": "Western States" } },
+        { "type": "race", "settings": { "name": "UTMB" } },
+        { "type": "race", "settings": { "name": "Marathon des Sables" } },
+        { "type": "race", "settings": { "name": "London Marathon" } },
+        { "type": "race", "settings": { "name": "Hardrock 100" } },
+        { "type": "race", "settings": { "name": "Boston Marathon" } },
+        { "type": "race", "settings": { "name": "Berlin Marathon" } },
+        { "type": "race", "settings": { "name": "Tor des Géants" } },
+        { "type": "race", "settings": { "name": "Chicago Marathon" } },
+        { "type": "race", "settings": { "name": "NYC Marathon" } },
+        { "type": "race", "settings": { "name": "Tokyo Marathon" } },
+        { "type": "race", "settings": { "name": "Dragon's Back" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

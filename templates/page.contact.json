@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "contact-form",
+      "settings": {
+        "label": "Contact",
+        "heading": "Get in Touch",
+        "subtitle": "Have a question about our products or need support? We'd love to hear from you.",
+        "email": "hello@aurarunning.com",
+        "hours": "Monday – Friday, 9am – 5pm PST",
+        "response_time": "We typically respond within 24 hours."
+      }
+    }
+  },
+  "order": ["main"]
+}

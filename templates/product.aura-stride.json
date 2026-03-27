@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-hero",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "product-ingredients",
+      "settings": {
+        "heading": "Key Ingredients",
+        "description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
+      },
+      "blocks": {
+        "coconut": { "type": "ingredient", "settings": { "name": "Coconut Oil", "benefit": "Moisture barrier", "description": "Creates a breathable moisture barrier that protects skin during extended activity while providing deep hydration." } },
+        "beeswax": { "type": "ingredient", "settings": { "name": "Beeswax", "benefit": "Friction shield", "description": "Natural wax that forms a protective film, reducing friction between skin surfaces and clothing." } },
+        "vitamine": { "type": "ingredient", "settings": { "name": "Vitamin E", "benefit": "Skin repair", "description": "Powerful antioxidant that supports skin healing and protects against environmental damage." } }
+      },
+      "block_order": ["coconut", "beeswax", "vitamine"]
+    },
+    "testimonials": {
+      "type": "product-testimonials",
+      "settings": { "heading": "What Runners Say" },
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "I've tried every anti-chafe product on the market. Aura Stride is the only one that lasts my entire long run without reapplication.", "author": "Sarah K.", "attribution": "Marathon Runner" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "Clean ingredients and it actually works. My go-to for daily training.", "author": "Marcus R.", "attribution": "Ultra Runner" } }
+      },
+      "block_order": ["t1", "t2"]
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": { "heading": "From the Editorial" }
+    }
+  },
+  "order": ["main", "ingredients", "testimonials", "related"]
+}

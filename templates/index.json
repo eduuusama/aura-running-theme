@@ -1,0 +1,137 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Go Further",
+        "subtitle": "Elite Foot Protection for Long Distance Runners",
+        "button_text": "Shop All Products"
+      }
+    },
+    "quote": {
+      "type": "quote-section",
+      "settings": {
+        "quote": "Aura is the only product I trust for hundred-mile races. It holds up when nothing else does.",
+        "author": "Matty H.",
+        "attribution": "Western States Finisher"
+      }
+    },
+    "pillars": {
+      "type": "three-pillars",
+      "blocks": {
+        "protection": {
+          "type": "pillar",
+          "settings": {
+            "title": "Protection",
+            "subtitle": "Barrier technology for the long haul"
+          }
+        },
+        "presence": {
+          "type": "pillar",
+          "settings": {
+            "title": "Presence",
+            "subtitle": "Forget the friction, find the flow"
+          }
+        },
+        "longevity": {
+          "type": "pillar",
+          "settings": {
+            "title": "Longevity",
+            "subtitle": "Formulated to outlast every mile"
+          }
+        }
+      },
+      "block_order": ["protection", "presence", "longevity"]
+    },
+    "marquee": {
+      "type": "athletes-marquee",
+      "settings": {
+        "heading": "Used by athletes in"
+      },
+      "blocks": {
+        "ws": { "type": "race", "settings": { "name": "Western States" } },
+        "utmb": { "type": "race", "settings": { "name": "UTMB" } },
+        "mds": { "type": "race", "settings": { "name": "Marathon des Sables" } },
+        "london": { "type": "race", "settings": { "name": "London Marathon" } },
+        "hardrock": { "type": "race", "settings": { "name": "Hardrock 100" } },
+        "boston": { "type": "race", "settings": { "name": "Boston Marathon" } },
+        "berlin": { "type": "race", "settings": { "name": "Berlin Marathon" } },
+        "tdg": { "type": "race", "settings": { "name": "Tor des Géants" } },
+        "chicago": { "type": "race", "settings": { "name": "Chicago Marathon" } },
+        "nyc": { "type": "race", "settings": { "name": "NYC Marathon" } },
+        "tokyo": { "type": "race", "settings": { "name": "Tokyo Marathon" } },
+        "dragons": { "type": "race", "settings": { "name": "Dragon's Back" } }
+      },
+      "block_order": ["ws", "utmb", "mds", "london", "hardrock", "boston", "berlin", "tdg", "chicago", "nyc", "tokyo", "dragons"]
+    },
+    "product_showcase": {
+      "type": "product-showcase",
+      "settings": {
+        "ref_label": "Ref — 001",
+        "product_title": "Aura Stride",
+        "product_tagline": "For everyday use",
+        "price": "$48.00",
+        "how_to_apply": "Apply generously to friction-prone areas before your run. Reapply every 4-6 hours during extended efforts.",
+        "ingredients_list": "Coconut Oil, Beeswax, Cocoa Butter, Vitamin E, Zinc Oxide, Shea Butter",
+        "ingredients_description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
+      },
+      "blocks": {
+        "coconut": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "benefit": "Moisture barrier",
+            "description": "Creates a breathable moisture barrier that protects skin during extended activity while providing deep hydration."
+          }
+        },
+        "beeswax": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Beeswax",
+            "benefit": "Friction shield",
+            "description": "Natural wax that forms a protective film, reducing friction between skin surfaces and clothing."
+          }
+        },
+        "vitamine": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "benefit": "Skin repair",
+            "description": "Powerful antioxidant that supports skin healing and protects against environmental damage during outdoor activity."
+          }
+        }
+      },
+      "block_order": ["coconut", "beeswax", "vitamine"]
+    },
+    "editorial": {
+      "type": "editorial-grid",
+      "settings": {
+        "heading": "From the Editorial",
+        "article_count": 3
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Community",
+        "description": "Get exclusive access to training tips, product drops, and stories from the trail. Join a growing collective of runners who believe in going further."
+      }
+    },
+    "brand_story": {
+      "type": "brand-story",
+      "settings": {
+        "enabled": false
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "quote",
+    "pillars",
+    "marquee",
+    "product_showcase",
+    "editorial",
+    "newsletter",
+    "brand_story"
+  ]
+}

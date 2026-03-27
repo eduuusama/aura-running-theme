@@ -1,0 +1,54 @@
+{%- comment -%}
+  Quote Section — Centered blockquote testimonial
+{%- endcomment -%}
+
+<section class="py-24 md:py-32 bg-background">
+  <div class="container max-w-4xl mx-auto px-6">
+    <blockquote class="text-center">
+      <p class="font-serif text-3xl md:text-4xl lg:text-5xl leading-relaxed text-foreground italic font-light">
+        "{{ section.settings.quote | default: 'Aura is the only product I trust for hundred-mile races. It holds up when nothing else does.' }}"
+      </p>
+      <footer class="mt-8">
+        <cite class="not-italic">
+          <span class="block text-sm font-medium tracking-wide text-foreground">
+            {{ section.settings.author | default: 'Matty H.' }}
+          </span>
+          <span class="block text-xs tracking-widest uppercase text-muted-foreground mt-1">
+            {{ section.settings.attribution | default: 'Western States Finisher' }}
+          </span>
+        </cite>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quote",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote Text",
+      "default": "Aura is the only product I trust for hundred-mile races. It holds up when nothing else does."
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author Name",
+      "default": "Matty H."
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Author Title",
+      "default": "Western States Finisher"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quote"
+    }
+  ]
+}
+{% endschema %}

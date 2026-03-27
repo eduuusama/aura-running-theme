@@ -1,0 +1,49 @@
+{%- comment -%}
+  Search Results
+{%- endcomment -%}
+
+<section class="py-16 md:py-24">
+  <div class="container max-w-4xl mx-auto">
+    <h1 class="text-3xl font-light tracking-tight mb-8">{{ 'general.search' | t }}</h1>
+
+    <form action="/search" method="get" class="mb-12">
+      <div class="flex gap-3">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Search products, articles..."
+          class="flex-1 h-12 px-4 border border-border bg-transparent text-sm outline-none focus:border-foreground transition-colors"
+        >
+        <button type="submit" class="h-12 px-6 bg-foreground text-background text-xs uppercase tracking-[0.15em] font-medium hover:bg-foreground/90 transition-colors">
+          {{ 'general.search' | t }}
+        </button>
+      </div>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <p class="text-sm text-muted-foreground mb-8">{{ search.results_count }} results for "{{ search.terms }}"</p>
+        <div class="space-y-6">
+          {%- for result in search.results -%}
+            <a href="{{ result.url }}" class="block p-6 border border-border hover:border-foreground transition-colors group">
+              <h3 class="text-lg font-medium group-hover:opacity-60 transition-opacity">{{ result.title }}</h3>
+              <p class="text-sm text-muted-foreground font-light mt-2 line-clamp-2">
+                {{ result.content | strip_html | truncate: 150 }}
+              </p>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="text-center text-muted-foreground py-12">No results found for "{{ search.terms }}"</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "settings": []
+}
+{% endschema %}

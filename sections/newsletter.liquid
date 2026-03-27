@@ -1,0 +1,94 @@
+{%- comment -%}
+  Newsletter — Email signup with image
+{%- endcomment -%}
+
+<section class="bg-black py-16 md:py-24">
+  <div class="grid md:grid-cols-2 gap-12 md:gap-0 items-center">
+    {%- comment -%} Left — Content {%- endcomment -%}
+    <div class="px-6 md:pl-16 lg:pl-24 xl:pl-32 md:pr-12">
+      <div class="max-w-md">
+        <h2 class="text-2xl md:text-3xl font-light text-white tracking-tight mb-6">
+          {{ section.settings.heading | default: 'Join the Community' }}
+        </h2>
+        <p class="text-sm text-white/60 leading-relaxed mb-10 font-light">
+          {{ section.settings.description | default: 'Get exclusive access to training tips, product drops, and stories from the trail. Join a growing collective of runners who believe in going further.' }}
+        </p>
+
+        {%- comment -%} Newsletter Form — uses Shopify customer create {%- endcomment -%}
+        {% form 'customer', id: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="{{ 'newsletter.placeholder' | t }}"
+              required
+              class="flex-1 h-12 bg-transparent border border-white/20 text-white placeholder:text-white/40 px-4 rounded-none focus:border-white transition-colors text-sm outline-none"
+            >
+            <button
+              type="submit"
+              class="h-12 px-6 bg-white text-black hover:bg-white/90 rounded-none tracking-[0.1em] text-xs font-medium transition-colors uppercase"
+            >
+              {{ 'newsletter.submit' | t }}
+            </button>
+          </div>
+        {% endform %}
+
+        <p class="text-xs text-white/30 font-light">
+          {{ 'newsletter.privacy' | t }}
+        </p>
+      </div>
+    </div>
+
+    {%- comment -%} Right — Image {%- endcomment -%}
+    <div class="hidden md:block">
+      <div class="aspect-[16/10] overflow-hidden">
+        {%- if section.settings.image -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt="Runners"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
+        {%- else -%}
+          <img
+            src="{{ 'newsletter-runners.png' | asset_url }}"
+            alt="Runners in motion"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the Community"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Get exclusive access to training tips, product drops, and stories from the trail. Join a growing collective of runners who believe in going further."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,141 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Aura Running",
+    "theme_version": "1.0.0",
+    "theme_author": "Aura Running",
+    "theme_documentation_url": "https://aura-running.com",
+    "theme_support_url": "https://aura-running.com/contact"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "label": "Foreground / Text",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_bg",
+        "label": "Secondary Background",
+        "default": "#f5f4f1"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#d4c4a8"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted Text",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border",
+        "default": "#e6e6e6"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Fonts"
+      },
+      {
+        "type": "text",
+        "id": "font_heading",
+        "label": "Heading Font Family",
+        "default": "Inter"
+      },
+      {
+        "type": "text",
+        "id": "font_body",
+        "label": "Body Font Family",
+        "default": "Inter"
+      },
+      {
+        "type": "text",
+        "id": "font_serif",
+        "label": "Serif / Accent Font",
+        "default": "EB Garamond"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social Links"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "default": "https://instagram.com/aurarunning"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "url",
+        "id": "social_strava",
+        "label": "Strava URL"
+      }
+    ]
+  },
+  {
+    "name": "Promo Banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "promo_banner_enabled",
+        "label": "Show promo banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "promo_banner_text",
+        "label": "Promo text",
+        "default": "Free shipping on orders over $50"
+      }
+    ]
+  },
+  {
+    "name": "Analytics",
+    "settings": [
+      {
+        "type": "text",
+        "id": "google_analytics_id",
+        "label": "Google Analytics ID",
+        "default": "G-1N4EL89GCL"
+      }
+    ]
+  }
+]

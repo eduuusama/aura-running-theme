@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-content",
+      "settings": {}
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": {
+        "heading": "Continue Reading"
+      }
+    }
+  },
+  "order": ["main", "related"]
+}

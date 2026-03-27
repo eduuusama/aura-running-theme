@@ -1,0 +1,75 @@
+{
+  "general": {
+    "shop": "Shop",
+    "editorial": "Editorial",
+    "about": "About",
+    "contact": "Contact",
+    "search": "Search",
+    "cart": "Cart",
+    "close": "Close",
+    "menu": "Menu",
+    "discover": "Discover",
+    "view_all": "View All",
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "quantity": "Quantity",
+    "remove": "Remove",
+    "continue_shopping": "Continue Shopping",
+    "subscribe": "Subscribe",
+    "loading": "Loading..."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "taxes_note": "Taxes and shipping calculated at checkout",
+    "item_added": "Item added to cart"
+  },
+  "product": {
+    "description": "Description",
+    "how_to_apply": "How to Apply",
+    "ingredients": "Ingredients",
+    "key_ingredients": "Key Ingredients",
+    "add_to_cart": "Add to Cart",
+    "view_product": "View Product"
+  },
+  "newsletter": {
+    "heading": "Join the Community",
+    "description": "Get exclusive access to training tips, product drops, and stories from the trail. Join a growing collective of runners who believe in going further.",
+    "placeholder": "Enter your email",
+    "submit": "Subscribe",
+    "success": "Welcome to the community!",
+    "privacy": "No spam. Unsubscribe anytime."
+  },
+  "footer": {
+    "tagline": "The Science of Going Further.",
+    "description": "Premium anti-chafe solutions engineered for the world's most demanding runners. Every product is tested across thousands of miles, from desert ultras to alpine crossings.",
+    "shop": "Shop",
+    "company": "Company",
+    "policies": "Policies",
+    "all_products": "All Products",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "shipping_policy": "Shipping Policy",
+    "return_policy": "Returns & Refunds",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "copyright": "Aura Running. All rights reserved."
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Thank you for your message. We'll get back to you soon."
+  },
+  "404": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "button": "Return Home"
+  }
+}

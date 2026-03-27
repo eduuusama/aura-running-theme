@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "hero": {
+      "type": "about-hero",
+      "settings": {
+        "label": "Our Story",
+        "heading": "Born From The Miles",
+        "subtitle": "Aura Running was born at mile 67 of a 100-mile ultra, when every product had failed. We knew there had to be something better."
+      }
+    },
+    "story": {
+      "type": "about-story",
+      "blocks": {
+        "origin": {
+          "type": "section",
+          "settings": {
+            "title": "The Origin"
+          }
+        },
+        "science": {
+          "type": "section",
+          "settings": {
+            "title": "The Science"
+          }
+        }
+      },
+      "block_order": ["origin", "science"]
+    },
+    "values": {
+      "type": "about-values",
+      "settings": { "heading": "What We Believe" },
+      "blocks": {
+        "v1": { "type": "value", "settings": { "title": "Science First", "description": "Every formula is developed with scientific rigor and tested across thousands of miles." } },
+        "v2": { "type": "value", "settings": { "title": "Clean Formula", "description": "No synthetic fragrances, no parabens, no petroleum. Just ingredients that work." } },
+        "v3": { "type": "value", "settings": { "title": "Athlete Proven", "description": "Tested by ultrarunners, marathoners, and triathletes in the most demanding conditions on earth." } }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Community"
+      }
+    }
+  },
+  "order": ["hero", "story", "values", "newsletter"]
+}

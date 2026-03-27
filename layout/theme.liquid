@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>
+    {%- if page_title -%}
+      {{ page_title }} — {{ shop.name }}
+    {%- else -%}
+      {{ shop.name }}
+    {%- endif -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  {% render 'meta-tags' %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- comment -%} Favicon {%- endcomment -%}
+  <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
+
+  {%- comment -%} Google Fonts — Inter + EB Garamond {%- endcomment -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  {%- comment -%} Tailwind CSS CDN with custom config {%- endcomment -%}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: {
+          center: true,
+          padding: '2rem',
+          screens: { '2xl': '1400px' }
+        },
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['EB Garamond', 'Georgia', 'serif']
+          },
+          colors: {
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: {
+              DEFAULT: 'hsl(var(--primary))',
+              foreground: 'hsl(var(--primary-foreground))'
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary))',
+              foreground: 'hsl(var(--secondary-foreground))'
+            },
+            destructive: {
+              DEFAULT: 'hsl(var(--destructive))',
+              foreground: 'hsl(var(--destructive-foreground))'
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted))',
+              foreground: 'hsl(var(--muted-foreground))'
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent))',
+              foreground: 'hsl(var(--accent-foreground))'
+            },
+            popover: {
+              DEFAULT: 'hsl(var(--popover))',
+              foreground: 'hsl(var(--popover-foreground))'
+            },
+            card: {
+              DEFAULT: 'hsl(var(--card))',
+              foreground: 'hsl(var(--card-foreground))'
+            },
+            diagram: 'hsl(var(--diagram))'
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)'
+          }
+        }
+      }
+    }
+  </script>
+
+  {%- comment -%} Base CSS {%- endcomment -%}
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+
+  {%- comment -%} Shopify required {%- endcomment -%}
+  {{ content_for_header }}
+
+  {%- comment -%} Google Analytics {%- endcomment -%}
+  {%- if settings.google_analytics_id != blank -%}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_analytics_id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ settings.google_analytics_id }}');
+    </script>
+  {%- endif -%}
+
+  {%- comment -%} JSON-LD Organization Schema {%- endcomment -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ shop.name }}",
+      "url": "{{ shop.url }}",
+      "logo": "{{ 'logo.png' | asset_url }}",
+      "description": "{{ shop.description | escape }}",
+      "sameAs": [
+        {%- if settings.social_instagram != blank -%}"{{ settings.social_instagram }}"{%- endif -%}
+      ]
+    }
+  </script>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-foreground focus:text-background">
+    {{ 'general.skip_to_content' | t | default: 'Skip to content' }}
+  </a>
+
+  {%- comment -%} Promo Banner {%- endcomment -%}
+  {%- if settings.promo_banner_enabled -%}
+    {% section 'promo-banner' %}
+  {%- endif -%}
+
+  {%- comment -%} Header {%- endcomment -%}
+  {% section 'header' %}
+
+  {%- comment -%} Main Content {%- endcomment -%}
+  <main id="main-content" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {%- comment -%} Footer {%- endcomment -%}
+  {% section 'footer' %}
+
+  {%- comment -%} Cart Drawer {%- endcomment -%}
+  <div class="cart-drawer-overlay" id="cart-overlay" onclick="window.CartDrawer.close()"></div>
+  <div class="cart-drawer" id="cart-drawer" aria-label="{{ 'cart.title' | t }}">
+    <div class="flex items-center justify-between p-6 border-b border-border">
+      <h2 class="text-sm font-medium uppercase tracking-[0.15em]">{{ 'cart.title' | t }}</h2>
+      <button onclick="window.CartDrawer.close()" class="p-1 hover:opacity-60 transition-opacity" aria-label="{{ 'general.close' | t }}">
+        {% render 'icon-close' %}
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-6" id="cart-items">
+      {%- comment -%} Cart items rendered by JS {%- endcomment -%}
+    </div>
+    <div class="border-t border-border p-6" id="cart-footer" style="display: none;">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-sm font-medium uppercase tracking-wide">{{ 'cart.subtotal' | t }}</span>
+        <span class="text-lg font-light" id="cart-total"></span>
+      </div>
+      <p class="text-xs text-muted-foreground mb-4">{{ 'cart.taxes_note' | t }}</p>
+      <a href="/checkout" id="cart-checkout-btn" class="block w-full h-14 bg-foreground text-background flex items-center justify-center text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors">
+        {{ 'cart.checkout' | t }}
+      </a>
+    </div>
+  </div>
+
+  {%- comment -%} Mobile Menu {%- endcomment -%}
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="window.MobileMenu.close()"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="flex items-center justify-between p-6 border-b border-border">
+      <span class="text-sm font-medium uppercase tracking-[0.15em]">{{ 'general.menu' | t }}</span>
+      <button onclick="window.MobileMenu.close()" class="p-1 hover:opacity-60 transition-opacity" aria-label="{{ 'general.close' | t }}">
+        {% render 'icon-close' %}
+      </button>
+    </div>
+    <nav class="p-6">
+      <ul class="space-y-6">
+        <li><a href="/collections/all" class="text-2xl font-light hover:opacity-60 transition-opacity">{{ 'general.shop' | t }}</a></li>
+        <li><a href="/blogs/editorial" class="text-2xl font-light hover:opacity-60 transition-opacity">{{ 'general.editorial' | t }}</a></li>
+        <li><a href="/pages/about" class="text-2xl font-light hover:opacity-60 transition-opacity">{{ 'general.about' | t }}</a></li>
+        <li><a href="/pages/contact" class="text-2xl font-light hover:opacity-60 transition-opacity">{{ 'general.contact' | t }}</a></li>
+      </ul>
+    </nav>
+    <div class="px-6 pt-6 border-t border-border mt-6">
+      <p class="font-serif italic text-lg text-foreground/80 mb-4">The Science of Going Further.</p>
+      <div class="flex gap-4">
+        {%- if settings.social_instagram != blank -%}
+          <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Instagram</a>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener" class="text-sm text-muted-foreground hover:text-foreground transition-colors">TikTok</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Global JS {%- endcomment -%}
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
+</body>
+</html>

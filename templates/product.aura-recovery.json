@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-hero",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "product-ingredients",
+      "settings": {
+        "heading": "Key Ingredients",
+        "description": "Formulated for post-race recovery, soothing irritated skin and accelerating the healing process."
+      },
+      "blocks": {
+        "aloe": { "type": "ingredient", "settings": { "name": "Aloe Vera", "benefit": "Cooling relief", "description": "Provides immediate cooling relief to irritated, chafed skin after long efforts." } },
+        "shea": { "type": "ingredient", "settings": { "name": "Shea Butter", "benefit": "Deep repair", "description": "Rich in vitamins A and E, deeply nourishes and repairs damaged skin barriers." } },
+        "vitamine": { "type": "ingredient", "settings": { "name": "Vitamin E", "benefit": "Antioxidant protection", "description": "Combats free radical damage from UV exposure during outdoor training." } }
+      },
+      "block_order": ["aloe", "shea", "vitamine"]
+    },
+    "testimonials": {
+      "type": "product-testimonials",
+      "settings": { "heading": "What Runners Say" },
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "After a 50-miler, Aura Recover is the first thing I reach for. The relief is immediate.", "author": "Chris T.", "attribution": "Ultra Runner" } }
+      },
+      "block_order": ["t1"]
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": { "heading": "From the Editorial" }
+    }
+  },
+  "order": ["main", "ingredients", "testimonials", "related"]
+}

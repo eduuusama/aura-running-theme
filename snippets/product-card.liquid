@@ -1,0 +1,52 @@
+{%- comment -%}
+  Product Card — Reusable product card with dual image hover
+  Usage: {% render 'product-card', product: product %}
+{%- endcomment -%}
+
+<div class="group block bg-background">
+  <a href="{{ product.url }}" class="block">
+    <div class="aspect-square overflow-hidden bg-muted mb-6 relative">
+      {%- if product.featured_image -%}
+        <img
+          src="{{ product.featured_image | image_url: width: 800 }}"
+          alt="{{ product.featured_image.alt | default: product.title }}"
+          class="product-card-image-main w-full h-full object-cover transition-opacity duration-500"
+          loading="lazy"
+        >
+      {%- endif -%}
+      {%- if product.images.size > 1 -%}
+        <img
+          src="{{ product.images[1] | image_url: width: 800 }}"
+          alt="{{ product.images[1].alt | default: product.title }}"
+          class="product-card-image-hover w-full h-full object-cover"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+  </a>
+
+  <div class="px-1">
+    <a href="{{ product.url }}">
+      <h3 class="text-base font-medium tracking-tight mb-1 group-hover:opacity-60 transition-opacity">
+        {{ product.title }}
+      </h3>
+    </a>
+    {%- if product.description != blank -%}
+      <p class="text-sm text-muted-foreground font-light line-clamp-2 mb-3">
+        {{ product.description | strip_html | truncate: 100 }}
+      </p>
+    {%- endif -%}
+    <p class="text-sm font-light mb-4">{{ product.price | money }}</p>
+
+    <button
+      class="w-full h-14 rounded-none bg-foreground text-background hover:bg-foreground/90 transition-colors text-xs font-medium uppercase tracking-[0.15em]"
+      onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('cart:add', { detail: { id: {{ product.selected_or_first_available_variant.id }} } }))"
+    >
+      {%- if product.available -%}
+        {{ 'general.add_to_cart' | t }}
+      {%- else -%}
+        {{ 'general.sold_out' | t }}
+      {%- endif -%}
+    </button>
+  </div>
+</div>

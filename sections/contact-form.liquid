@@ -1,0 +1,95 @@
+{%- comment -%}
+  Contact Form — Uses Shopify's built-in contact form
+{%- endcomment -%}
+
+<section class="py-16 md:py-24">
+  <div class="container max-w-5xl">
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 font-light">{{ section.settings.label | default: 'Contact' }}</p>
+      <h1 class="text-3xl md:text-4xl font-light tracking-tight mb-4">{{ section.settings.heading | default: 'Get in Touch' }}</h1>
+      <p class="text-muted-foreground font-light max-w-lg mx-auto">{{ section.settings.subtitle | default: 'Have a question about our products or need support? We\'d love to hear from you.' }}</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-12">
+      {%- comment -%} Form (3 cols) {%- endcomment -%}
+      <div class="md:col-span-3">
+        {% form 'contact' %}
+          {%- if form.posted_successfully? -%}
+            <div class="p-6 bg-secondary text-center mb-8">
+              <p class="text-sm font-medium">{{ 'contact.success' | t }}</p>
+            </div>
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            <div class="p-6 bg-destructive/10 text-destructive text-sm mb-8">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="contact-first" class="text-xs font-medium uppercase tracking-[0.1em] mb-2 block">{{ 'contact.first_name' | t }}</label>
+              <input type="text" id="contact-first" name="contact[first_name]" class="w-full h-12 px-4 border border-border bg-transparent text-sm outline-none focus:border-foreground transition-colors" required>
+            </div>
+            <div>
+              <label for="contact-last" class="text-xs font-medium uppercase tracking-[0.1em] mb-2 block">{{ 'contact.last_name' | t }}</label>
+              <input type="text" id="contact-last" name="contact[last_name]" class="w-full h-12 px-4 border border-border bg-transparent text-sm outline-none focus:border-foreground transition-colors" required>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="contact-email" class="text-xs font-medium uppercase tracking-[0.1em] mb-2 block">{{ 'contact.email' | t }}</label>
+            <input type="email" id="contact-email" name="contact[email]" class="w-full h-12 px-4 border border-border bg-transparent text-sm outline-none focus:border-foreground transition-colors" required>
+          </div>
+
+          <div class="mb-4">
+            <label for="contact-subject" class="text-xs font-medium uppercase tracking-[0.1em] mb-2 block">{{ 'contact.subject' | t }}</label>
+            <input type="text" id="contact-subject" name="contact[subject]" class="w-full h-12 px-4 border border-border bg-transparent text-sm outline-none focus:border-foreground transition-colors">
+          </div>
+
+          <div class="mb-6">
+            <label for="contact-body" class="text-xs font-medium uppercase tracking-[0.1em] mb-2 block">{{ 'contact.message' | t }}</label>
+            <textarea id="contact-body" name="contact[body]" rows="6" class="w-full px-4 py-3 border border-border bg-transparent text-sm outline-none focus:border-foreground transition-colors resize-none" required></textarea>
+          </div>
+
+          <button type="submit" class="w-full h-14 bg-foreground text-background text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors">
+            {{ 'contact.send' | t }}
+          </button>
+        {% endform %}
+      </div>
+
+      {%- comment -%} Info Panel (2 cols) {%- endcomment -%}
+      <div class="md:col-span-2 space-y-8">
+        <div class="p-6 bg-secondary">
+          <p class="text-xs font-medium uppercase tracking-[0.15em] mb-3">Email</p>
+          <a href="mailto:{{ section.settings.email | default: 'hello@aurarunning.com' }}" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            {{ section.settings.email | default: 'hello@aurarunning.com' }}
+          </a>
+        </div>
+        <div class="p-6 bg-secondary">
+          <p class="text-xs font-medium uppercase tracking-[0.15em] mb-3">Hours</p>
+          <p class="text-sm text-muted-foreground font-light">{{ section.settings.hours | default: 'Monday – Friday, 9am – 5pm PST' }}</p>
+        </div>
+        <div class="p-6 bg-secondary">
+          <p class="text-xs font-medium uppercase tracking-[0.15em] mb-3">Response Time</p>
+          <p class="text-sm text-muted-foreground font-light">{{ section.settings.response_time | default: 'We typically respond within 24 hours.' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Contact" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get in Touch" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    { "type": "text", "id": "email", "label": "Email", "default": "hello@aurarunning.com" },
+    { "type": "text", "id": "hours", "label": "Business Hours", "default": "Monday – Friday, 9am – 5pm PST" },
+    { "type": "text", "id": "response_time", "label": "Response Time", "default": "We typically respond within 24 hours." }
+  ],
+  "presets": [{ "name": "Contact Form" }]
+}
+{% endschema %}
