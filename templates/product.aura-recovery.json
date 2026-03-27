@@ -14,6 +14,7 @@
       "settings": {
         "ref_label": "REF — 003",
         "subtitle": "For After",
+        "tagline": "What you do between runs determines what you can do during them.",
         "how_to_apply": "Apply to clean skin within 30-60 minutes post-run—the barrier repair window. Focus on areas that experienced friction during the effort. Use on intact skin for prevention, or on areas showing early irritation (redness, sensitivity) before they progress to open chafing.\n\nCan also be used nightly during high-volume training blocks as preventive skin conditioning.",
         "ingredients_list": "Butyrospermum Parkii (Shea) Butter, Squalane, Ceramide NP, Ceramide AP, Ceramide EOP, Niacinamide, Panthenol (Pro-Vitamin B5), Centella Asiatica (Cica) Extract, Bisabolol, Allantoin, Calendula Officinalis Flower Extract, Tocopherol (Vitamin E), Cholesterol, Phytosphingosine",
         "shipping_info": "Free shipping on orders over $50. Standard shipping: 3-5 business days.",
@@ -96,36 +97,36 @@
         "q1": {
           "type": "question",
           "settings": {
-            "title": "When should I apply Aura Recover after running?",
-            "answer": "Apply within 30-60 minutes post-run during the skin barrier repair window. This is when your skin is most receptive to ceramide-based recovery ingredients."
+            "title": "How do I heal chafed skin fast after running?",
+            "answer": "Apply Aura Recover within 30-60 minutes post-run during the skin's barrier repair window. The ceramide complex accelerates healing of friction-damaged skin."
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "title": "Can I use Aura Recover on broken or chafed skin?",
-            "answer": "Aura Recover is designed for intact skin showing early signs of irritation—redness, sensitivity, mild friction damage. For open wounds or severe chafing, allow the skin to close before applying."
+            "title": "What helps chafing heal overnight?",
+            "answer": "Aura Recover's pharmaceutical-grade ceramides and anti-inflammatory botanicals work while you sleep. Apply generously to affected areas before bed."
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "title": "How is Aura Recover different from regular moisturizer?",
-            "answer": "Aura Recover contains a triple-ceramide complex that actively rebuilds the skin barrier, not just moisturizes. It targets the specific damage patterns caused by endurance running—friction, sweat exposure, and repetitive motion."
+            "title": "Is it safe to put cream on chafed skin?",
+            "answer": "Yes. Aura Recover is specifically formulated for compromised skin barriers. It's fragrance-free, hypoallergenic, and contains healing ingredients like niacinamide and panthenol."
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "title": "Can I use Aura Recover as a daily moisturizer?",
-            "answer": "Yes, especially during high-volume training blocks. Nightly application helps maintain skin barrier integrity even on rest days, preventing cumulative damage from building up."
+            "title": "How do I prevent chafing from getting worse between runs?",
+            "answer": "Use Aura Recover nightly during high-volume training blocks. It rebuilds the skin barrier so you start each run with healthy, resilient skin."
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "title": "What makes ceramide-based recovery better for runners?",
-            "answer": "Ceramides are lipids naturally found in your skin barrier. Running depletes them through friction and sweat. Aura Recover replenishes these specific lipids rather than just coating the surface with generic moisturizers."
+            "title": "What do elite runners use for skin recovery?",
+            "answer": "Elite ultra runners use ceramide-based recovery treatments. Aura Recover contains the same pharmaceutical-grade ingredients used in clinical skin barrier repair."
           }
         }
       },

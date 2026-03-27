@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-hero",
+      "settings": {
+        "ref_label": "REF — 002",
+        "subtitle": "For The Long Miles",
+        "tagline": "When duration matters more than speed. When you measure effort in hours, not miles.",
+        "how_to_apply": "Apply to completely dry skin 30-45 minutes before race start. This allows film formation to complete. Cover all high-friction zones thoroughly: feet (especially between toes), inner thighs, underarms, groin, nipples, pack contact points. Build coverage in areas prone to chafing during previous long efforts.",
+        "ingredients_list": "Dimethicone, Cyclopentasiloxane, Squalane (Olive-Derived), Caprylic/Capric Triglyceride, Oryza Sativa (Rice) Bran Wax, Copernicia Cerifera (Carnauba) Wax, Tocopherol (Vitamin E), Bisabolol, Allantoin, Hippophae Rhamnoides (Sea Buckthorn) Fruit Oil, Calophyllum Inophyllum (Tamanu) Seed Oil",
+        "shipping_info": "Free shipping on all subscription orders. Standard shipping: 3-5 business days.",
+        "cross_sell_text": "For post-race recovery, pair with <a href=\"/products/aura-recover\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Recover</a> — ceramide barrier repair for damaged skin."
+      }
+    },
+    "ingredients": {
+      "type": "product-ingredients",
+      "blocks": {
+        "coconut": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "benefit": "Deep moisture",
+            "description": "Penetrates deep into skin layers to provide lasting hydration and create a protective barrier.",
+            "image": "shopify://shop_images/coconut-oil.jpg"
+          }
+        },
+        "cocoa": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Cocoa Butter",
+            "benefit": "Skin softening",
+            "description": "Rich in fatty acids, it softens and conditions skin while reducing friction during movement.",
+            "image": "shopify://shop_images/cocoa-butter.jpg"
+          }
+        },
+        "beeswax": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Beeswax",
+            "benefit": "Protective seal",
+            "description": "Creates a breathable, water-resistant barrier that locks in moisture without clogging pores.",
+            "image": "shopify://shop_images/beeswax.jpg"
+          }
+        },
+        "vitamine": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "benefit": "Antioxidant",
+            "description": "Powerful antioxidant that protects skin from environmental damage and promotes healing.",
+            "image": "shopify://shop_images/vitamin-e.jpg"
+          }
+        }
+      },
+      "block_order": ["coconut", "cocoa", "beeswax", "vitamine"],
+      "settings": {
+        "heading": "Key Ingredients",
+        "description": "Advanced polymer matrix engineered for maximum duration. Each ingredient creates a synergistic barrier that won't break down during 6-12+ hour efforts."
+      }
+    },
+    "usage": {
+      "type": "product-usage",
+      "settings": {
+        "label": "HOW TO USE",
+        "heading": "When to Use",
+        "description": "Ultra marathons (50K-100+ miles), marathon races, any single effort exceeding 4 hours, multi-day stage races, extreme weather events (high heat, humidity, or wet conditions), races where aid station reapplication isn't practical."
+      },
+      "blocks": {
+        "dosage": {
+          "type": "detail",
+          "settings": {
+            "name": "Dosage",
+            "text": "Dime-sized amount per major zone (each foot, each thigh, torso). For feet: apply between every toe, across arch, around heel cup. Don't rush application—this is race preparation."
+          }
+        },
+        "texture": {
+          "type": "detail",
+          "settings": {
+            "name": "Texture",
+            "text": "Silky balm with initial slip that sets to dry-touch protective film within 2-3 minutes. Feels like second skin—present but imperceptible."
+          }
+        }
+      },
+      "block_order": ["dosage", "texture"]
+    },
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "label": "Questions",
+        "heading": "Frequently Asked"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "title": "How long does Aura Ultra last?",
+            "answer": "6-12+ hours—enough for a full 100-miler without reapplication."
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "title": "Does it work in humidity?",
+            "answer": "Yes. Sweat-proof and humidity-resistant formula."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "title": "How is this different from Body Glide?",
+            "answer": "Standard products fail after 1-2 hours. Aura Ultra is engineered for ultra distances."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "title": "What is the best anti-chafe for ultra marathons?",
+            "answer": "Aura Ultra is specifically engineered for 50K-100+ mile races. The advanced polymer matrix bonds to skin and won't break down during 6-12+ hour efforts."
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "title": "Do I need to reapply anti-chafe during a 100 mile race?",
+            "answer": "No. Aura Ultra is designed for single-application protection. Apply thoroughly before race start and run the entire distance without reapplication at aid stations."
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Related Products"
+      }
+    },
+    "testimonials": {
+      "type": "product-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Applied before a 100K and never thought about chafing once. That's never happened before.",
+            "author": "Jake M.",
+            "attribution": "Ultra Runner"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "6-12 hours of protection isn't marketing. It's what actually happens. This stuff is different.",
+            "author": "Elena R.",
+            "attribution": "100-Mile Finisher"
+          }
+        }
+      },
+      "block_order": ["t1", "t2"],
+      "settings": {
+        "heading": "What Runners Say"
+      }
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": {
+        "heading": "From the Editorial"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ingredients",
+    "usage",
+    "faq",
+    "related-products",
+    "testimonials",
+    "related"
+  ]
+}
