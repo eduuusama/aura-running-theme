@@ -224,8 +224,31 @@ img {
 }
 
 .accordion-item.is-open .accordion-content {
-  max-height: 500px;
+  max-height: 2000px;
   opacity: 1;
+}
+
+/* Product description richtext */
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.accordion-content ul li {
+  padding-left: 0;
+  position: relative;
+  color: hsl(var(--muted-foreground));
+}
+.accordion-content ul li::before {
+  content: "–";
+  margin-right: 0.5rem;
+}
+.accordion-content p + p {
+  margin-top: 1.25rem;
+}
+.accordion-content strong {
+  font-weight: 500;
+  color: hsl(var(--foreground));
 }
 
 .accordion-trigger .accordion-icon {

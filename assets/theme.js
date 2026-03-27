@@ -11,10 +11,19 @@
      ======================================== */
   const header = document.querySelector('.site-header');
   if (header) {
+    // Product pages get a dark header always (no transparent-to-dark scroll transition)
+    var isProductPage = document.body.classList.contains('template-product');
+    if (isProductPage) {
+      header.classList.add('is-scrolled');
+    }
+
     let lastScrollY = 0;
     const onScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY > 20) {
+      if (isProductPage) {
+        // Always dark on product pages
+        header.classList.add('is-scrolled');
+      } else if (scrollY > 20) {
         header.classList.add('is-scrolled');
       } else {
         header.classList.remove('is-scrolled');

@@ -124,7 +124,7 @@
   </script>
 </head>
 
-<body class="bg-background text-foreground font-sans antialiased">
+<body class="bg-background text-foreground font-sans antialiased{% if request.page_type == 'product' %} template-product{% endif %}">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-foreground focus:text-background">
     {{ 'general.skip_to_content' | t | default: 'Skip to content' }}
   </a>
