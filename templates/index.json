@@ -178,7 +178,8 @@
           "settings": {
             "name": "Coconut Oil",
             "benefit": "Moisture barrier",
-            "description": "Creates a breathable moisture barrier that protects skin during extended activity while providing deep hydration."
+            "description": "Creates a breathable moisture barrier that protects skin during extended activity while providing deep hydration.",
+            "image": "shopify://shop_images/coconut-oil.jpg"
           }
         },
         "beeswax": {
@@ -186,7 +187,8 @@
           "settings": {
             "name": "Beeswax",
             "benefit": "Friction shield",
-            "description": "Natural wax that forms a protective film, reducing friction between skin surfaces and clothing."
+            "description": "Natural wax that forms a protective film, reducing friction between skin surfaces and clothing.",
+            "image": "shopify://shop_images/beeswax.jpg"
           }
         },
         "vitamine": {
@@ -194,7 +196,8 @@
           "settings": {
             "name": "Vitamin E",
             "benefit": "Skin repair",
-            "description": "Powerful antioxidant that supports skin healing and protects against environmental damage during outdoor activity."
+            "description": "Powerful antioxidant that supports skin healing and protects against environmental damage during outdoor activity.",
+            "image": "shopify://shop_images/vitamin-e.jpg"
           }
         }
       },
