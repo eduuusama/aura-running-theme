@@ -201,15 +201,11 @@ img {
   position: sticky;
   top: 0;
   z-index: 40;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.site-header.is-scrolled {
   background-color: #000;
   color: #fff;
 }
 
-.site-header.is-scrolled .header-logo {
+.site-header .header-logo {
   filter: invert(1);
 }
 

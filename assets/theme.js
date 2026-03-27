@@ -7,32 +7,8 @@
   'use strict';
 
   /* ========================================
-     Header Scroll Behavior
+     Header — always black (via CSS, no scroll toggle needed)
      ======================================== */
-  const header = document.querySelector('.site-header');
-  if (header) {
-    // Product pages get a dark header always (no transparent-to-dark scroll transition)
-    var isProductPage = document.body.classList.contains('template-product');
-    if (isProductPage) {
-      header.classList.add('is-scrolled');
-    }
-
-    let lastScrollY = 0;
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      if (isProductPage) {
-        // Always dark on product pages
-        header.classList.add('is-scrolled');
-      } else if (scrollY > 20) {
-        header.classList.add('is-scrolled');
-      } else {
-        header.classList.remove('is-scrolled');
-      }
-      lastScrollY = scrollY;
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
 
   /* ========================================
      Mobile Menu
