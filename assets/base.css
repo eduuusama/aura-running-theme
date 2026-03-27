@@ -332,3 +332,164 @@ img {
   background: hsl(var(--foreground));
   color: hsl(var(--background));
 }
+
+/* ========================================
+   Article Body — Editorial Prose Styles
+   Baseline for {{ article.content }} output.
+   Primary styling via Tailwind classes in body_html;
+   these CSS rules provide fallback/reinforcement.
+   ======================================== */
+
+.article-body h2 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .article-body h2 {
+    font-size: 1.875rem;
+  }
+}
+
+.article-body h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.article-body p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.625;
+  color: hsl(var(--foreground) / 0.9);
+  margin-bottom: 1rem;
+}
+
+.article-body a {
+  color: hsl(var(--foreground));
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.15s ease;
+}
+.article-body a:hover {
+  opacity: 0.6;
+}
+
+.article-body sup a {
+  color: hsl(var(--muted-foreground) / 0.6);
+  font-size: 0.75rem;
+  text-decoration: none;
+  vertical-align: super;
+}
+.article-body sup a:hover {
+  color: hsl(var(--foreground));
+  opacity: 1;
+}
+
+.article-body hr {
+  border: none;
+  border-top: 1px solid hsl(var(--foreground) / 0.2);
+}
+
+.article-body blockquote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.375;
+}
+@media (min-width: 768px) {
+  .article-body blockquote {
+    font-size: 1.875rem;
+  }
+}
+
+.article-body blockquote p {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.article-body figure {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+@media (min-width: 768px) {
+  .article-body figure {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+  }
+}
+
+.article-body figure figcaption {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.625;
+  color: hsl(var(--foreground) / 0.9);
+  align-self: center;
+}
+
+.article-body strong {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.article-body table {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.article-body thead tr {
+  border-bottom: 1px solid hsl(var(--foreground) / 0.2);
+}
+
+.article-body th {
+  text-align: left;
+  padding: 0.75rem 1rem 0.75rem 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+}
+
+.article-body tbody tr {
+  border-bottom: 1px solid hsl(var(--foreground) / 0.1);
+}
+
+.article-body td {
+  padding: 0.75rem 1rem 0.75rem 0;
+  color: hsl(var(--muted-foreground));
+}
+
+.article-body td:first-child {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.article-body ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Product CTA block within articles */
+.article-body .article-cta {
+  padding: 2rem;
+  background: hsl(var(--secondary));
+}
+@media (min-width: 768px) {
+  .article-body .article-cta {
+    padding: 3rem;
+  }
+}
