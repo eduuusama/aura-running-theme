@@ -8,7 +8,7 @@
 {%- comment -%} Mobile Layout {%- endcomment -%}
 <div class="lg:hidden">
   {%- comment -%} Image Gallery - Mobile {%- endcomment -%}
-  <div class="relative bg-secondary/20">
+  <div class="relative bg-[hsl(var(--secondary))]">
     <div class="aspect-square">
       <img
         src="{{ product.featured_image | image_url: width: 1200 }}"
@@ -43,9 +43,17 @@
     <p class="text-lg md:text-xl font-light text-muted-foreground mb-3">
       {{ section.settings.subtitle }}
     </p>
-    <p class="text-xl md:text-2xl font-light tracking-[-0.01em] mb-8">
+    <p class="text-xl md:text-2xl font-light tracking-[-0.01em] mb-4">
       {{ product.selected_or_first_available_variant.price | money }}
     </p>
+
+    {%- if section.settings.tagline != blank -%}
+      <p class="text-sm text-muted-foreground font-light leading-relaxed mb-8">
+        {{ section.settings.tagline }}
+      </p>
+    {%- else -%}
+      <div class="mb-4"></div>
+    {%- endif -%}
 
     {%- comment -%} Sticky Add to Cart - Mobile (full black bar) {%- endcomment -%}
     <div class="fixed bottom-0 left-0 right-0 bg-foreground p-4 z-40 lg:hidden">
@@ -128,7 +136,7 @@
 <div class="hidden lg:block">
   <div class="min-h-[calc(100vh-64px)] grid grid-cols-2">
     {%- comment -%} Left — Edge-to-edge sticky image {%- endcomment -%}
-    <div class="bg-secondary/20 relative">
+    <div class="bg-[hsl(var(--secondary))] relative">
       <div class="sticky top-16 h-[calc(100vh-64px)] flex flex-col">
         <div class="flex-1 overflow-hidden">
           <img
@@ -168,9 +176,17 @@
           {{ section.settings.subtitle }}
         </p>
 
-        <p class="text-2xl font-light tracking-[-0.01em] mb-16" id="product-price">
+        <p class="text-2xl font-light tracking-[-0.01em] mb-6" id="product-price">
           {{ product.selected_or_first_available_variant.price | money }}
         </p>
+
+        {%- if section.settings.tagline != blank -%}
+          <p class="text-base text-muted-foreground font-light leading-relaxed mb-16">
+            {{ section.settings.tagline }}
+          </p>
+        {%- else -%}
+          <div class="mb-10"></div>
+        {%- endif -%}
 
         {%- comment -%} Quantity + Add to Cart {%- endcomment -%}
         <div class="flex items-center gap-4 mb-16">
@@ -288,6 +304,7 @@
   "settings": [
     { "type": "text", "id": "ref_label", "label": "REF Label", "default": "REF — 001" },
     { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "For Every Run" },
+    { "type": "textarea", "id": "tagline", "label": "Tagline", "info": "Short description shown below the price" },
     { "type": "textarea", "id": "how_to_apply", "label": "How to Apply" },
     { "type": "textarea", "id": "ingredients_list", "label": "Ingredients List" },
     { "type": "textarea", "id": "shipping_info", "label": "Shipping Info", "default": "Free shipping on orders over $50. Standard shipping: 3-5 business days." },
