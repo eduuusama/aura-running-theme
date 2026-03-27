@@ -12,7 +12,6 @@
     "hero": {
       "type": "collection-hero",
       "settings": {
-        "image": "shopify://shop_images/100-mile-blister-prevention-hero.jpg",
         "heading": "Shop",
         "subtitle": "Premium anti-chafe solutions engineered for distance runners."
       }
@@ -24,8 +23,5 @@
       }
     }
   },
-  "order": [
-    "hero",
-    "grid"
-  ]
+  "order": ["hero", "grid"]
 }

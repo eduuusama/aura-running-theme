@@ -14,7 +14,6 @@
       "settings": {
         "ref_label": "REF — 003",
         "subtitle": "For After",
-        "tagline": "Rebuild your skin barrier after long runs. Ceramide-based recovery for when the miles are done.",
         "how_to_apply": "Apply to clean skin within 30-60 minutes post-run—the barrier repair window. Focus on areas that experienced friction during the effort. Use on intact skin for prevention, or on areas showing early irritation (redness, sensitivity) before they progress to open chafing.\n\nCan also be used nightly during high-volume training blocks as preventive skin conditioning.",
         "ingredients_list": "Butyrospermum Parkii (Shea) Butter, Squalane, Ceramide NP, Ceramide AP, Ceramide EOP, Niacinamide, Panthenol (Pro-Vitamin B5), Centella Asiatica (Cica) Extract, Bisabolol, Allantoin, Calendula Officinalis Flower Extract, Tocopherol (Vitamin E), Cholesterol, Phytosphingosine",
         "shipping_info": "Free shipping on orders over $50. Standard shipping: 3-5 business days.",
@@ -23,29 +22,76 @@
     },
     "ingredients": {
       "type": "product-ingredients",
+      "blocks": {
+        "aloe": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Aloe Vera",
+            "benefit": "Cooling relief",
+            "description": "Provides immediate cooling relief to irritated, chafed skin after long efforts.",
+            "image": "shopify://shop_images/vitamin-e.jpg"
+          }
+        },
+        "shea": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Shea Butter",
+            "benefit": "Deep repair",
+            "description": "Rich in vitamins A and E, deeply nourishes and repairs damaged skin barriers.",
+            "image": "shopify://shop_images/cocoa-butter.jpg"
+          }
+        },
+        "vitamine": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "benefit": "Antioxidant protection",
+            "description": "Combats free radical damage from UV exposure during outdoor training.",
+            "image": "shopify://shop_images/beeswax.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "aloe",
+        "shea",
+        "vitamine"
+      ],
       "settings": {
         "heading": "Key Ingredients",
         "description": "Formulated for post-race recovery, soothing irritated skin and accelerating the healing process."
-      },
-      "blocks": {
-        "aloe": { "type": "ingredient", "settings": { "name": "Aloe Vera", "benefit": "Cooling relief", "description": "Provides immediate cooling relief to irritated, chafed skin after long efforts." } },
-        "shea": { "type": "ingredient", "settings": { "name": "Shea Butter", "benefit": "Deep repair", "description": "Rich in vitamins A and E, deeply nourishes and repairs damaged skin barriers." } },
-        "vitamine": { "type": "ingredient", "settings": { "name": "Vitamin E", "benefit": "Antioxidant protection", "description": "Combats free radical damage from UV exposure during outdoor training." } }
-      },
-      "block_order": ["aloe", "shea", "vitamine"]
+      }
     },
     "testimonials": {
       "type": "product-testimonials",
-      "settings": { "heading": "What Runners Say" },
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "quote": "After a 50-miler, Aura Recover is the first thing I reach for. The relief is immediate.", "author": "Chris T.", "attribution": "Ultra Runner" } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "After a 50-miler, Aura Recover is the first thing I reach for. The relief is immediate.",
+            "author": "Chris T.",
+            "attribution": "Ultra Runner"
+          }
+        }
       },
-      "block_order": ["t1"]
+      "block_order": [
+        "t1"
+      ],
+      "settings": {
+        "heading": "What Runners Say"
+      }
     },
     "related": {
       "type": "related-articles",
-      "settings": { "heading": "From the Editorial" }
+      "settings": {
+        "heading": "From the Editorial",
+        "blog": ""
+      }
     }
   },
-  "order": ["main", "ingredients", "testimonials", "related"]
+  "order": [
+    "main",
+    "ingredients",
+    "testimonials",
+    "related"
+  ]
 }

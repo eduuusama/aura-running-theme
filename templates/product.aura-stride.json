@@ -14,7 +14,6 @@
       "settings": {
         "ref_label": "REF — 001",
         "subtitle": "For Every Run",
-        "tagline": "For training runs, daily miles, and the consistent practice of running.",
         "how_to_apply": "Apply to clean, dry skin 15-20 minutes before running. Focus on high-friction areas: between toes, arch, heel, inner thighs, underarms, sports bra line, anywhere pack straps contact skin.",
         "ingredients_list": "Prunus Amygdalus Dulcis (Sweet Almond) Oil, Cocos Nucifera (Coconut) Oil, Cera Alba (Beeswax), Butyrospermum Parkii (Shea) Butter, Simmondsia Chinensis (Jojoba) Seed Oil, Tocopheryl Acetate (Vitamin E), Calendula Officinalis Flower Oil, Lavandula Angustifolia (Lavender) Flower Oil, Mentha Pulegium (Pennyroyal) Leaf Oil",
         "shipping_info": "Free shipping on orders over $50. Standard shipping: 3-5 business days.",
@@ -23,30 +22,81 @@
     },
     "ingredients": {
       "type": "product-ingredients",
+      "blocks": {
+        "coconut": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "benefit": "Emollient",
+            "description": "Fast-absorbing emollient that creates a breathable moisture barrier."
+          }
+        },
+        "beeswax": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Beeswax",
+            "benefit": "Structure",
+            "description": "Natural wax structure providing 3–4 hours of friction protection."
+          }
+        },
+        "vitamine": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "benefit": "Antioxidant",
+            "description": "Antioxidant shield protecting skin during repetitive motion."
+          }
+        }
+      },
+      "block_order": [
+        "coconut",
+        "beeswax",
+        "vitamine"
+      ],
       "settings": {
         "heading": "Key Ingredients",
         "description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
-      },
-      "blocks": {
-        "coconut": { "type": "ingredient", "settings": { "name": "Coconut Oil", "benefit": "Emollient", "description": "Fast-absorbing emollient that creates a breathable moisture barrier." } },
-        "beeswax": { "type": "ingredient", "settings": { "name": "Beeswax", "benefit": "Structure", "description": "Natural wax structure providing 3–4 hours of friction protection." } },
-        "vitamine": { "type": "ingredient", "settings": { "name": "Vitamin E", "benefit": "Antioxidant", "description": "Antioxidant shield protecting skin during repetitive motion." } }
-      },
-      "block_order": ["coconut", "beeswax", "vitamine"]
+      }
     },
     "testimonials": {
       "type": "product-testimonials",
-      "settings": { "heading": "What Runners Say" },
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "quote": "I've tried every anti-chafe product on the market. Aura Stride is the only one that lasts my entire long run without reapplication.", "author": "Sarah K.", "attribution": "Marathon Runner" } },
-        "t2": { "type": "testimonial", "settings": { "quote": "Clean ingredients and it actually works. My go-to for daily training.", "author": "Marcus R.", "attribution": "Ultra Runner" } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I've tried every anti-chafe product on the market. Aura Stride is the only one that lasts my entire long run without reapplication.",
+            "author": "Sarah K.",
+            "attribution": "Marathon Runner"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Clean ingredients and it actually works. My go-to for daily training.",
+            "author": "Marcus R.",
+            "attribution": "Ultra Runner"
+          }
+        }
       },
-      "block_order": ["t1", "t2"]
+      "block_order": [
+        "t1",
+        "t2"
+      ],
+      "settings": {
+        "heading": "What Runners Say"
+      }
     },
     "related": {
       "type": "related-articles",
-      "settings": { "heading": "From the Editorial" }
+      "settings": {
+        "heading": "From the Editorial"
+      }
     }
   },
-  "order": ["main", "ingredients", "testimonials", "related"]
+  "order": [
+    "main",
+    "ingredients",
+    "testimonials",
+    "related"
+  ]
 }
