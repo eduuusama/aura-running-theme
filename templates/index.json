@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -5,7 +14,8 @@
       "settings": {
         "heading": "Go Further",
         "subtitle": "Elite Foot Protection for Long Distance Runners",
-        "button_text": "Shop All Products"
+        "button_text": "Shop All Products",
+        "button_link": ""
       }
     },
     "quote": {
@@ -22,59 +32,146 @@
         "protection": {
           "type": "pillar",
           "settings": {
+            "image": "shopify://shop_images/pillar-protection-runner-sock-desert.jpg",
             "title": "Protection",
-            "subtitle": "Barrier technology for the long haul"
+            "subtitle": "Barrier technology for the long haul",
+            "link": ""
           }
         },
         "presence": {
           "type": "pillar",
           "settings": {
+            "image": "shopify://shop_images/pillar-presence-runner-motion.jpg",
             "title": "Presence",
-            "subtitle": "Forget the friction, find the flow"
+            "subtitle": "Forget the friction, find the flow",
+            "link": ""
           }
         },
         "longevity": {
           "type": "pillar",
           "settings": {
+            "image": "shopify://shop_images/pillar-longevity.jpg",
             "title": "Longevity",
-            "subtitle": "Formulated to outlast every mile"
+            "subtitle": "Formulated to outlast every mile",
+            "link": ""
           }
         }
       },
-      "block_order": ["protection", "presence", "longevity"]
+      "block_order": [
+        "protection",
+        "presence",
+        "longevity"
+      ],
+      "settings": {}
     },
     "marquee": {
       "type": "athletes-marquee",
+      "blocks": {
+        "ws": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-western-states-100.png",
+            "name": "Western States"
+          }
+        },
+        "utmb": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-utmb-mont-blanc.png",
+            "name": "UTMB"
+          }
+        },
+        "mds": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-marathon-des-sables.png",
+            "name": "Marathon des Sables"
+          }
+        },
+        "london": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-tcs-london-marathon.png",
+            "name": "London Marathon"
+          }
+        },
+        "hardrock": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-hardrock-100.png",
+            "name": "Hardrock 100"
+          }
+        },
+        "boston": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-boston-marathon.png",
+            "name": "Boston Marathon"
+          }
+        },
+        "berlin": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-bmw-berlin-marathon.png",
+            "name": "Berlin Marathon"
+          }
+        },
+        "tdg": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-tor-des-geants.png",
+            "name": "Tor des Géants"
+          }
+        },
+        "chicago": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-chicago-marathon.png",
+            "name": "Chicago Marathon"
+          }
+        },
+        "nyc": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-nyc-marathon.png",
+            "name": "NYC Marathon"
+          }
+        },
+        "tokyo": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-tokyo-marathon.png",
+            "name": "Tokyo Marathon"
+          }
+        },
+        "dragons": {
+          "type": "race",
+          "settings": {
+            "asset_filename": "logo-dragons-back-race.png",
+            "name": "Dragon's Back"
+          }
+        }
+      },
+      "block_order": [
+        "ws",
+        "utmb",
+        "mds",
+        "london",
+        "hardrock",
+        "boston",
+        "berlin",
+        "tdg",
+        "chicago",
+        "nyc",
+        "tokyo",
+        "dragons"
+      ],
       "settings": {
         "heading": "Used by athletes in"
-      },
-      "blocks": {
-        "ws": { "type": "race", "settings": { "name": "Western States", "asset_filename": "logo-western-states-100.png" } },
-        "utmb": { "type": "race", "settings": { "name": "UTMB", "asset_filename": "logo-utmb-mont-blanc.png" } },
-        "mds": { "type": "race", "settings": { "name": "Marathon des Sables", "asset_filename": "logo-marathon-des-sables.png" } },
-        "london": { "type": "race", "settings": { "name": "London Marathon", "asset_filename": "logo-tcs-london-marathon.png" } },
-        "hardrock": { "type": "race", "settings": { "name": "Hardrock 100", "asset_filename": "logo-hardrock-100.png" } },
-        "boston": { "type": "race", "settings": { "name": "Boston Marathon", "asset_filename": "logo-boston-marathon.png" } },
-        "berlin": { "type": "race", "settings": { "name": "Berlin Marathon", "asset_filename": "logo-bmw-berlin-marathon.png" } },
-        "tdg": { "type": "race", "settings": { "name": "Tor des Géants", "asset_filename": "logo-tor-des-geants.png" } },
-        "chicago": { "type": "race", "settings": { "name": "Chicago Marathon", "asset_filename": "logo-chicago-marathon.png" } },
-        "nyc": { "type": "race", "settings": { "name": "NYC Marathon", "asset_filename": "logo-nyc-marathon.png" } },
-        "tokyo": { "type": "race", "settings": { "name": "Tokyo Marathon", "asset_filename": "logo-tokyo-marathon.png" } },
-        "dragons": { "type": "race", "settings": { "name": "Dragon's Back", "asset_filename": "logo-dragons-back-race.png" } }
-      },
-      "block_order": ["ws", "utmb", "mds", "london", "hardrock", "boston", "berlin", "tdg", "chicago", "nyc", "tokyo", "dragons"]
+      }
     },
     "product_showcase": {
       "type": "product-showcase",
-      "settings": {
-        "ref_label": "Ref — 001",
-        "product_title": "Aura Stride",
-        "product_tagline": "For everyday use",
-        "price": "$48.00",
-        "how_to_apply": "Apply generously to friction-prone areas before your run. Reapply every 4-6 hours during extended efforts.",
-        "ingredients_list": "Coconut Oil, Beeswax, Cocoa Butter, Vitamin E, Zinc Oxide, Shea Butter",
-        "ingredients_description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
-      },
       "blocks": {
         "coconut": {
           "type": "ingredient",
@@ -101,12 +198,29 @@
           }
         }
       },
-      "block_order": ["coconut", "beeswax", "vitamine"]
+      "block_order": [
+        "coconut",
+        "beeswax",
+        "vitamine"
+      ],
+      "settings": {
+        "product": "",
+        "ref_label": "Ref — 001",
+        "product_title": "Aura Stride",
+        "product_tagline": "For everyday use",
+        "price": "$48.00",
+        "description": "",
+        "how_to_apply": "Apply generously to friction-prone areas before your run. Reapply every 4-6 hours during extended efforts.",
+        "ingredients_list": "Coconut Oil, Beeswax, Cocoa Butter, Vitamin E, Zinc Oxide, Shea Butter",
+        "discover_link": "",
+        "ingredients_description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
+      }
     },
     "editorial": {
       "type": "editorial-grid",
       "settings": {
         "heading": "From the Editorial",
+        "blog": "",
         "article_count": 3
       }
     },
@@ -120,7 +234,12 @@
     "brand_story": {
       "type": "brand-story",
       "settings": {
-        "enabled": false
+        "enabled": false,
+        "label": "Our Story",
+        "heading": "Born from the miles",
+        "content": "",
+        "button_text": "Learn More",
+        "button_link": ""
       }
     }
   },
