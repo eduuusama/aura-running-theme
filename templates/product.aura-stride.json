@@ -83,6 +83,57 @@
       },
       "block_order": ["dosage", "texture"]
     },
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "label": "Questions",
+        "heading": "Frequently Asked"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "title": "How do I prevent chafing during running?",
+            "answer": "Apply a thin layer of Aura Stride to friction-prone areas 15-20 minutes before your run. Focus on feet, inner thighs, underarms, and anywhere clothing rubs."
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "title": "What is the best anti-chafe for daily running?",
+            "answer": "Aura Stride is formulated specifically for training runs and daily miles. Its plant-based formula provides 3-4 hours of breathable protection without buildup."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "title": "Is this anti-chafe safe for sensitive skin?",
+            "answer": "Yes. Aura Stride is dermatologist tested, free from synthetic fragrances and petroleum derivatives. Made with botanical ingredients safe for all skin types."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use anti-chafe balm on my feet?",
+            "answer": "Absolutely. Apply between toes, across the arch, and around the heel cup. Aura Stride absorbs in under 60 seconds and won't make your socks slippery."
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "title": "How is Aura Stride different from Vaseline for running?",
+            "answer": "Unlike petroleum-based products, Aura Stride uses plant oils that create a breathable barrier. It won't clog pores, stain clothing, or break down in sweat."
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Related Products"
+      }
+    },
     "testimonials": {
       "type": "product-testimonials",
       "blocks": {
@@ -122,6 +173,8 @@
     "main",
     "ingredients",
     "usage",
+    "faq",
+    "related-products",
     "testimonials",
     "related"
   ]

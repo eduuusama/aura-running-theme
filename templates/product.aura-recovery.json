@@ -86,6 +86,57 @@
       },
       "block_order": ["dosage", "texture"]
     },
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "label": "Questions",
+        "heading": "Frequently Asked"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "title": "When should I apply Aura Recover after running?",
+            "answer": "Apply within 30-60 minutes post-run during the skin barrier repair window. This is when your skin is most receptive to ceramide-based recovery ingredients."
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Aura Recover on broken or chafed skin?",
+            "answer": "Aura Recover is designed for intact skin showing early signs of irritation—redness, sensitivity, mild friction damage. For open wounds or severe chafing, allow the skin to close before applying."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "title": "How is Aura Recover different from regular moisturizer?",
+            "answer": "Aura Recover contains a triple-ceramide complex that actively rebuilds the skin barrier, not just moisturizes. It targets the specific damage patterns caused by endurance running—friction, sweat exposure, and repetitive motion."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Aura Recover as a daily moisturizer?",
+            "answer": "Yes, especially during high-volume training blocks. Nightly application helps maintain skin barrier integrity even on rest days, preventing cumulative damage from building up."
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "title": "What makes ceramide-based recovery better for runners?",
+            "answer": "Ceramides are lipids naturally found in your skin barrier. Running depletes them through friction and sweat. Aura Recover replenishes these specific lipids rather than just coating the surface with generic moisturizers."
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Related Products"
+      }
+    },
     "testimonials": {
       "type": "product-testimonials",
       "blocks": {
@@ -117,6 +168,8 @@
     "main",
     "ingredients",
     "usage",
+    "faq",
+    "related-products",
     "testimonials",
     "related"
   ]
