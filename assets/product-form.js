@@ -99,61 +99,6 @@
       this.doAdd(variant.id);
     },
 
-    selectPurchaseType(btn) {
-      const selector = btn.closest('[data-purchase-selector]');
-      if (!selector) return;
-
-      // Reset all options in this selector
-      selector.querySelectorAll('.purchase-option').forEach(function(opt) {
-        opt.classList.remove('is-selected', 'border-foreground');
-        opt.classList.add('border-border');
-        var dot = opt.querySelector('.radio-dot');
-        if (dot) {
-          dot.classList.remove('border-foreground');
-          dot.classList.add('border-muted-foreground');
-          dot.innerHTML = '';
-        }
-      });
-
-      // Activate clicked option
-      btn.classList.add('is-selected', 'border-foreground');
-      btn.classList.remove('border-border');
-      var dot = btn.querySelector('.radio-dot');
-      if (dot) {
-        dot.classList.add('border-foreground');
-        dot.classList.remove('border-muted-foreground');
-        dot.innerHTML = '<div class="w-2 h-2 rounded-full bg-foreground"></div>';
-      }
-
-      // Repeat for all selectors on the page (mobile + desktop)
-      var type = btn.dataset.type;
-      document.querySelectorAll('[data-purchase-selector]').forEach(function(sel) {
-        sel.querySelectorAll('.purchase-option').forEach(function(opt) {
-          if (opt === btn) return;
-          if (opt.dataset.type === type && sel !== selector) {
-            // Sync the other selector
-            opt.classList.add('is-selected', 'border-foreground');
-            opt.classList.remove('border-border');
-            var d = opt.querySelector('.radio-dot');
-            if (d) {
-              d.classList.add('border-foreground');
-              d.classList.remove('border-muted-foreground');
-              d.innerHTML = '<div class="w-2 h-2 rounded-full bg-foreground"></div>';
-            }
-          } else if (opt.dataset.type !== type) {
-            opt.classList.remove('is-selected', 'border-foreground');
-            opt.classList.add('border-border');
-            var d2 = opt.querySelector('.radio-dot');
-            if (d2) {
-              d2.classList.remove('border-foreground');
-              d2.classList.add('border-muted-foreground');
-              d2.innerHTML = '';
-            }
-          }
-        });
-      });
-    },
-
     doAdd(variantId) {
       const qty = parseInt(document.getElementById('product-quantity')?.value) || 1;
       document.dispatchEvent(new CustomEvent('cart:add', {

@@ -1,7 +1,8 @@
 {%- comment -%}
-  Product Hero — 50/50 split layout matching React original
+  Product Hero — 50/50 split layout
   Left: edge-to-edge product image with thumbnail gallery
-  Right: Product info, subscribe selector, accordions, cross-sell
+  Right: Product info, quantity, add to cart, accordions, cross-sell
+  Description pulls from Shopify product editor (product.description)
 {%- endcomment -%}
 
 {%- comment -%} Mobile Layout {%- endcomment -%}
@@ -42,55 +43,15 @@
     <p class="text-lg md:text-xl font-light text-muted-foreground mb-3">
       {{ section.settings.subtitle }}
     </p>
-    <p class="text-xl md:text-2xl font-light tracking-[-0.01em] mb-3">
+    <p class="text-xl md:text-2xl font-light tracking-[-0.01em] mb-8">
       {{ product.selected_or_first_available_variant.price | money }}
     </p>
 
-    {%- comment -%} Subscribe & Save Selector - Mobile {%- endcomment -%}
-    <div class="space-y-3 mb-8" data-purchase-selector>
-      <button
-        class="purchase-option w-full p-4 border border-foreground text-left transition-all duration-300 is-selected"
-        data-type="subscribe"
-        onclick="window.ProductForm.selectPurchaseType(this)"
-      >
-        <div class="flex items-center gap-2 flex-wrap mb-2">
-          <div class="radio-dot w-4 h-4 rounded-full border-2 border-foreground flex items-center justify-center transition-colors">
-            <div class="w-2 h-2 rounded-full bg-foreground"></div>
-          </div>
-          <span class="text-sm font-light">Subscribe &</span>
-          <span class="text-[9px] uppercase tracking-[0.1em] font-bold bg-foreground text-background px-1.5 py-0.5">Save 20%</span>
-          <span class="text-sm font-light text-muted-foreground">+ Free Shipping</span>
-        </div>
-        <div class="flex items-center gap-2 pl-6">
-          <span class="text-sm line-through text-muted-foreground">{{ product.selected_or_first_available_variant.price | money }}</span>
-          <span class="text-sm font-medium" data-discounted-price>
-            {%- assign price_cents = product.selected_or_first_available_variant.price -%}
-            {%- assign discounted = price_cents | times: 80 | divided_by: 100 -%}
-            {{ discounted | money }}
-          </span>
-        </div>
-      </button>
-
-      <button
-        class="purchase-option w-full p-4 border border-border text-left transition-all duration-300"
-        data-type="onetime"
-        onclick="window.ProductForm.selectPurchaseType(this)"
-      >
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <div class="radio-dot w-4 h-4 rounded-full border-2 border-muted-foreground flex items-center justify-center transition-colors"></div>
-            <span class="text-sm font-light">One-time purchase</span>
-          </div>
-          <span class="text-sm font-medium">{{ product.selected_or_first_available_variant.price | money }}</span>
-        </div>
-      </button>
-    </div>
-
-    {%- comment -%} Sticky Add to Cart - Mobile {%- endcomment -%}
-    <div class="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-40 lg:hidden">
+    {%- comment -%} Sticky Add to Cart - Mobile (full black bar) {%- endcomment -%}
+    <div class="fixed bottom-0 left-0 right-0 bg-foreground p-4 z-40 lg:hidden">
       <button
         id="add-to-cart-btn-mobile"
-        class="w-full bg-foreground text-background text-sm font-medium h-14 hover:bg-foreground/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full bg-foreground text-background text-sm font-medium h-12 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         {% unless product.available %}disabled{% endunless %}
         onclick="window.ProductForm.addToCart()"
       >
@@ -105,41 +66,47 @@
     {%- comment -%} Product Accordions - Mobile {%- endcomment -%}
     <div class="pb-32">
       <div class="accordion-group">
-        <div class="accordion-item is-open border-t border-border">
-          <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
-            Description
-            <span class="accordion-icon text-base">+</span>
-          </button>
-          <div class="accordion-content">
-            <div class="pb-8 space-y-6 text-base text-muted-foreground font-light leading-[1.6]">
-              {{ section.settings.description }}
+        {%- if product.description != blank -%}
+          <div class="accordion-item is-open border-t border-border">
+            <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
+              Description
+              <span class="accordion-icon text-base">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-8 space-y-6 text-base text-muted-foreground font-light leading-[1.6]">
+                {{ product.description }}
+              </div>
             </div>
           </div>
-        </div>
+        {%- endif -%}
 
-        <div class="accordion-item border-t border-border">
-          <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
-            How to Apply
-            <span class="accordion-icon text-base">+</span>
-          </button>
-          <div class="accordion-content">
-            <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
-              {{ section.settings.how_to_apply }}
+        {%- if section.settings.how_to_apply != blank -%}
+          <div class="accordion-item border-t border-border">
+            <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
+              How to Apply
+              <span class="accordion-icon text-base">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
+                {{ section.settings.how_to_apply }}
+              </div>
             </div>
           </div>
-        </div>
+        {%- endif -%}
 
-        <div class="accordion-item border-t border-border">
-          <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
-            Ingredients
-            <span class="accordion-icon text-base">+</span>
-          </button>
-          <div class="accordion-content">
-            <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
-              {{ section.settings.ingredients_list }}
+        {%- if section.settings.ingredients_list != blank -%}
+          <div class="accordion-item border-t border-border">
+            <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
+              Ingredients
+              <span class="accordion-icon text-base">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
+                {{ section.settings.ingredients_list }}
+              </div>
             </div>
           </div>
-        </div>
+        {%- endif -%}
 
         <div class="accordion-item border-t border-b border-border">
           <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
@@ -201,51 +168,9 @@
           {{ section.settings.subtitle }}
         </p>
 
-        <p class="text-2xl font-light tracking-[-0.01em] mb-4" id="product-price">
+        <p class="text-2xl font-light tracking-[-0.01em] mb-16" id="product-price">
           {{ product.selected_or_first_available_variant.price | money }}
         </p>
-
-        {%- comment -%} Subscribe & Save Selector {%- endcomment -%}
-        <div class="space-y-3 mb-8" data-purchase-selector>
-          <button
-            class="purchase-option w-full h-14 px-4 border border-foreground text-left transition-all duration-300 is-selected"
-            data-type="subscribe"
-            onclick="window.ProductForm.selectPurchaseType(this)"
-          >
-            <div class="flex items-center justify-between gap-4 h-full">
-              <div class="flex items-center gap-2 flex-shrink-0">
-                <div class="radio-dot w-4 h-4 rounded-full border-2 border-foreground flex items-center justify-center transition-colors">
-                  <div class="w-2 h-2 rounded-full bg-foreground"></div>
-                </div>
-                <span class="text-sm font-light whitespace-nowrap">Subscribe &</span>
-                <span class="text-[9px] uppercase tracking-[0.1em] font-bold bg-foreground text-background px-1.5 py-0.5">Save 20%</span>
-                <span class="text-sm font-light text-muted-foreground whitespace-nowrap">+ Free Shipping</span>
-              </div>
-              <div class="flex items-center gap-2 flex-shrink-0">
-                <span class="text-sm line-through text-muted-foreground">{{ product.selected_or_first_available_variant.price | money }}</span>
-                <span class="text-sm font-medium" data-discounted-price>
-                  {%- assign price_cents = product.selected_or_first_available_variant.price -%}
-                  {%- assign discounted = price_cents | times: 80 | divided_by: 100 -%}
-                  {{ discounted | money }}
-                </span>
-              </div>
-            </div>
-          </button>
-
-          <button
-            class="purchase-option w-full h-14 px-4 border border-border text-left transition-all duration-300"
-            data-type="onetime"
-            onclick="window.ProductForm.selectPurchaseType(this)"
-          >
-            <div class="flex items-center justify-between h-full">
-              <div class="flex items-center gap-3">
-                <div class="radio-dot w-4 h-4 rounded-full border-2 border-muted-foreground flex items-center justify-center transition-colors"></div>
-                <span class="text-sm font-light">One-time purchase</span>
-              </div>
-              <span class="text-sm font-medium">{{ product.selected_or_first_available_variant.price | money }}</span>
-            </div>
-          </button>
-        </div>
 
         {%- comment -%} Quantity + Add to Cart {%- endcomment -%}
         <div class="flex items-center gap-4 mb-16">
@@ -281,41 +206,47 @@
 
         {%- comment -%} Product Accordions {%- endcomment -%}
         <div class="accordion-group">
-          <div class="accordion-item is-open border-t border-border">
-            <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
-              Description
-              <span class="accordion-icon text-base">+</span>
-            </button>
-            <div class="accordion-content">
-              <div class="pb-8 space-y-6 text-base text-muted-foreground font-light leading-[1.6]">
-                {{ section.settings.description }}
+          {%- if product.description != blank -%}
+            <div class="accordion-item is-open border-t border-border">
+              <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
+                Description
+                <span class="accordion-icon text-base">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="pb-8 space-y-6 text-base text-muted-foreground font-light leading-[1.6]">
+                  {{ product.description }}
+                </div>
               </div>
             </div>
-          </div>
+          {%- endif -%}
 
-          <div class="accordion-item border-t border-border">
-            <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
-              How to Apply
-              <span class="accordion-icon text-base">+</span>
-            </button>
-            <div class="accordion-content">
-              <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
-                {{ section.settings.how_to_apply }}
+          {%- if section.settings.how_to_apply != blank -%}
+            <div class="accordion-item border-t border-border">
+              <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
+                How to Apply
+                <span class="accordion-icon text-base">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
+                  {{ section.settings.how_to_apply }}
+                </div>
               </div>
             </div>
-          </div>
+          {%- endif -%}
 
-          <div class="accordion-item border-t border-border">
-            <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
-              Ingredients
-              <span class="accordion-icon text-base">+</span>
-            </button>
-            <div class="accordion-content">
-              <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
-                {{ section.settings.ingredients_list }}
+          {%- if section.settings.ingredients_list != blank -%}
+            <div class="accordion-item border-t border-border">
+              <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
+                Ingredients
+                <span class="accordion-icon text-base">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
+                  {{ section.settings.ingredients_list }}
+                </div>
               </div>
             </div>
-          </div>
+          {%- endif -%}
 
           <div class="accordion-item border-t border-b border-border">
             <button class="accordion-trigger w-full py-6 flex items-center justify-between text-base font-light hover:opacity-70 transition-opacity">
@@ -357,7 +288,6 @@
   "settings": [
     { "type": "text", "id": "ref_label", "label": "REF Label", "default": "REF — 001" },
     { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "For Every Run" },
-    { "type": "richtext", "id": "description", "label": "Description" },
     { "type": "textarea", "id": "how_to_apply", "label": "How to Apply" },
     { "type": "textarea", "id": "ingredients_list", "label": "Ingredients List" },
     { "type": "textarea", "id": "shipping_info", "label": "Shipping Info", "default": "Free shipping on orders over $50. Standard shipping: 3-5 business days." },
