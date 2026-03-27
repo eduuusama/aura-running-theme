@@ -1,5 +1,7 @@
 {%- comment -%}
   Athletes Marquee — CSS-only infinite scroll of race logos
+  Logos are loaded from theme assets by default (via asset_filename),
+  with optional image_picker override from the theme editor.
 {%- endcomment -%}
 
 <section class="py-20 md:py-28 bg-background overflow-hidden">
@@ -23,6 +25,13 @@
               {%- if block.settings.logo -%}
                 <img
                   src="{{ block.settings.logo | image_url: width: 120 }}"
+                  alt="{{ block.settings.name }}"
+                  class="h-8 md:h-10 w-auto grayscale opacity-60"
+                  loading="lazy"
+                >
+              {%- elsif block.settings.asset_filename != blank -%}
+                <img
+                  src="{{ block.settings.asset_filename | asset_url }}"
                   alt="{{ block.settings.name }}"
                   class="h-8 md:h-10 w-auto grayscale opacity-60"
                   loading="lazy"
@@ -58,7 +67,13 @@
         {
           "type": "image_picker",
           "id": "logo",
-          "label": "Logo"
+          "label": "Logo (override)"
+        },
+        {
+          "type": "text",
+          "id": "asset_filename",
+          "label": "Asset Filename",
+          "info": "Filename from theme assets folder (e.g. logo-western-states-100.png)"
         },
         {
           "type": "text",
@@ -73,18 +88,18 @@
     {
       "name": "Athletes Marquee",
       "blocks": [
-        { "type": "race", "settings": { "name": "Western States" } },
-        { "type": "race", "settings": { "name": "UTMB" } },
-        { "type": "race", "settings": { "name": "Marathon des Sables" } },
-        { "type": "race", "settings": { "name": "London Marathon" } },
-        { "type": "race", "settings": { "name": "Hardrock 100" } },
-        { "type": "race", "settings": { "name": "Boston Marathon" } },
-        { "type": "race", "settings": { "name": "Berlin Marathon" } },
-        { "type": "race", "settings": { "name": "Tor des Géants" } },
-        { "type": "race", "settings": { "name": "Chicago Marathon" } },
-        { "type": "race", "settings": { "name": "NYC Marathon" } },
-        { "type": "race", "settings": { "name": "Tokyo Marathon" } },
-        { "type": "race", "settings": { "name": "Dragon's Back" } }
+        { "type": "race", "settings": { "name": "Western States", "asset_filename": "logo-western-states-100.png" } },
+        { "type": "race", "settings": { "name": "UTMB", "asset_filename": "logo-utmb-mont-blanc.png" } },
+        { "type": "race", "settings": { "name": "Marathon des Sables", "asset_filename": "logo-marathon-des-sables.png" } },
+        { "type": "race", "settings": { "name": "London Marathon", "asset_filename": "logo-tcs-london-marathon.png" } },
+        { "type": "race", "settings": { "name": "Hardrock 100", "asset_filename": "logo-hardrock-100.png" } },
+        { "type": "race", "settings": { "name": "Boston Marathon", "asset_filename": "logo-boston-marathon.png" } },
+        { "type": "race", "settings": { "name": "Berlin Marathon", "asset_filename": "logo-bmw-berlin-marathon.png" } },
+        { "type": "race", "settings": { "name": "Tor des Géants", "asset_filename": "logo-tor-des-geants.png" } },
+        { "type": "race", "settings": { "name": "Chicago Marathon", "asset_filename": "logo-chicago-marathon.png" } },
+        { "type": "race", "settings": { "name": "NYC Marathon", "asset_filename": "logo-nyc-marathon.png" } },
+        { "type": "race", "settings": { "name": "Tokyo Marathon", "asset_filename": "logo-tokyo-marathon.png" } },
+        { "type": "race", "settings": { "name": "Dragon's Back", "asset_filename": "logo-dragons-back-race.png" } }
       ]
     }
   ]
