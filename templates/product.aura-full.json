@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-hero",
+      "settings": {
+        "ref_label": "REF — 004",
+        "subtitle": "The Complete System",
+        "tagline": "The complete Aura system for serious runners. Stride for daily protection, Ultra for race day, Recover for post-run repair.",
+        "how_to_apply": "Stride: Apply to clean, dry skin 15-20 minutes before running. Focus on high-friction areas.\n\nUltra: Apply to completely dry skin 30-45 minutes before race start for 6-12+ hours of protection.\n\nRecover: Apply to clean skin within 30-60 minutes post-run during the barrier repair window.",
+        "ingredients_list": "Stride: Sweet Almond Oil, Coconut Oil, Beeswax, Shea Butter, Jojoba Oil, Vitamin E, Calendula, Lavender Oil\n\nUltra: Dimethicone, Cyclopentasiloxane, Squalane, Rice Bran Wax, Carnauba Wax, Vitamin E, Sea Buckthorn Oil, Tamanu Oil\n\nRecover: Shea Butter, Squalane, Ceramide NP/AP/EOP, Niacinamide, Panthenol, Centella Asiatica, Calendula, Vitamin E",
+        "shipping_info": "Free shipping on all orders. Standard shipping: 3-5 business days.",
+        "cross_sell_text": "You're covered. The Full Collection includes <a href=\"/products/aura-stride\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Stride</a>, <a href=\"/products/aura-ultra\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Ultra</a>, and <a href=\"/products/aura-recover\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Recover</a>."
+      }
+    },
+    "ingredients": {
+      "type": "product-ingredients",
+      "blocks": {
+        "coconut": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "benefit": "Deep moisture",
+            "description": "Penetrates deep into skin layers to provide lasting hydration and create a protective barrier.",
+            "image": "shopify://shop_images/coconut-oil.jpg"
+          }
+        },
+        "cocoa": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Cocoa Butter",
+            "benefit": "Skin softening",
+            "description": "Rich in fatty acids, it softens and conditions skin while reducing friction during movement.",
+            "image": "shopify://shop_images/cocoa-butter.jpg"
+          }
+        },
+        "beeswax": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Beeswax",
+            "benefit": "Protective seal",
+            "description": "Creates a breathable, water-resistant barrier that locks in moisture without clogging pores.",
+            "image": "shopify://shop_images/beeswax.jpg"
+          }
+        },
+        "vitamine": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin E",
+            "benefit": "Antioxidant",
+            "description": "Powerful antioxidant that protects skin from environmental damage and promotes healing.",
+            "image": "shopify://shop_images/vitamin-e.jpg"
+          }
+        }
+      },
+      "block_order": ["coconut", "cocoa", "beeswax", "vitamine"],
+      "settings": {
+        "heading": "Key Ingredients",
+        "description": "Each product in the collection uses carefully selected botanical and performance ingredients for protection, endurance, and recovery."
+      }
+    },
+    "usage": {
+      "type": "product-usage",
+      "settings": {
+        "label": "HOW TO USE",
+        "heading": "When to Use",
+        "description": "Before runs: apply Stride (daily training) or Ultra (race day, 4+ hour efforts). After runs: apply Recover within 30-60 minutes post-run for skin barrier repair. Use the complete system for full-cycle skin protection."
+      },
+      "blocks": {
+        "dosage": {
+          "type": "detail",
+          "settings": {
+            "name": "Dosage",
+            "text": "Pea-sized amount per zone for Stride and Ultra. Generous nickel-sized amount per area for Recover. Apply to friction-prone areas: feet, inner thighs, underarms, anywhere clothing or pack straps contact skin."
+          }
+        },
+        "texture": {
+          "type": "detail",
+          "settings": {
+            "name": "Texture",
+            "text": "Stride: lightweight balm, absorbs in 60 seconds. Ultra: silky balm that sets to dry-touch film in 2-3 minutes. Recover: rich therapeutic cream, absorbs in 2-3 minutes."
+          }
+        }
+      },
+      "block_order": ["dosage", "texture"]
+    },
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "label": "Questions",
+        "heading": "Frequently Asked"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "title": "What's included in the Aura Full Collection?",
+            "answer": "Three products: Aura Stride (daily anti-chafe balm for training runs), Aura Ultra (race-day formula for 6-12+ hour protection), and Aura Recover (ceramide-based post-run skin repair)."
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "title": "When do I use each product?",
+            "answer": "Stride before daily training runs. Ultra before races or efforts over 4 hours. Recover within 30-60 minutes after any run. Together they cover the full cycle of skin protection for runners."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "title": "Is this a better value than buying individually?",
+            "answer": "Yes. The Full Collection saves you compared to buying all three products separately. It's the complete system designed to work together across your entire training cycle."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Stride and Ultra together?",
+            "answer": "They're designed for different scenarios. Use Stride for daily training (3-4 hour protection). Use Ultra for races and long efforts (6-12+ hours). No need to layer them—choose based on the effort ahead."
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "title": "Are all three products safe for sensitive skin?",
+            "answer": "Yes. All Aura products are dermatologist tested, free from synthetic fragrances and petroleum derivatives. Made with botanical ingredients safe for all skin types."
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Related Products"
+      }
+    },
+    "testimonials": {
+      "type": "product-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Having all three covers every scenario. Stride for training, Ultra for race day, Recover after. The complete kit.",
+            "author": "Lisa M.",
+            "attribution": "Marathon Runner"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Bought the full collection before my first ultra. Never thought about chafing once—before, during, or after.",
+            "author": "David K.",
+            "attribution": "Ultra Runner"
+          }
+        }
+      },
+      "block_order": ["t1", "t2"],
+      "settings": {
+        "heading": "What Runners Say"
+      }
+    },
+    "related": {
+      "type": "related-articles",
+      "settings": {
+        "heading": "From the Editorial"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ingredients",
+    "usage",
+    "faq",
+    "related-products",
+    "testimonials",
+    "related"
+  ]
+}
