@@ -19,19 +19,29 @@
     {%- endif -%}
   </a>
 
-  {%- if article.tags.size > 0 -%}
-    <div class="flex items-center gap-3 mb-3">
+  <div class="flex items-center gap-3 mb-3">
+    {%- if article.tags.size > 0 -%}
       <span class="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-light">
         {{ article.tags.first }}
       </span>
-    </div>
-  {%- endif -%}
+      <span class="text-muted-foreground/40">&bull;</span>
+    {%- endif -%}
+    <span class="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-light">
+      {{ article.published_at | date: '%B %Y' }}
+    </span>
+  </div>
 
   <a href="{{ article.url }}">
     <h3 class="font-serif text-lg mb-3 group-hover:opacity-60 transition-opacity line-clamp-2">
       {{ article.title }}
     </h3>
   </a>
+
+  {%- if article.excerpt != blank -%}
+    <p class="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+      {{ article.excerpt | strip_html }}
+    </p>
+  {%- endif -%}
 
   <a href="{{ article.url }}" class="inline-block text-sm font-medium underline underline-offset-4 hover:opacity-60 transition-opacity">
     Discover

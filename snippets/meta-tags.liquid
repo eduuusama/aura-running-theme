@@ -59,6 +59,9 @@
       "@type": "Article",
       "headline": {{ article.title | json }},
       "description": {{ article.excerpt_or_content | strip_html | truncate: 200 | json }},
+      {%- if article.image -%}
+      "image": "https:{{ article.image | image_url: width: 1200 }}",
+      {%- endif -%}
       "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S' | json }},
       "author": {
         "@type": "Organization",
@@ -74,4 +77,13 @@
       }
     }
   </script>
+  {%- if article.metafields.custom.faq_json != blank -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": {{ article.metafields.custom.faq_json }}
+      }
+    </script>
+  {%- endif -%}
 {%- endif -%}

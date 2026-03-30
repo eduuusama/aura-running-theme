@@ -2,6 +2,27 @@
   Product FAQ — Accordion section matching React ProductAccordionItem
 {%- endcomment -%}
 
+{%- if section.blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for block in section.blocks -%}
+    {
+      "@type": "Question",
+      "name": {{ block.settings.title | json }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ block.settings.answer | json }}
+      }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
 <section class="py-20 md:py-28 bg-background">
   <div class="container max-w-4xl">
     <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-6 font-medium">
