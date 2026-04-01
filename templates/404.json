@@ -1,9 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "404-content",
+      "disabled": true,
       "settings": {}
+    },
+    "about_hero_F37i3D": {
+      "type": "about-hero",
+      "name": "About Hero",
+      "settings": {
+        "label": "Our Story",
+        "heading": "Born From The Miles",
+        "subtitle": "Aura Running was born at mile 67 of a 100-mile ultra, when every product had failed."
+      }
+    },
+    "about_story_beeekG": {
+      "type": "about-story",
+      "blocks": {
+        "section_dMUhTR": {
+          "type": "section",
+          "settings": {
+            "title": "asdfasdf",
+            "content": "<p>asfasdf</p>",
+            "image": "shopify://shop_images/100-mile-blister-prevention-hero.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "section_dMUhTR"
+      ],
+      "name": "About Story",
+      "settings": {}
+    },
+    "about_values_cmewXL": {
+      "type": "about-values",
+      "blocks": {
+        "value_73UcQ8": {
+          "type": "value",
+          "settings": {
+            "title": "Science First",
+            "description": "Every formula is developed with scientific rigor and tested across thousands of miles."
+          }
+        },
+        "value_wmHPzP": {
+          "type": "value",
+          "settings": {
+            "title": "Clean Formula",
+            "description": "No synthetic fragrances, no parabens, no petroleum. Just ingredients that work."
+          }
+        },
+        "value_Uy6ayM": {
+          "type": "value",
+          "settings": {
+            "title": "Athlete Proven",
+            "description": "Tested by ultrarunners, marathoners, and triathletes in the most demanding conditions."
+          }
+        }
+      },
+      "block_order": [
+        "value_73UcQ8",
+        "value_wmHPzP",
+        "value_Uy6ayM"
+      ],
+      "name": "About Values",
+      "settings": {
+        "heading": "What We Believe"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "about_hero_F37i3D",
+    "about_story_beeekG",
+    "about_values_cmewXL"
+  ]
 }
