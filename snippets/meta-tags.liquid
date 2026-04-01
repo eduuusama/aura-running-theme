@@ -57,12 +57,18 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ canonical_url }}"
+      },
       "headline": {{ article.title | json }},
       "description": {{ article.excerpt_or_content | strip_html | truncate: 200 | json }},
+      "url": "{{ canonical_url }}",
       {%- if article.image -%}
       "image": "https:{{ article.image | image_url: width: 1200 }}",
       {%- endif -%}
       "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S' | json }},
+      "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S' | json }},
       "author": {
         "@type": "Organization",
         "name": {{ shop.name | json }}
@@ -75,6 +81,34 @@
           "url": "{{ 'logo.png' | asset_url }}"
         }
       }
+    }
+  </script>
+
+  {%- comment -%} BreadcrumbList JSON-LD {%- endcomment -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Editorial",
+          "item": "{{ shop.url }}/blogs/editorial"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ article.title | json }},
+          "item": "{{ canonical_url }}"
+        }
+      ]
     }
   </script>
   {%- if article.metafields.custom.faq_json != blank -%}

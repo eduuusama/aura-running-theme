@@ -28,6 +28,10 @@
 
     {%- comment -%} Article Grid {%- endcomment -%}
     {%- paginate blog.articles by 12 -%}
+      {%- comment -%} Pagination rel links for SEO crawlers {%- endcomment -%}
+      {%- if paginate.previous -%}<link rel="prev" href="{{ paginate.previous.url }}">{%- endif -%}
+      {%- if paginate.next -%}<link rel="next" href="{{ paginate.next.url }}">{%- endif -%}
+
       {%- if blog.articles.size > 0 -%}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {%- for article in blog.articles -%}
