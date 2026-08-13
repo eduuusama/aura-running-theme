@@ -6,14 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>
-    {%- if page_title -%}
+    {%- if template == 'index' -%}
+      Aura Running — Elite Anti-Chafe Balm for Long Distance Runners
+    {%- elsif page_title -%}
       {{ page_title }} | {{ shop.name }}
     {%- else -%}
       {{ shop.name }}
     {%- endif -%}
   </title>
 
-  {%- if page_description -%}
+  {%- if template == 'index' -%}
+    <meta name="description" content="Elite anti-chafe balm and skin protection for long distance runners. 6–12+ hours of sweat-proof protection for marathons and ultras, plus post-run skin barrier recovery. Free shipping over $50.">
+  {%- elsif page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
