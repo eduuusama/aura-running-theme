@@ -6,11 +6,12 @@
         "label": "Contact",
         "heading": "Get in Touch",
         "subtitle": "Have a question about our products or need support? We'd love to hear from you.",
-        "email": "hello@aurarunning.com",
-        "hours": "Monday – Friday, 9am – 5pm PST",
-        "response_time": "We typically respond within 24 hours."
+        "email": "hello@aura-running.com",
+        "hours": "Monday – Friday, 9am – 5pm EST",
+        "response_time": "We typically respond within 1–2 business days."
       }
     }
   },
   "order": ["main"]
 }
+
