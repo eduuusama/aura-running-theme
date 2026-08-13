@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "theme-dev",
+      "runtimeExecutable": "shopify",
+      "runtimeArgs": ["theme", "dev", "--store", "smooth-sailing-store-apljc.myshopify.com"],
+      "port": 9292
+    }
+  ]
+}
