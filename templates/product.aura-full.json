@@ -13,58 +13,63 @@
       "type": "product-hero",
       "settings": {
         "ref_label": "REF — 004",
-        "subtitle": "The Complete System",
-        "tagline": "The complete Aura system for serious runners. Stride for daily protection, Ultra for race day, Recover for post-run repair.",
-        "how_to_apply": "Stride: Apply to clean, dry skin 15-20 minutes before running. Focus on high-friction areas.\n\nUltra: Apply to completely dry skin 30-45 minutes before race start for 6-12+ hours of protection.\n\nRecover: Apply to clean skin within 30-60 minutes post-run during the barrier repair window.",
-        "ingredients_list": "Stride: Sweet Almond Oil, Coconut Oil, Beeswax, Shea Butter, Jojoba Oil, Vitamin E, Calendula, Lavender Oil\n\nUltra: Dimethicone, Cyclopentasiloxane, Squalane, Rice Bran Wax, Carnauba Wax, Vitamin E, Sea Buckthorn Oil, Tamanu Oil\n\nRecover: Shea Butter, Squalane, Ceramide NP/AP/EOP, Niacinamide, Panthenol, Centella Asiatica, Calendula, Vitamin E",
+        "subtitle": "The Natural Barrier for the Long Run",
+        "tagline": "Full distance. Full ingredients. Nothing to hide. Built around lanolin — the barrier ingredient with a cult following among distance runners — paired with shea butter, coconut oil, jojoba, and castor oil for glide, beeswax for structure, and a touch of tea tree oil for a clean finish. No petrolatum, no mineral oil, no synthetic fragrance.",
+        "how_to_apply": "Apply to clean, dry skin 15–20 minutes before running. Focus on high-friction areas: inner thighs, underarms, feet (especially between toes), sports bra line, and anywhere clothing or pack straps contact skin. For runs over 2 hours, carry a travel-size amount for reapplication at the halfway point.",
+        "ingredients_list": "Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil\n\nContains lanolin and tea tree oil — patch test before first full use if you have sensitive skin.",
         "shipping_info": "Free shipping on all orders. Standard shipping: 3-5 business days.",
-        "cross_sell_text": "You're covered. The Full Collection includes <a href=\"/products/aura-stride\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Stride</a>, <a href=\"/products/aura-ultra\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Ultra</a>, and <a href=\"/products/aura-recover\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Recover</a>."
+        "cross_sell_text": "Going past the marathon? For ultra distance, extreme heat, or extreme cold, see <a href=\"/products/aura-ultra\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Ultra</a>."
       }
     },
     "ingredients": {
       "type": "product-ingredients",
       "blocks": {
-        "coconut": {
+        "lanolin": {
           "type": "ingredient",
           "settings": {
-            "name": "Coconut Oil",
-            "benefit": "Deep moisture",
-            "description": "Penetrates deep into skin layers to provide lasting hydration and create a protective barrier.",
-            "image": "shopify://shop_images/coconut-oil.jpg"
+            "name": "Lanolin",
+            "benefit": "The barrier",
+            "description": "The hero ingredient. Deeply water-repellent, skin-similar in structure, and the reason distance runners have trusted it for decades."
           }
         },
-        "cocoa": {
+        "shea": {
           "type": "ingredient",
           "settings": {
-            "name": "Cocoa Butter",
-            "benefit": "Skin softening",
-            "description": "Rich in fatty acids, it softens and conditions skin while reducing friction during movement.",
-            "image": "shopify://shop_images/cocoa-butter.jpg"
+            "name": "Shea Butter",
+            "benefit": "The conditioner",
+            "description": "Softens and conditions skin while adding body to the balm's glide."
+          }
+        },
+        "jojoba": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Jojoba & Castor Oil",
+            "benefit": "The glide",
+            "description": "Lightweight, stable oils that keep the barrier moving with you instead of catching on skin or fabric."
           }
         },
         "beeswax": {
           "type": "ingredient",
           "settings": {
             "name": "Beeswax",
-            "benefit": "Protective seal",
-            "description": "Creates a breathable, water-resistant barrier that locks in moisture without clogging pores.",
+            "benefit": "The structure",
+            "description": "Holds the balm's form so it travels well and doesn't turn to liquid in a hot bag or car.",
             "image": "shopify://shop_images/beeswax.jpg"
           }
         },
-        "vitamine": {
+        "teatree": {
           "type": "ingredient",
           "settings": {
-            "name": "Vitamin E",
-            "benefit": "Antioxidant",
-            "description": "Powerful antioxidant that protects skin from environmental damage and promotes healing.",
-            "image": "shopify://shop_images/vitamin-e.jpg"
+            "name": "Tea Tree Oil",
+            "benefit": "The finish",
+            "description": "A natural, refreshing note that gives the balm its light scent — no added fragrance."
           }
         }
       },
-      "block_order": ["coconut", "cocoa", "beeswax", "vitamine"],
+      "block_order": ["lanolin", "shea", "jojoba", "beeswax", "teatree"],
       "settings": {
         "heading": "Key Ingredients",
-        "description": "Each product in the collection uses carefully selected botanical and performance ingredients for protection, endurance, and recovery."
+        "description": "Every ingredient is plant- or animal-derived. No petrolatum, no mineral oil, no parabens, no synthetic fragrance. Full list: Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil."
       }
     },
     "usage": {
@@ -72,21 +77,21 @@
       "settings": {
         "label": "HOW TO USE",
         "heading": "When to Use",
-        "description": "Before runs: apply Stride (daily training) or Ultra (race day, 4+ hour efforts). After runs: apply Recover within 30-60 minutes post-run for skin barrier repair. Use the complete system for full-cycle skin protection."
+        "description": "Marathon and half-marathon race day. Long training runs of 10 miles or more. Daily training in moderate temperatures (55–85°F). Built for runners who want a natural-inspired ingredient list without giving up performance — including sensitive skin that reacts to synthetic fragrance or silicone-heavy formulas. For desert heat, high-altitude cold, or efforts past the marathon, reach for Aura Ultra instead."
       },
       "blocks": {
         "dosage": {
           "type": "detail",
           "settings": {
-            "name": "Dosage",
-            "text": "Pea-sized amount per zone for Stride and Ultra. Generous nickel-sized amount per area for Recover. Apply to friction-prone areas: feet, inner thighs, underarms, anywhere clothing or pack straps contact skin."
+            "name": "Application",
+            "text": "Apply liberally to clean, dry skin 15–20 minutes before running, anywhere skin meets skin or skin meets fabric: inner thighs, underarms, sports bra line, feet, and pack-strap contact points. One thorough application covers most marathon-distance efforts; on hot days, carry a travel-size amount for the halfway point."
           }
         },
         "texture": {
           "type": "detail",
           "settings": {
             "name": "Texture",
-            "text": "Stride: lightweight balm, absorbs in 60 seconds. Ultra: silky balm that sets to dry-touch film in 2-3 minutes. Recover: rich therapeutic cream, absorbs in 2-3 minutes."
+            "text": "Rich, balm-like texture — similar to a thick natural body butter. Glides on smooth and leaves a light protective layer rather than a fully dry-touch film."
           }
         }
       },
@@ -102,70 +107,94 @@
         "q1": {
           "type": "question",
           "settings": {
-            "title": "What's included in the Aura Full Collection?",
-            "answer": "Three products: Aura Stride (daily anti-chafe balm for training runs), Aura Ultra (race-day formula for 6-12+ hour protection), and Aura Recover (ceramide-based post-run skin repair)."
+            "title": "Is Aura Full actually natural?",
+            "answer": "Every ingredient is plant- or animal-derived (lanolin comes from sheep's wool). No petrolatum, mineral oil, paraffin, or synthetic fragrance. It's natural-inspired, not certified organic."
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "title": "When do I use each product?",
-            "answer": "Stride before daily training runs. Ultra before races or efforts over 4 hours. Recover within 30-60 minutes after any run. Together they cover the full cycle of skin protection for runners."
+            "title": "Is Aura Full vegan?",
+            "answer": "No. Lanolin is an animal-derived ingredient (wool wax), and the formula also contains beeswax. If you're looking for a fully vegan product, this isn't it — we'd rather tell you clearly than surprise you."
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "title": "Is this a better value than buying individually?",
-            "answer": "Yes. The Full Collection saves you compared to buying all three products separately. It's the complete system designed to work together across your entire training cycle."
+            "title": "What is the best anti-chafe balm for marathon training?",
+            "answer": "One built around a proven barrier ingredient rather than fragrance or cooling agents. Aura Full centers on lanolin for that reason, paired with shea, coconut, jojoba, and castor oil for glide and conditioning."
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "title": "Can I use Stride and Ultra together?",
-            "answer": "They're designed for different scenarios. Use Stride for daily training (3-4 hour protection). Use Ultra for races and long efforts (6-12+ hours). No need to layer them—choose based on the effort ahead."
+            "title": "Is Aura Full better than Vaseline for running?",
+            "answer": "Petrolatum alone is a strong, single-ingredient barrier. Aura Full combines lanolin's barrier properties with butters and oils for glide and skin conditioning in one formula. For extreme heat, cold, or ultra distance, petrolatum-based formulas behave differently — that's what Aura Ultra is built for."
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "title": "Are all three products safe for sensitive skin?",
-            "answer": "Yes. All Aura products are dermatologist tested, free from synthetic fragrances and petroleum derivatives. Made with botanical ingredients safe for all skin types."
+            "title": "Where should I apply anti-chafe balm before a run?",
+            "answer": "Anywhere skin meets skin or skin meets fabric: inner thighs, underarms, sports bra line, nipples, feet (especially between toes), and any pack-strap contact point."
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "title": "How often should I reapply anti-chafe balm during a marathon?",
+            "answer": "One thorough application before the start covers most marathon-distance efforts. On hot days, or in a spot that's chafed before, carry a travel-size amount for the halfway point."
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "title": "Is lanolin safe to use on skin?",
+            "answer": "Yes, for most people. It has a long history of topical use, including in nursing and nipple-care products. A small percentage of people — often those with wool sensitivity — react to it. Patch test first if you have sensitive skin."
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "title": "Any allergy concerns?",
+            "answer": "Two worth knowing about: lanolin (a small percentage of people, often wool-sensitive individuals, react to it) and tea tree oil (roughly 1–3% of people can develop contact sensitivity with repeated use). We recommend a patch test before your first full use. No tree nut or peanut oils in the formula; it does contain coconut oil, which some people with severe coconut allergies avoid."
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Aura Full while pregnant or breastfeeding?",
+            "answer": "Lanolin is a common ingredient in nursing skin-care products, but Aura Full hasn't been formulated or tested for that specific use. Check with a doctor before using any new topical product during pregnancy or breastfeeding."
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "title": "Does Aura Full contain petroleum or parabens?",
+            "answer": "No petroleum, no mineral oil, no parabens. The full list: Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil."
+          }
+        },
+        "q11": {
+          "type": "question",
+          "settings": {
+            "title": "Is Aura Full scented?",
+            "answer": "It carries a light, natural scent from tea tree oil — not an added fragrance."
+          }
+        },
+        "q12": {
+          "type": "question",
+          "settings": {
+            "title": "What's the difference between Aura Full and Aura Ultra?",
+            "answer": "Distance and conditions. Aura Full is natural-inspired, built for marathon distance and daily training in moderate conditions. Aura Ultra is petrolatum-based, built for ultra distance, extreme heat, extreme cold, and multi-hour sweat exposure."
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12"]
     },
     "related-products": {
       "type": "related-products",
       "settings": {
         "heading": "Related Products"
-      }
-    },
-    "testimonials": {
-      "type": "product-testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Having all three covers every scenario. Stride for training, Ultra for race day, Recover after. The complete kit.",
-            "author": "Lisa M.",
-            "attribution": "Marathon Runner"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Bought the full collection before my first ultra. Never thought about chafing once—before, during, or after.",
-            "author": "David K.",
-            "attribution": "Ultra Runner"
-          }
-        }
-      },
-      "block_order": ["t1", "t2"],
-      "settings": {
-        "heading": "What Runners Say"
       }
     },
     "related": {
@@ -181,7 +210,6 @@
     "usage",
     "faq",
     "related-products",
-    "testimonials",
     "related"
   ]
 }
