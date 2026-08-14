@@ -12,80 +12,97 @@
     "main": {
       "type": "product-hero",
       "settings": {
-        "ref_label": "REF — 003",
-        "subtitle": "For After",
-        "tagline": "What you do between runs determines what you can do during them.",
-        "how_to_apply": "Apply to clean skin within 30-60 minutes post-run—the barrier repair window. Focus on areas that experienced friction during the effort. Use on intact skin for prevention, or on areas showing early irritation (redness, sensitivity) before they progress to open chafing.\n\nCan also be used nightly during high-volume training blocks as preventive skin conditioning.",
-        "ingredients_list": "Butyrospermum Parkii (Shea) Butter, Squalane, Ceramide NP, Ceramide AP, Ceramide EOP, Niacinamide, Panthenol (Pro-Vitamin B5), Centella Asiatica (Cica) Extract, Bisabolol, Allantoin, Calendula Officinalis Flower Extract, Tocopherol (Vitamin E), Cholesterol, Phytosphingosine",
+        "ref_label": "",
+        "statement": "Full and Ultra get you through the run. Recovery is what comes after.",
+        "subtitle": "The After",
+        "tagline": "Skin takes real stress across a long effort: friction, sweat, sun, hours of movement. Aura Recovery is built around a ceramide complex, the same lipids your skin's barrier is made of, paired with niacinamide, panthenol, and centella asiatica to calm, hydrate, and support skin's own recovery. Shea butter and squalane soften without weighing skin down.",
+        "how_to_apply": "Apply to clean skin within 30-60 minutes after finishing your run. This window matters: it's when skin is most responsive to barrier-supportive ingredients. Massage gently into any areas of friction, redness, or irritation, and anywhere skin feels tight or dehydrated. A nickel-sized amount covers one zone (each thigh, each underarm).",
+        "ingredients_list": "Water, Shea Butter, Emulsifying Wax, Squalane, Glycerin, Niacinamide, Calendula Oil, Centella Asiatica Extract, Panthenol, Ceramide Complex, Vitamin E, Preservative (Phenoxyethanol & Ethylhexylglycerin)\n\nPatch test before first full use if you have sensitive skin.",
         "shipping_info": "Standard shipping: 3-5 business days.",
-        "cross_sell_text": "Preventing is better than repairing. Pair with <a href=\"/products/aura-stride\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Stride</a> for daily training protection."
+        "cross_sell_text": "Protection for the run itself? <a href=\"/products/aura-full\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Full</a> covers marathon distance. <a href=\"/products/aura-ultra\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Ultra</a> covers everything past it."
       }
     },
     "ingredients": {
       "type": "product-ingredients",
       "blocks": {
-        "aloe": {
+        "ceramides": {
           "type": "ingredient",
           "settings": {
-            "name": "Aloe Vera",
-            "benefit": "Cooling relief",
-            "description": "Provides immediate cooling relief to irritated, chafed skin after long efforts.",
-            "image": "shopify://shop_images/vitamin-e.jpg"
+            "name": "Ceramide Complex",
+            "benefit": "The repair",
+            "description": "The same lipids that make up skin's natural barrier, replenished directly where friction and sweat have worn it down."
           }
         },
-        "shea": {
+        "niacinamide": {
           "type": "ingredient",
           "settings": {
-            "name": "Shea Butter",
-            "benefit": "Deep repair",
-            "description": "Rich in vitamins A and E, deeply nourishes and repairs damaged skin barriers.",
-            "image": "shopify://shop_images/cocoa-butter.jpg"
+            "name": "Niacinamide",
+            "benefit": "The calm",
+            "description": "A well-studied form of vitamin B3 that supports barrier strength and eases the look of redness and irritation."
           }
         },
-        "vitamine": {
+        "centella": {
           "type": "ingredient",
           "settings": {
-            "name": "Vitamin E",
-            "benefit": "Antioxidant protection",
-            "description": "Combats free radical damage from UV exposure during outdoor training.",
-            "image": "shopify://shop_images/beeswax.jpg"
+            "name": "Centella Asiatica",
+            "benefit": "The soothe",
+            "description": "A botanical with a long history in skin recovery, used here to calm stressed, friction-irritated skin."
+          }
+        },
+        "panthenol": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Panthenol",
+            "benefit": "The hydration",
+            "description": "Provitamin B5, draws in moisture and supports skin's own recovery process."
+          }
+        },
+        "squalane": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Squalane & Shea Butter",
+            "benefit": "The soft",
+            "description": "Lightweight, skin-identical emollients that soften without the heavy feel of a barrier balm. Meant to sink in, not sit on top."
           }
         }
       },
-      "block_order": [
-        "aloe",
-        "shea",
-        "vitamine"
-      ],
+      "block_order": ["ceramides", "niacinamide", "centella", "panthenol", "squalane"],
       "settings": {
         "heading": "Key Ingredients",
-        "description": "Formulated for post-race recovery, soothing irritated skin and accelerating the healing process."
+        "description": ""
       }
     },
     "usage": {
-      "type": "product-usage",
+      "type": "product-benefits",
       "settings": {
-        "label": "HOW TO USE",
-        "heading": "When to Use",
-        "description": "Immediately post-run (especially after long efforts or ultras), post-race recovery, evening application during peak training weeks, on rest days to support skin barrier repair, when skin shows early signs of irritation, preventively during multi-day training blocks or stage races."
+        "label": "PERFORMANCE",
+        "heading": "Product Benefits",
+        "description": "After any run, training or race day. For areas that took friction, sun, or hours of sweat, and for skin that feels dry, tight, or irritated once the effort is done. The third piece of a complete system: Full and Ultra protect during the run, Recovery supports skin after it."
       },
       "blocks": {
-        "dosage": {
-          "type": "detail",
+        "barrier": {
+          "type": "benefit",
           "settings": {
-            "name": "Dosage",
-            "text": "Generous nickel-sized amount per affected area. This is treatment, not protection—use enough to thoroughly coat compromised zones. Massage gently until absorbed."
+            "name": "Barrier replenishment",
+            "text": "Ceramides, the same lipids your skin's barrier is made of, replenished directly where friction and sweat have worn it down."
           }
         },
-        "texture": {
-          "type": "detail",
+        "calm": {
+          "type": "benefit",
           "settings": {
-            "name": "Texture",
-            "text": "Rich, therapeutic cream. More substantial than Stride. Absorbs slowly (2-3 minutes) delivering active ingredients to deeper skin layers. Leaves skin feeling fortified, not greasy."
+            "name": "Calm and hydration",
+            "text": "Niacinamide, panthenol, and centella asiatica ease the look of redness while glycerin and squalane draw in and hold moisture."
+          }
+        },
+        "window": {
+          "type": "benefit",
+          "settings": {
+            "name": "The recovery window",
+            "text": "Apply within 30-60 minutes of finishing, when skin is most responsive to barrier-supportive ingredients. Light enough to double as a daily hydration cream on rest days."
           }
         }
       },
-      "block_order": ["dosage", "texture"]
+      "block_order": ["barrier", "calm", "window"]
     },
     "faq": {
       "type": "product-faq",
@@ -97,40 +114,75 @@
         "q1": {
           "type": "question",
           "settings": {
-            "title": "How do I heal chafed skin fast after running?",
-            "answer": "Apply Aura Recover within 30-60 minutes post-run during the skin's barrier repair window. The ceramide complex accelerates healing of friction-damaged skin."
+            "title": "What does Aura Recovery do?",
+            "answer": "It's a post-run cream built to calm, hydrate, and support skin's own recovery after a run, using ceramides, niacinamide, and centella asiatica."
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "title": "What helps chafing heal overnight?",
-            "answer": "Aura Recover's pharmaceutical-grade ceramides and anti-inflammatory botanicals work while you sleep. Apply generously to affected areas before bed."
+            "title": "When should I apply Aura Recovery?",
+            "answer": "Within 30-60 minutes after finishing, while skin is most responsive to barrier-supportive ingredients."
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "title": "Is it safe to put cream on chafed skin?",
-            "answer": "Yes. Aura Recover is specifically formulated for compromised skin barriers. It's fragrance-free, hypoallergenic, and contains healing ingredients like niacinamide and panthenol."
+            "title": "Can I use Aura Recovery instead of Full or Ultra before a run?",
+            "answer": "No. It's a lighter, water-based cream built to absorb into skin, not to create the friction barrier you need during activity. Use Full or Ultra before you run, Recovery after."
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "title": "How do I prevent chafing from getting worse between runs?",
-            "answer": "Use Aura Recover nightly during high-volume training blocks. It rebuilds the skin barrier so you start each run with healthy, resilient skin."
+            "title": "What are ceramides and why are they in a running product?",
+            "answer": "Ceramides are lipids that make up a large part of your skin's natural barrier. Friction, sweat, and hours of movement can wear that barrier down. Replenishing ceramides directly supports skin's own recovery."
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "title": "What do elite runners use for skin recovery?",
-            "answer": "Elite ultra runners use ceramide-based recovery treatments. Aura Recover contains the same pharmaceutical-grade ingredients used in clinical skin barrier repair."
+            "title": "Is Aura Recovery safe for sensitive or irritated skin?",
+            "answer": "It's formulated with calming, barrier-supportive ingredients (centella asiatica, panthenol, niacinamide) commonly used for sensitive skin. If skin is broken or has open chafing wounds, avoid applying directly to those areas and let them close first. Patch test before first full use."
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "title": "Does Aura Recovery contain fragrance?",
+            "answer": "No added fragrance. Calendula and centella extract carry a very light natural scent of their own."
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Aura Recovery every day, even on rest days?",
+            "answer": "Yes. Unlike Full and Ultra, which are built around specific pre-run use, Recovery works as a general skin-barrier and hydration cream any day."
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "title": "What's the difference between Aura Recovery and a regular moisturizer?",
+            "answer": "Most moisturizers aren't built around the specific stress of hours of friction, sweat, and movement. Aura Recovery combines barrier lipids with soothing botanicals at concentrations aimed at that specific kind of skin stress."
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "title": "Does Aura Recovery help with chafing that's already happened?",
+            "answer": "It's formulated to soothe and support skin's recovery after friction and irritation. Don't apply it to broken or open skin; let those areas close first."
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "title": "Is this part of a system with other Aura products?",
+            "answer": "Yes. Full and Ultra protect skin during the run, Recovery supports it afterward. Use Full or Ultra before, Recovery within an hour of finishing."
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"]
     },
     "related-products": {
       "type": "related-products",
@@ -138,30 +190,10 @@
         "heading": "Related Products"
       }
     },
-    "testimonials": {
-      "type": "product-testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "After a 50-miler, Aura Recover is the first thing I reach for. The relief is immediate.",
-            "author": "Chris T.",
-            "attribution": "Ultra Runner"
-          }
-        }
-      },
-      "block_order": [
-        "t1"
-      ],
-      "settings": {
-        "heading": "What Runners Say"
-      }
-    },
     "related": {
       "type": "related-articles",
       "settings": {
-        "heading": "From the Editorial",
-        "blog": ""
+        "heading": "From the Editorial"
       }
     }
   },
@@ -171,7 +203,6 @@
     "usage",
     "faq",
     "related-products",
-    "testimonials",
     "related"
   ]
 }
