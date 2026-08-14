@@ -58,6 +58,9 @@
     section.querySelectorAll('.ingredient-bg').forEach(function(bg) {
       bg.classList.toggle('is-active', bg.dataset.ingredientBg === index);
     });
+    section.querySelectorAll('.ingredient-desc').forEach(function(d) {
+      d.classList.toggle('is-active', d.dataset.ingredientDesc === index);
+    });
   }
 
   // Desktop — hover

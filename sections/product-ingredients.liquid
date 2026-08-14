@@ -30,8 +30,13 @@
         </div>
       {%- endfor -%}
     </div>
-    <div class="absolute bottom-12 right-12 max-w-md text-right">
-      <p class="text-white/90 text-lg font-light leading-relaxed">{{ section.settings.description }}</p>
+    <div class="absolute bottom-12 right-12 max-w-md text-right min-h-[6rem]">
+      {%- if section.settings.description != blank -%}
+        <p class="text-white/90 text-lg font-light leading-relaxed mb-4">{{ section.settings.description }}</p>
+      {%- endif -%}
+      {%- for block in section.blocks -%}
+        <p class="ingredient-desc {% if forloop.first %}is-active{% endif %} text-white/90 text-lg font-light leading-relaxed" data-ingredient-desc="{{ forloop.index0 }}">{{ block.settings.description }}</p>
+      {%- endfor -%}
     </div>
   </div>
 

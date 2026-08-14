@@ -40,7 +40,7 @@
             "name": "Shea Butter",
             "benefit": "The conditioner",
             "description": "Softens and conditions skin while adding body to the balm's glide.",
-            "image": "shopify://shop_images/shea-butter.jpg"
+            "image": "shopify://shop_images/shea-butter-v2.jpg"
           }
         },
         "jojoba": {
@@ -49,7 +49,7 @@
             "name": "Jojoba & Castor Oil",
             "benefit": "The glide",
             "description": "Lightweight, stable oils that keep the barrier moving with you instead of catching on skin or fabric.",
-            "image": "shopify://shop_images/jojoba-castor-oil.jpg"
+            "image": "shopify://shop_images/jojoba-castor-oil-v2.jpg"
           }
         },
         "beeswax": {
@@ -99,36 +99,15 @@
             "text": "Butters and oils condition skin as you run, so long efforts end without the raw, stripped feeling. Protection and care in a single application."
           }
         },
-        "stability": {
-          "type": "detail",
-          "settings": {
-            "name": "Holds its form",
-            "text": "Structured to travel. It keeps its consistency in a hot bag, a drop bag, or a summer car, and applies the same at mile zero as it does at the halfway point."
-          }
-        },
         "finish": {
           "type": "detail",
           "settings": {
             "name": "Clean finish",
             "text": "A light natural scent and a low-residue feel. No synthetic fragrance, no heavy film."
           }
-        },
-        "dosage": {
-          "type": "detail",
-          "settings": {
-            "name": "Application",
-            "text": "Apply liberally to clean, dry skin 15-20 minutes before running, anywhere skin meets skin or skin meets fabric: inner thighs, underarms, sports bra line, feet, and pack-strap contact points. On hot days, carry a travel-size amount for the halfway point."
-          }
-        },
-        "texture": {
-          "type": "detail",
-          "settings": {
-            "name": "Texture",
-            "text": "Rich, balm-like texture, similar to a thick natural body butter. Glides on smooth and leaves a light protective layer rather than a fully dry-touch film."
-          }
         }
       },
-      "block_order": ["friction", "conditioning", "stability", "finish", "dosage", "texture"]
+      "block_order": ["friction", "conditioning", "finish"]
     },
     "faq": {
       "type": "product-faq",

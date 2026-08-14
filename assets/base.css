@@ -287,6 +287,20 @@ img {
   opacity: 1;
 }
 
+.ingredient-desc {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.ingredient-desc.is-active {
+  opacity: 1;
+}
+
 /* ========================================
    Line Clamp
    ======================================== */
