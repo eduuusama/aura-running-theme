@@ -30,7 +30,8 @@
           "settings": {
             "name": "Lanolin",
             "benefit": "The barrier",
-            "description": "Deeply water-repellent and skin-similar in structure. The barrier that holds when the miles get long."
+            "description": "Deeply water-repellent and skin-similar in structure. The barrier that holds when the miles get long.",
+            "image": "shopify://shop_images/lanolin.jpg"
           }
         },
         "shea": {
@@ -38,7 +39,8 @@
           "settings": {
             "name": "Shea Butter",
             "benefit": "The conditioner",
-            "description": "Softens and conditions skin while adding body to the balm's glide."
+            "description": "Softens and conditions skin while adding body to the balm's glide.",
+            "image": "shopify://shop_images/shea-butter.jpg"
           }
         },
         "jojoba": {
@@ -46,7 +48,8 @@
           "settings": {
             "name": "Jojoba & Castor Oil",
             "benefit": "The glide",
-            "description": "Lightweight, stable oils that keep the barrier moving with you instead of catching on skin or fabric."
+            "description": "Lightweight, stable oils that keep the barrier moving with you instead of catching on skin or fabric.",
+            "image": "shopify://shop_images/jojoba-castor-oil.jpg"
           }
         },
         "beeswax": {
@@ -63,7 +66,8 @@
           "settings": {
             "name": "Tea Tree Oil",
             "benefit": "The finish",
-            "description": "A natural, refreshing note that gives the balm its light scent. No added fragrance."
+            "description": "A natural, refreshing note that gives the balm its light scent. No added fragrance.",
+            "image": "shopify://shop_images/tea-tree-oil-full.jpg"
           }
         }
       },
