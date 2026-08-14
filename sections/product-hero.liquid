@@ -34,9 +34,11 @@
 
   {%- comment -%} Product Info - Mobile {%- endcomment -%}
   <div class="px-6 md:px-12 py-8 md:py-12 md:max-w-2xl md:mx-auto">
-    <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4 font-medium">
-      {{ section.settings.ref_label | default: 'REF — 001' }}
-    </p>
+    {%- if section.settings.ref_label != blank -%}
+      <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4 font-medium">
+        {{ section.settings.ref_label }}
+      </p>
+    {%- endif -%}
     <h1 class="font-light text-[28px] md:text-[36px] tracking-[-0.01em] leading-[1.2] mb-1">
       {{ product.title }}
     </h1>
@@ -46,6 +48,12 @@
     <p class="text-xl md:text-2xl font-light tracking-[-0.01em] mb-4">
       {{ product.selected_or_first_available_variant.price | money }}
     </p>
+
+    {%- if section.settings.statement != blank -%}
+      <p class="text-lg md:text-xl font-medium tracking-[-0.01em] mb-3">
+        {{ section.settings.statement }}
+      </p>
+    {%- endif -%}
 
     {%- if section.settings.tagline != blank -%}
       <p class="text-sm text-muted-foreground font-light leading-relaxed mb-8">
@@ -123,7 +131,7 @@
           </button>
           <div class="accordion-content">
             <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
-              {{ section.settings.shipping_info | default: 'Free shipping on orders over $50. Standard shipping: 3-5 business days.' }}
+              {{ section.settings.shipping_info | default: 'Standard shipping: 3-5 business days.' }}
             </div>
           </div>
         </div>
@@ -137,7 +145,7 @@
   <div class="min-h-[calc(100vh-64px)] grid grid-cols-2">
     {%- comment -%} Left — Edge-to-edge sticky image {%- endcomment -%}
     <div class="bg-[hsl(var(--secondary))] relative">
-      <div class="sticky top-16 h-[calc(100vh-64px)] flex flex-col">
+      <div class="sticky top-0 h-screen flex flex-col">
         <div class="flex-1 overflow-hidden">
           <img
             src="{{ product.featured_image | image_url: width: 1400 }}"
@@ -165,9 +173,11 @@
     {%- comment -%} Right — Product Info (scrollable) {%- endcomment -%}
     <div class="px-16 lg:px-24 xl:px-32 py-24">
       <div class="max-w-lg">
-        <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-12 font-medium">
-          {{ section.settings.ref_label | default: 'REF — 001' }}
-        </p>
+        {%- if section.settings.ref_label != blank -%}
+          <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-12 font-medium">
+            {{ section.settings.ref_label }}
+          </p>
+        {%- endif -%}
 
         <h1 class="font-light text-[36px] lg:text-[42px] tracking-[-0.02em] leading-[1.1] mb-2">
           {{ product.title }}
@@ -179,6 +189,12 @@
         <p class="text-2xl font-light tracking-[-0.01em] mb-6" id="product-price">
           {{ product.selected_or_first_available_variant.price | money }}
         </p>
+
+        {%- if section.settings.statement != blank -%}
+          <p class="text-xl lg:text-2xl font-medium tracking-[-0.01em] mb-4">
+            {{ section.settings.statement }}
+          </p>
+        {%- endif -%}
 
         {%- if section.settings.tagline != blank -%}
           <p class="text-base text-muted-foreground font-light leading-relaxed mb-16">
@@ -271,7 +287,7 @@
             </button>
             <div class="accordion-content">
               <div class="pb-8 text-base text-muted-foreground font-light leading-[1.6]">
-                {{ section.settings.shipping_info | default: 'Free shipping on orders over $50. Standard shipping: 3-5 business days.' }}
+                {{ section.settings.shipping_info | default: 'Standard shipping: 3-5 business days.' }}
               </div>
             </div>
           </div>
@@ -302,12 +318,13 @@
   "name": "Product Hero",
   "tag": "div",
   "settings": [
-    { "type": "text", "id": "ref_label", "label": "REF Label", "default": "REF — 001" },
+    { "type": "text", "id": "ref_label", "label": "REF Label (leave empty to hide)" },
+    { "type": "text", "id": "statement", "label": "Bold Statement (shown above description)" },
     { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "For Every Run" },
     { "type": "textarea", "id": "tagline", "label": "Tagline", "info": "Short description shown below the price" },
     { "type": "textarea", "id": "how_to_apply", "label": "How to Apply" },
     { "type": "textarea", "id": "ingredients_list", "label": "Ingredients List" },
-    { "type": "textarea", "id": "shipping_info", "label": "Shipping Info", "default": "Free shipping on orders over $50. Standard shipping: 3-5 business days." },
+    { "type": "textarea", "id": "shipping_info", "label": "Shipping Info", "default": "Standard shipping: 3-5 business days." },
     { "type": "textarea", "id": "cross_sell_text", "label": "Cross-sell Text" }
   ]
 }
