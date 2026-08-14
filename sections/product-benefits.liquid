@@ -16,15 +16,15 @@
     </h2>
 
     {%- if section.settings.description != blank -%}
-      <p class="text-base text-muted-foreground font-light leading-relaxed max-w-2xl mb-14">
+      <p class="text-base text-muted-foreground font-light leading-relaxed max-w-2xl mb-12">
         {{ section.settings.description }}
       </p>
     {%- endif -%}
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {%- for block in section.blocks -%}
-        <div class="group" {{ block.shopify_attributes }}>
-          <div class="block aspect-[4/3] bg-muted mb-6 overflow-hidden">
+        <div class="group bg-background overflow-hidden" {{ block.shopify_attributes }}>
+          <div class="block aspect-[4/3] bg-muted overflow-hidden">
             {%- if block.settings.image -%}
               <img
                 src="{{ block.settings.image | image_url: width: 800 }}"
@@ -39,13 +39,15 @@
             {%- endif -%}
           </div>
 
-          <h3 class="font-serif text-lg mb-3">
-            {{ block.settings.name }}
-          </h3>
+          <div class="p-6">
+            <h3 class="font-serif text-lg mb-3">
+              {{ block.settings.name }}
+            </h3>
 
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            {{ block.settings.text }}
-          </p>
+            <p class="text-sm text-muted-foreground leading-relaxed">
+              {{ block.settings.text }}
+            </p>
+          </div>
         </div>
       {%- endfor -%}
     </div>

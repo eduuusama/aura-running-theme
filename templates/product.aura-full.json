@@ -82,7 +82,7 @@
       "settings": {
         "label": "PERFORMANCE",
         "heading": "Product Benefits",
-        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise, including skin that reacts to synthetic fragrance or silicone-heavy formulas. For desert heat, high-altitude cold, or efforts past the marathon, reach for Aura Ultra."
+        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise, including skin that reacts to synthetic fragrance or silicone-heavy formulas."
       },
       "blocks": {
         "friction": {
@@ -102,8 +102,8 @@
         "finish": {
           "type": "benefit",
           "settings": {
-            "name": "Clean finish",
-            "text": "A light natural scent and a low-residue feel. No synthetic fragrance, no heavy film."
+            "name": "One application",
+            "text": "One thorough application before the start covers most marathon-distance efforts. Apply 15-20 minutes before running and get back to thinking about the miles."
           }
         }
       },
