@@ -15,51 +15,12 @@
         "ref_label": "",
         "statement": "Full distance. Full ingredients.",
         "subtitle": "The Natural Barrier for the Long Run",
-        "tagline": "Anti-chafe protection engineered for marathon distance and the training that earns it. A friction barrier that holds through heat, sweat, and hours of repetitive motion, tested across the long miles it was built for. You'll forget it's there. That's the point.",
+        "tagline": "Anti-chafe protection engineered for marathon distance and the training that earns it. A friction barrier that holds through heat, sweat, and hours of repetitive motion, tested across the long miles it was built for.",
         "how_to_apply": "Apply to clean, dry skin 15-20 minutes before running. Focus on high-friction areas: inner thighs, underarms, feet (especially between toes), sports bra line, and anywhere clothing or pack straps contact skin. For runs over 2 hours, carry a travel-size amount for reapplication at the halfway point.",
         "ingredients_list": "Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil\n\nContains lanolin and tea tree oil. Patch test before first full use if you have sensitive skin.",
         "shipping_info": "Standard shipping: 3-5 business days.",
         "cross_sell_text": "Going past the marathon? For ultra distance, extreme heat, or extreme cold, see <a href=\"/products/aura-ultra\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Ultra</a>."
       }
-    },
-    "benefits": {
-      "type": "product-usage",
-      "settings": {
-        "label": "PERFORMANCE",
-        "heading": "Product Benefits",
-        "description": "Built to do one thing under pressure: keep skin moving without damage, hour after hour. Backed by science. Proven by miles."
-      },
-      "blocks": {
-        "friction": {
-          "type": "detail",
-          "settings": {
-            "name": "Friction control",
-            "text": "A water-repellent barrier that stays in place through sweat and repetitive motion, reducing the rub that becomes chafing over distance. Applied once before the start, it works while you think about the miles."
-          }
-        },
-        "conditioning": {
-          "type": "detail",
-          "settings": {
-            "name": "Skin conditioning",
-            "text": "Butters and oils condition skin as you run, so long efforts end without the raw, stripped feeling. Protection and care in a single application."
-          }
-        },
-        "stability": {
-          "type": "detail",
-          "settings": {
-            "name": "Holds its form",
-            "text": "Structured to travel. It keeps its consistency in a hot bag, a drop bag, or a summer car, and applies the same at mile zero as it does at the halfway point."
-          }
-        },
-        "finish": {
-          "type": "detail",
-          "settings": {
-            "name": "Clean finish",
-            "text": "A light natural scent and a low-residue feel. No synthetic fragrance, no heavy film. You apply it, then forget it."
-          }
-        }
-      },
-      "block_order": ["friction", "conditioning", "stability", "finish"]
     },
     "ingredients": {
       "type": "product-ingredients",
@@ -109,17 +70,45 @@
       "block_order": ["lanolin", "shea", "jojoba", "beeswax", "teatree"],
       "settings": {
         "heading": "Key Ingredients",
-        "description": "Eight ingredients, each with a job to do. No petrolatum, no mineral oil, no parabens, no synthetic fragrance. Full list: Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil."
+        "description": ""
       }
     },
     "usage": {
       "type": "product-usage",
       "settings": {
-        "label": "WHEN TO USE",
-        "heading": "When to Use Aura Full",
-        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise, including skin that reacts to synthetic fragrance or silicone-heavy formulas. One application before the start covers most marathon-distance efforts. For desert heat, high-altitude cold, or efforts past the marathon, reach for Aura Ultra."
+        "label": "PERFORMANCE",
+        "heading": "Product Benefits & When to Use",
+        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise, including skin that reacts to synthetic fragrance or silicone-heavy formulas. For desert heat, high-altitude cold, or efforts past the marathon, reach for Aura Ultra."
       },
       "blocks": {
+        "friction": {
+          "type": "detail",
+          "settings": {
+            "name": "Friction control",
+            "text": "A water-repellent barrier that stays in place through sweat and repetitive motion, reducing the rub that becomes chafing over distance."
+          }
+        },
+        "conditioning": {
+          "type": "detail",
+          "settings": {
+            "name": "Skin conditioning",
+            "text": "Butters and oils condition skin as you run, so long efforts end without the raw, stripped feeling. Protection and care in a single application."
+          }
+        },
+        "stability": {
+          "type": "detail",
+          "settings": {
+            "name": "Holds its form",
+            "text": "Structured to travel. It keeps its consistency in a hot bag, a drop bag, or a summer car, and applies the same at mile zero as it does at the halfway point."
+          }
+        },
+        "finish": {
+          "type": "detail",
+          "settings": {
+            "name": "Clean finish",
+            "text": "A light natural scent and a low-residue feel. No synthetic fragrance, no heavy film."
+          }
+        },
         "dosage": {
           "type": "detail",
           "settings": {
@@ -135,7 +124,7 @@
           }
         }
       },
-      "block_order": ["dosage", "texture"]
+      "block_order": ["friction", "conditioning", "stability", "finish", "dosage", "texture"]
     },
     "faq": {
       "type": "product-faq",
@@ -246,7 +235,6 @@
   },
   "order": [
     "main",
-    "benefits",
     "ingredients",
     "usage",
     "faq",
