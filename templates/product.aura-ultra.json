@@ -12,85 +12,99 @@
     "main": {
       "type": "product-hero",
       "settings": {
-        "ref_label": "REF — 002",
-        "subtitle": "For The Long Miles",
-        "tagline": "When duration matters more than speed. When you measure effort in hours, not miles.",
-        "how_to_apply": "Apply to completely dry skin 30-45 minutes before race start. This allows film formation to complete. Cover all high-friction zones thoroughly: feet (especially between toes), inner thighs, underarms, groin, nipples, pack contact points. Build coverage in areas prone to chafing during previous long efforts.",
-        "ingredients_list": "Dimethicone, Cyclopentasiloxane, Squalane (Olive-Derived), Caprylic/Capric Triglyceride, Oryza Sativa (Rice) Bran Wax, Copernicia Cerifera (Carnauba) Wax, Tocopherol (Vitamin E), Bisabolol, Allantoin, Hippophae Rhamnoides (Sea Buckthorn) Fruit Oil, Calophyllum Inophyllum (Tamanu) Seed Oil",
+        "ref_label": "",
+        "statement": "Still there at mile 80.",
+        "subtitle": "Engineered for the Distances Where Everything Else Fails",
+        "tagline": "Past hour three, most anti-chafe products stop working. Not because the runner did anything wrong, because the formula wasn't built for that distance. Aura Ultra is a petrolatum and lanolin barrier system engineered for extended wear: desert heat, alpine cold, and the hours-long sweat exposure that wears through lighter formulas.",
+        "how_to_apply": "Apply to completely dry skin 30-45 minutes before race start to allow the barrier to fully set. Cover all high-friction zones thoroughly: feet (especially between toes), inner thighs, underarms, groin, sports bra line, and any pack or strap contact points. Reapply at crew-accessible aid stations on extended efforts.",
+        "ingredients_list": "White Petrolatum, Mineral Oil, Lanolin, Microcrystalline Wax, Paraffin Wax, Soy Sterols, Vitamin E, Tea Tree Oil\n\nContains lanolin and tea tree oil. Patch test before first full use if you have sensitive skin.",
         "shipping_info": "Standard shipping: 3-5 business days.",
-        "cross_sell_text": "For post-race recovery, pair with <a href=\"/products/aura-recover\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Recover</a> — ceramide barrier repair for damaged skin."
+        "cross_sell_text": "Training days and marathon distance? <a href=\"/products/aura-full\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Full</a> is the natural-inspired barrier for the everyday miles."
       }
     },
     "ingredients": {
       "type": "product-ingredients",
       "blocks": {
-        "coconut": {
+        "petrolatum": {
           "type": "ingredient",
           "settings": {
-            "name": "Coconut Oil",
-            "benefit": "Deep moisture",
-            "description": "Penetrates deep into skin layers to provide lasting hydration and create a protective barrier.",
-            "image": "shopify://shop_images/coconut-oil.jpg"
+            "name": "White Petrolatum",
+            "benefit": "The barrier",
+            "description": "The most occlusive, longest-proven skin barrier ingredient available. Built for extended exposure to moisture and friction."
           }
         },
-        "cocoa": {
+        "lanolin": {
           "type": "ingredient",
           "settings": {
-            "name": "Cocoa Butter",
-            "benefit": "Skin softening",
-            "description": "Rich in fatty acids, it softens and conditions skin while reducing friction during movement.",
-            "image": "shopify://shop_images/cocoa-butter.jpg"
+            "name": "Lanolin",
+            "benefit": "The second line",
+            "description": "The barrier ingredient distance runners have trusted for decades, layered in to reinforce the petrolatum base.",
+            "image": "shopify://shop_images/lanolin.jpg"
           }
         },
-        "beeswax": {
+        "waxes": {
           "type": "ingredient",
           "settings": {
-            "name": "Beeswax",
-            "benefit": "Protective seal",
-            "description": "Creates a breathable, water-resistant barrier that locks in moisture without clogging pores.",
-            "image": "shopify://shop_images/beeswax.jpg"
+            "name": "Microcrystalline & Paraffin Wax",
+            "benefit": "The structure",
+            "description": "Keeps the balm stable from desert heat to alpine cold, without turning to liquid or seizing solid."
           }
         },
-        "vitamine": {
+        "sterols": {
           "type": "ingredient",
           "settings": {
-            "name": "Vitamin E",
-            "benefit": "Antioxidant",
-            "description": "Powerful antioxidant that protects skin from environmental damage and promotes healing.",
-            "image": "shopify://shop_images/vitamin-e.jpg"
+            "name": "Soy Sterols",
+            "benefit": "The feel",
+            "description": "Cuts the heavy feel of a petrolatum-forward formula so it doesn't sit on skin like plain petroleum jelly."
+          }
+        },
+        "teatree": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Tea Tree Oil",
+            "benefit": "The finish",
+            "description": "A clean, refreshing finish alongside the barrier system. No added fragrance.",
+            "image": "shopify://shop_images/tea-tree-oil-full.jpg"
           }
         }
       },
-      "block_order": ["coconut", "cocoa", "beeswax", "vitamine"],
+      "block_order": ["petrolatum", "lanolin", "waxes", "sterols", "teatree"],
       "settings": {
         "heading": "Key Ingredients",
-        "description": "Advanced polymer matrix engineered for maximum duration. Each ingredient creates a synergistic barrier that won't break down during 6-12+ hour efforts."
+        "description": ""
       }
     },
     "usage": {
-      "type": "product-usage",
+      "type": "product-benefits",
       "settings": {
-        "label": "HOW TO USE",
-        "heading": "When to Use",
-        "description": "Ultra marathons (50K-100+ miles), marathon races, any single effort exceeding 4 hours, multi-day stage races, extreme weather events (high heat, humidity, or wet conditions), races where aid station reapplication isn't practical."
+        "label": "PERFORMANCE",
+        "heading": "Product Benefits",
+        "description": "Ultra distance: 50K, 100K, 100 miles and beyond. Multi-day stage races. Extreme heat that liquefies oil-and-butter balms, and alpine cold that hardens them. Built for efforts where aid stations are far apart and reapplication isn't practical or guaranteed."
       },
       "blocks": {
-        "dosage": {
-          "type": "detail",
+        "temperature": {
+          "type": "benefit",
           "settings": {
-            "name": "Dosage",
-            "text": "Dime-sized amount per major zone (each foot, each thigh, torso). For feet: apply between every toe, across arch, around heel cup. Don't rush application—this is race preparation."
+            "name": "Temperature stable",
+            "text": "The wax-and-petrolatum structure holds a workable texture from desert heat to alpine cold, where natural oil-and-butter balms liquefy or seize solid."
           }
         },
-        "texture": {
-          "type": "detail",
+        "sweat": {
+          "type": "benefit",
           "settings": {
-            "name": "Texture",
-            "text": "Silky balm with initial slip that sets to dry-touch protective film within 2-3 minutes. Feels like second skin—present but imperceptible."
+            "name": "Sweat resistance",
+            "text": "An occlusive petrolatum and lanolin barrier that resists washoff through hours of sustained sweat, long after film-forming sticks wear through."
+          }
+        },
+        "barrier": {
+          "type": "benefit",
+          "settings": {
+            "name": "Maximum barrier",
+            "text": "It's not trying to feel weightless. A rich, occlusive balm, closer to an ointment than a dry-touch film, built to protect when the distance demands everything."
           }
         }
       },
-      "block_order": ["dosage", "texture"]
+      "block_order": ["temperature", "sweat", "barrier"]
     },
     "faq": {
       "type": "product-faq",
@@ -102,70 +116,101 @@
         "q1": {
           "type": "question",
           "settings": {
-            "title": "How long does Aura Ultra last?",
-            "answer": "6-12+ hours—enough for a full 100-miler without reapplication."
+            "title": "Why petrolatum instead of a natural formula?",
+            "answer": "For the most extreme distances and conditions, petrolatum is the most occlusive, longest-proven barrier ingredient in skin protection. It's the right tool for 100-mile races and desert or alpine extremes, even though it's not a natural ingredient."
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "title": "Does it work in humidity?",
-            "answer": "Yes. Sweat-proof and humidity-resistant formula."
+            "title": "Is this the same as Vaseline?",
+            "answer": "No. Vaseline is pure petrolatum. Aura Ultra combines petrolatum with lanolin, structuring waxes, and soy sterols to hold up across a wider temperature range and feel less heavy than plain petroleum jelly."
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "title": "How is this different from Body Glide?",
-            "answer": "Standard products fail after 1-2 hours. Aura Ultra is engineered for ultra distances."
+            "title": "What is the best anti-chafe balm for 100 mile races?",
+            "answer": "A formula built on an occlusive barrier ingredient that resists sweat washoff over many hours, not a product designed around a 2-3 hour road race. Aura Ultra is built specifically for that distance."
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "title": "What is the best anti-chafe for ultra marathons?",
-            "answer": "Aura Ultra is specifically engineered for 50K-100+ mile races. The advanced polymer matrix bonds to skin and won't break down during 6-12+ hour efforts."
+            "title": "Does Vaseline work for ultra running?",
+            "answer": "Plain petrolatum is a genuinely effective barrier, part of why Aura Ultra is built around it. On its own it can feel heavy and doesn't hold structure as well across temperature extremes. Aura Ultra adds lanolin, structuring waxes, and soy sterols to address both."
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "title": "Do I need to reapply anti-chafe during a 100 mile race?",
-            "answer": "No. Aura Ultra is designed for single-application protection. Apply thoroughly before race start and run the entire distance without reapplication at aid stations."
+            "title": "Does Aura Ultra work in hot weather?",
+            "answer": "Yes. The wax-and-petrolatum structure is built to hold up in heat that softens oil-and-butter balms."
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "title": "Does Aura Ultra work in cold weather?",
+            "answer": "Yes. Petrolatum-based formulas stay workable in cold that hardens natural oil-and-butter balms, an advantage at altitude and in alpine conditions."
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "title": "Is Aura Ultra waterproof?",
+            "answer": "It's built to resist sweat and moisture better than film-forming or oil-based alternatives. No topical barrier is fully waterproof over many hours."
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Aura Ultra every day?",
+            "answer": "It's built for race-day and long-effort use, not daily training. The occlusive, heavier formula is more than most training runs need. Save it for when duration and conditions actually demand it, and use Aura Full for the everyday miles."
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "title": "Any allergy concerns?",
+            "answer": "Two worth knowing about: lanolin (wool-derived, a small percentage of people are sensitive) and tea tree oil (roughly 1-3% of people can develop contact sensitivity with repeated use). We recommend a patch test before your first full use."
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "title": "Is Aura Ultra reef-safe or eco-friendly?",
+            "answer": "Petrolatum and paraffin are petroleum derivatives, so we don't make environmental claims for this formula. If a natural-inspired ingredient list matters more to you, that's what Aura Full is for."
+          }
+        },
+        "q11": {
+          "type": "question",
+          "settings": {
+            "title": "Can I bring Aura Ultra on a plane?",
+            "answer": "Yes. At 2 fl oz (59 mL), it's under the TSA's 3.4 oz carry-on liquid limit."
+          }
+        },
+        "q12": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Aura Ultra for hiking, rucking, or other endurance sports?",
+            "answer": "Yes. The same friction and moisture conditions that affect ultra runners apply to rucking, hiking, and other endurance activity."
+          }
+        },
+        "q13": {
+          "type": "question",
+          "settings": {
+            "title": "What's the difference between Aura Full and Aura Ultra?",
+            "answer": "Distance and conditions. Aura Full is natural-inspired, built for marathon distance and daily training. Aura Ultra is petrolatum-based, built for ultra distance and extreme conditions."
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"]
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13"]
     },
     "related-products": {
       "type": "related-products",
       "settings": {
         "heading": "Related Products"
-      }
-    },
-    "testimonials": {
-      "type": "product-testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Applied before a 100K and never thought about chafing once. That's never happened before.",
-            "author": "Jake M.",
-            "attribution": "Ultra Runner"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "6-12 hours of protection isn't marketing. It's what actually happens. This stuff is different.",
-            "author": "Elena R.",
-            "attribution": "100-Mile Finisher"
-          }
-        }
-      },
-      "block_order": ["t1", "t2"],
-      "settings": {
-        "heading": "What Runners Say"
       }
     },
     "related": {
@@ -181,7 +226,6 @@
     "usage",
     "faq",
     "related-products",
-    "testimonials",
     "related"
   ]
 }
