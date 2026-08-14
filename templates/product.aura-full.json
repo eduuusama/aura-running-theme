@@ -82,28 +82,31 @@
       "settings": {
         "label": "PERFORMANCE",
         "heading": "Product Benefits",
-        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise, including skin that reacts to synthetic fragrance or silicone-heavy formulas."
+        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise: one application at the start line, calm skin at the finish."
       },
       "blocks": {
         "friction": {
           "type": "benefit",
           "settings": {
             "name": "Friction control",
-            "text": "A water-repellent barrier that stays in place through sweat and repetitive motion, reducing the rub that becomes chafing over distance."
+            "text": "A water-repellent barrier that stays in place through sweat and repetitive motion, reducing the rub that becomes chafing over distance.",
+            "image": "shopify://shop_images/benefit-friction-control.jpg"
           }
         },
         "conditioning": {
           "type": "benefit",
           "settings": {
             "name": "Skin conditioning",
-            "text": "Butters and oils condition skin as you run, so long efforts end without the raw, stripped feeling. Protection and care in a single application."
+            "text": "Butters and oils condition skin as you run, so long efforts end without the raw, stripped feeling. Protection and care in a single application.",
+            "image": "shopify://shop_images/benefit-skin-conditioning.jpg"
           }
         },
         "finish": {
           "type": "benefit",
           "settings": {
             "name": "One application",
-            "text": "One thorough application before the start covers most marathon-distance efforts. Apply 15-20 minutes before running and get back to thinking about the miles."
+            "text": "Apply 15-20 minutes before running. The barrier sets in and holds through sweat and distance. Unchecked friction changes your stride, and a changed stride is where injury begins. Protect the base, free the runner.",
+            "image": "shopify://shop_images/benefit-one-application.jpg"
           }
         }
       },
