@@ -8,23 +8,24 @@
 {%- assign sp = section.settings.product -%}
 
 <section class="grid grid-cols-1 lg:grid-cols-2">
-  {%- comment -%} Left — Feature rows {%- endcomment -%}
-  <div class="bg-background px-6 md:px-12 lg:px-16 py-16 lg:py-24 flex flex-col justify-center gap-10">
+  {%- comment -%} Left — Full-bleed feature images with overlaid text {%- endcomment -%}
+  <div class="flex flex-col">
     {%- for block in section.blocks -%}
-      <div class="flex items-center gap-6" {{ block.shopify_attributes }}>
-        <div class="w-28 h-28 md:w-32 md:h-32 shrink-0 bg-muted overflow-hidden">
-          {%- if block.settings.image -%}
-            <img
-              src="{{ block.settings.image | image_url: width: 400 }}"
-              alt="{{ block.settings.image.alt | default: block.settings.title }}"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            >
-          {%- endif -%}
-        </div>
-        <div>
-          <h3 class="font-serif text-lg mb-2">{{ block.settings.title }}</h3>
-          <p class="text-sm text-muted-foreground font-light leading-relaxed">{{ block.settings.text }}</p>
+      <div class="relative flex-1 overflow-hidden group" style="min-height:260px" {{ block.shopify_attributes }}>
+        {%- if block.settings.image -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 1200 }}"
+            alt="{{ block.settings.image.alt | default: block.settings.title }}"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="absolute inset-0 bg-muted"></div>
+        {%- endif -%}
+        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.12) 45%, transparent 70%)"></div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-6 md:p-10">
+          <h3 class="font-serif text-xl md:text-2xl text-white mb-2">{{ block.settings.title }}</h3>
+          <p class="text-sm text-white/80 font-light leading-relaxed max-w-md">{{ block.settings.text }}</p>
         </div>
       </div>
     {%- endfor -%}
