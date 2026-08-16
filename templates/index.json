@@ -18,6 +18,41 @@
         "button_link": ""
       }
     },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "label": "The System",
+        "heading": "Before, during, and after the miles",
+        "description": "Three formulas, one job: keep skin out of the conversation. A natural barrier for the marathon, an engineered barrier for the ultra, and recovery for the hour that follows."
+      },
+      "blocks": {
+        "full": {
+          "type": "product",
+          "settings": {
+            "product": "aura-full",
+            "descriptor": "The natural lanolin barrier for marathon distance and the training that earns it.",
+            "size": "One size · 2 fl oz (59 mL)"
+          }
+        },
+        "ultra": {
+          "type": "product",
+          "settings": {
+            "product": "aura-ultra",
+            "descriptor": "The petrolatum barrier system for ultra distance, extreme heat, and alpine cold.",
+            "size": "One size · 2 fl oz (59 mL)"
+          }
+        },
+        "recovery": {
+          "type": "product",
+          "settings": {
+            "product": "aura-recovery",
+            "descriptor": "The ceramide recovery cream for the hour after the run.",
+            "size": "One size · 2 fl oz (59 mL)"
+          }
+        }
+      },
+      "block_order": ["full", "ultra", "recovery"]
+    },
     "quote": {
       "type": "quote-section",
       "settings": {
@@ -248,6 +283,7 @@
   },
   "order": [
     "hero",
+    "featured",
     "quote",
     "pillars",
     "marquee",
