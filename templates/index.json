@@ -21,9 +21,9 @@
     "featured": {
       "type": "featured-products",
       "settings": {
-        "label": "The System",
-        "heading": "Before, during, and after the miles",
-        "description": "Three formulas, one job: keep skin out of the conversation. A natural barrier for the marathon, an engineered barrier for the ultra, and recovery for the hour that follows."
+        "label": "",
+        "heading": "",
+        "description": ""
       },
       "blocks": {
         "full": {
@@ -44,7 +44,7 @@
           "type": "product",
           "settings": {
             "product": "aura-recovery",
-            "descriptor": "The ceramide recovery cream for the hour after the run."
+            "descriptor": "The ceramide recovery cream for the hour after the run, when skin is most responsive."
           }
         }
       },

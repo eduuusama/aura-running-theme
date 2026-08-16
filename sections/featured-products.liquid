@@ -6,22 +6,26 @@
 
 <section class="py-20 md:py-28 bg-background">
   <div class="container">
-    {%- comment -%} Centered header {%- endcomment -%}
-    <div class="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-      {%- if section.settings.label != blank -%}
-        <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">
-          {{ section.settings.label }}
-        </p>
-      {%- endif -%}
-      <h2 class="font-serif text-3xl md:text-4xl mb-5">
-        {{ section.settings.heading }}
-      </h2>
-      {%- if section.settings.description != blank -%}
-        <p class="text-base text-muted-foreground font-light leading-relaxed">
-          {{ section.settings.description }}
-        </p>
-      {%- endif -%}
-    </div>
+    {%- comment -%} Centered header (hidden entirely when empty) {%- endcomment -%}
+    {%- if section.settings.label != blank or section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+        {%- if section.settings.label != blank -%}
+          <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">
+            {{ section.settings.label }}
+          </p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="font-serif text-3xl md:text-4xl mb-5">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="text-base text-muted-foreground font-light leading-relaxed">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
 
     {%- comment -%} Product columns {%- endcomment -%}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
