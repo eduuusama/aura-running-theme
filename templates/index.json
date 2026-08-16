@@ -51,42 +51,6 @@
       },
       "block_order": ["full", "ultra", "recovery"]
     },
-    "spotlight": {
-      "type": "product-spotlight",
-      "settings": {
-        "product": "aura-full",
-        "label": "",
-        "heading": "Aura Full",
-        "description": "Anti-chafe protection engineered for marathon distance and the training that earns it. One application at the start line, calm skin at the finish."
-      },
-      "blocks": {
-        "friction": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/benefit-friction-control.jpg",
-            "title": "Friction control",
-            "text": "A water-repellent barrier that stays in place through sweat and repetitive motion."
-          }
-        },
-        "conditioning": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/benefit-skin-conditioning.jpg",
-            "title": "Skin conditioning",
-            "text": "Butters and oils condition skin as you run. Protection and care in one application."
-          }
-        },
-        "application": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/benefit-one-application.jpg",
-            "title": "One application",
-            "text": "Apply 15-20 minutes before running. The barrier sets in and holds through sweat and distance."
-          }
-        }
-      },
-      "block_order": ["friction", "conditioning", "application"]
-    },
     "quote": {
       "type": "quote-section",
       "settings": {
@@ -318,7 +282,6 @@
   "order": [
     "hero",
     "featured",
-    "spotlight",
     "quote",
     "pillars",
     "marquee",
