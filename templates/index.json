@@ -13,7 +13,7 @@
       "type": "hero",
       "settings": {
         "heading": "Go Further",
-        "subtitle": "Elite Anti-Chafe Balm for Long Distance Runners",
+        "subtitle": "",
         "button_text": "Shop All Products",
         "button_link": ""
       }
@@ -22,7 +22,8 @@
       "type": "featured-products",
       "settings": {
         "label": "",
-        "heading": "",
+        "heading": "Elite Anti-Chafe Balm for Long Distance Runners",
+        "heading_is_h1": true,
         "description": ""
       },
       "blocks": {
