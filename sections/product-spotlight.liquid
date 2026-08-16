@@ -63,13 +63,13 @@
       </h2>
     {%- endif -%}
     {%- if section.settings.description != blank -%}
-      <p class="text-base font-light leading-relaxed max-w-md mx-auto mb-10" style="color:rgba(255,255,255,0.65)">
+      <p class="font-serif text-xl md:text-2xl leading-snug max-w-lg mx-auto mb-10" style="color:#fafafa">
         {{ section.settings.description }}
       </p>
     {%- endif -%}
 
     {%- if sp != blank -%}
-      <a href="{{ sp.url }}" class="block w-56 md:w-64 mb-8 group">
+      <a href="{{ sp.url }}" class="block w-56 md:w-64 mb-10 group">
         {%- if sp.featured_image -%}
           <img
             src="{{ sp.featured_image | image_url: width: 600 }}"
@@ -79,11 +79,6 @@
           >
         {%- endif -%}
       </a>
-
-      <a href="{{ sp.url }}" style="color:#fafafa" class="hover:opacity-70 transition-opacity">
-        <h3 class="text-base font-medium tracking-tight mb-2">{{ sp.title }}</h3>
-      </a>
-      <p class="text-sm font-light mb-6" style="color:rgba(255,255,255,0.75)">{{ sp.price | money }}</p>
 
       {%- if sp.available -%}
         <button
