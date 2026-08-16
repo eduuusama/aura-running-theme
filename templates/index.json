@@ -30,24 +30,21 @@
           "type": "product",
           "settings": {
             "product": "aura-full",
-            "descriptor": "The natural lanolin barrier for marathon distance and the training that earns it.",
-            "size": "One size · 2 fl oz (59 mL)"
+            "descriptor": "The natural lanolin barrier for marathon distance and the training that earns it."
           }
         },
         "ultra": {
           "type": "product",
           "settings": {
             "product": "aura-ultra",
-            "descriptor": "The petrolatum barrier system for ultra distance, extreme heat, and alpine cold.",
-            "size": "One size · 2 fl oz (59 mL)"
+            "descriptor": "The petrolatum barrier system for ultra distance, extreme heat, and alpine cold."
           }
         },
         "recovery": {
           "type": "product",
           "settings": {
             "product": "aura-recovery",
-            "descriptor": "The ceramide recovery cream for the hour after the run.",
-            "size": "One size · 2 fl oz (59 mL)"
+            "descriptor": "The ceramide recovery cream for the hour after the run."
           }
         }
       },

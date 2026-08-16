@@ -1,23 +1,23 @@
 {%- comment -%}
   Featured Products — Centered header + 3-column product row
-  Structure: label / heading / description, then image, title,
-  descriptor, size, price, add-to-cart per product.
+  Cards mirror the Shop page product-card (left-aligned, dual-image
+  hover, full-width uppercase button). Sold out renders grey.
 {%- endcomment -%}
 
 <section class="py-20 md:py-28 bg-background">
   <div class="container">
     {%- comment -%} Centered header {%- endcomment -%}
-    <div class="text-center mb-14">
+    <div class="text-center max-w-2xl mx-auto mb-16 md:mb-20">
       {%- if section.settings.label != blank -%}
-        <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 font-light">
+        <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">
           {{ section.settings.label }}
         </p>
       {%- endif -%}
-      <h2 class="font-serif text-3xl md:text-4xl mb-4">
+      <h2 class="font-serif text-3xl md:text-4xl mb-5">
         {{ section.settings.heading }}
       </h2>
       {%- if section.settings.description != blank -%}
-        <p class="text-base text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
+        <p class="text-base text-muted-foreground font-light leading-relaxed">
           {{ section.settings.description }}
         </p>
       {%- endif -%}
@@ -28,48 +28,54 @@
       {%- for block in section.blocks -%}
         {%- assign fp = block.settings.product -%}
         {%- if fp != blank -%}
-          <div class="group flex flex-col text-center" {{ block.shopify_attributes }}>
-            <a href="{{ fp.url }}" class="block aspect-square bg-secondary mb-6 overflow-hidden">
-              {%- if fp.featured_image -%}
-                <img
-                  src="{{ fp.featured_image | image_url: width: 800 }}"
-                  alt="{{ fp.featured_image.alt | default: fp.title }}"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                >
-              {%- endif -%}
+          <div class="group block bg-background" {{ block.shopify_attributes }}>
+            <a href="{{ fp.url }}" class="block">
+              <div class="aspect-square overflow-hidden bg-muted mb-6 relative">
+                {%- if fp.featured_image -%}
+                  <img
+                    src="{{ fp.featured_image | image_url: width: 800 }}"
+                    alt="{{ fp.featured_image.alt | default: fp.title }}"
+                    class="product-card-image-main w-full h-full object-cover transition-opacity duration-500"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+                {%- if fp.images.size > 1 -%}
+                  <img
+                    src="{{ fp.images[1] | image_url: width: 800 }}"
+                    alt="{{ fp.images[1].alt | default: fp.title }}"
+                    class="product-card-image-hover w-full h-full object-cover"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+              </div>
             </a>
 
-            <a href="{{ fp.url }}" class="hover:opacity-60 transition-opacity">
-              <h3 class="font-serif text-lg mb-3">{{ fp.title }}</h3>
-            </a>
+            <div class="px-1">
+              <a href="{{ fp.url }}">
+                <h3 class="text-base font-medium tracking-tight mb-1 group-hover:opacity-60 transition-opacity">
+                  {{ fp.title }}
+                </h3>
+              </a>
 
-            {%- if block.settings.descriptor != blank -%}
-              <p class="text-sm text-muted-foreground font-light leading-relaxed mb-4 max-w-xs mx-auto">
-                {{ block.settings.descriptor }}
-              </p>
-            {%- endif -%}
-
-            <div class="mt-auto">
-              {%- if block.settings.size != blank -%}
-                <p class="text-xs text-muted-foreground font-light mb-1">{{ block.settings.size }}</p>
+              {%- if block.settings.descriptor != blank -%}
+                <p class="text-sm text-muted-foreground font-light line-clamp-2 mb-3">
+                  {{ block.settings.descriptor }}
+                </p>
               {%- endif -%}
 
-              <p class="text-base font-light mb-5">
-                {{ fp.selected_or_first_available_variant.price | money }}
-              </p>
+              <p class="text-sm font-light mb-4">{{ fp.price | money }}</p>
 
               {%- if fp.available -%}
                 <button
-                  onclick="window.CartDrawer.addItem({ id: {{ fp.selected_or_first_available_variant.id }} })"
-                  class="w-full h-12 bg-foreground text-background text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors"
+                  class="w-full h-14 rounded-none bg-foreground text-background hover:bg-foreground/90 transition-colors text-xs font-medium uppercase tracking-[0.15em]"
+                  onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('cart:add', { detail: { id: {{ fp.selected_or_first_available_variant.id }} } }))"
                 >
-                  Add to cart
+                  {{ 'general.add_to_cart' | t | default: 'Add to Cart' }}
                 </button>
               {%- else -%}
                 <button
                   disabled
-                  class="w-full h-12 bg-muted text-muted-foreground text-xs font-medium uppercase tracking-[0.15em] disabled:cursor-not-allowed"
+                  class="w-full h-14 rounded-none bg-muted text-muted-foreground text-xs font-medium uppercase tracking-[0.15em] disabled:cursor-not-allowed"
                 >
                   {{ 'general.sold_out' | t | default: 'Sold Out' }}
                 </button>
@@ -96,8 +102,7 @@
       "name": "Product",
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
-        { "type": "textarea", "id": "descriptor", "label": "Short Descriptor" },
-        { "type": "text", "id": "size", "label": "Size Line", "default": "One size · 2 fl oz (59 mL)" }
+        { "type": "textarea", "id": "descriptor", "label": "Short Descriptor" }
       ]
     }
   ],
