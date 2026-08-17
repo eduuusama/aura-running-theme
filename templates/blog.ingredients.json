@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "hero": {
+      "type": "blog-hero",
+      "settings": {
+        "label": "What's inside, and why",
+        "heading": "Ingredients"
+      }
+    },
+    "list": {
+      "type": "ingredient-list",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "list"]
+}
