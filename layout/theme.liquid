@@ -58,15 +58,28 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "{{ shop.name }}",
+      "name": "Aura Running",
       "url": "{{ shop.url }}",
-      "logo": "{{ 'logo.png' | asset_url }}",
+      "logo": "https:{{ 'favicon.png' | asset_url }}",
       "description": "{{ shop.description | escape }}",
       "sameAs": [
         {%- if settings.social_instagram != blank -%}"{{ settings.social_instagram }}"{%- endif -%}
       ]
     }
   </script>
+
+  {%- comment -%} JSON-LD WebSite Schema (site name in Google results) {%- endcomment -%}
+  {%- if request.page_type == 'index' -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Aura Running",
+        "alternateName": ["aura-running.com", "Aura"],
+        "url": "{{ shop.url }}"
+      }
+    </script>
+  {%- endif -%}
 </head>
 
 <body class="bg-background text-foreground font-sans antialiased{% if request.page_type == 'product' %} template-product{% endif %}">
