@@ -33,12 +33,12 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} Product columns {%- endcomment -%}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {%- comment -%} Product columns — swipeable carousel on mobile, grid from sm up {%- endcomment -%}
+    <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 -mx-8 px-8 pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible">
       {%- for block in section.blocks -%}
         {%- assign fp = block.settings.product -%}
         {%- if fp != blank -%}
-          <div class="group block bg-background" {{ block.shopify_attributes }}>
+          <div class="group block bg-background w-[78vw] max-w-sm shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink" {{ block.shopify_attributes }}>
             <a href="{{ fp.url }}" class="block">
               <div class="aspect-square overflow-hidden bg-muted mb-6 relative">
                 {%- if fp.featured_image -%}
