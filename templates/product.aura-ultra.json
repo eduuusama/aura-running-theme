@@ -30,7 +30,8 @@
           "settings": {
             "name": "White Petrolatum",
             "benefit": "The barrier",
-            "description": "The most occlusive, longest-proven skin barrier ingredient available. Built for extended exposure to moisture and friction."
+            "description": "The most occlusive, longest-proven skin barrier ingredient available. Built for extended exposure to moisture and friction.",
+            "image": "shopify://shop_images/white-petrolatum.jpg"
           }
         },
         "lanolin": {
@@ -39,7 +40,7 @@
             "name": "Lanolin",
             "benefit": "The second line",
             "description": "The barrier ingredient distance runners have trusted for decades, layered in to reinforce the petrolatum base.",
-            "image": "shopify://shop_images/lanolin.jpg"
+            "image": "shopify://shop_images/lanolin-v3.jpg"
           }
         },
         "waxes": {
@@ -47,7 +48,8 @@
           "settings": {
             "name": "Microcrystalline & Paraffin Wax",
             "benefit": "The structure",
-            "description": "Keeps the balm stable from desert heat to alpine cold, without turning to liquid or seizing solid."
+            "description": "Keeps the balm stable from desert heat to alpine cold, without turning to liquid or seizing solid.",
+            "image": "shopify://shop_images/microcrystalline-paraffin-wax.jpg"
           }
         },
         "sterols": {
@@ -55,7 +57,8 @@
           "settings": {
             "name": "Soy Sterols",
             "benefit": "The feel",
-            "description": "Cuts the heavy feel of a petrolatum-forward formula so it doesn't sit on skin like plain petroleum jelly."
+            "description": "Cuts the heavy feel of a petrolatum-forward formula so it doesn't sit on skin like plain petroleum jelly.",
+            "image": "shopify://shop_images/soy-sterols.jpg"
           }
         },
         "teatree": {
