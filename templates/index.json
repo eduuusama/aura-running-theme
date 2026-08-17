@@ -282,10 +282,10 @@
   "order": [
     "hero",
     "featured",
+    "product_showcase",
     "quote",
     "pillars",
     "marquee",
-    "product_showcase",
     "editorial",
     "newsletter",
     "brand_story"
