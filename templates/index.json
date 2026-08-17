@@ -212,6 +212,49 @@
         "heading": "Used by athletes in"
       }
     },
+    "benefits": {
+      "type": "benefits-showcase",
+      "settings": {
+        "heading": "Built for the miles ahead",
+        "description": "Three formulas, one job: keep skin out of the way. Switch between products to see what each one is built to do."
+      },
+      "blocks": {
+        "full": {
+          "type": "product_tab",
+          "settings": {
+            "product": "aura-full",
+            "label": "Aura Full",
+            "benefit_1_title": "Friction control",
+            "benefit_1_image": "shopify://shop_images/benefit-friction-control.jpg",
+            "benefit_2_title": "Skin conditioning",
+            "benefit_2_image": "shopify://shop_images/benefit-skin-conditioning.jpg",
+            "benefit_3_title": "One application",
+            "benefit_3_image": "shopify://shop_images/benefit-one-application.jpg"
+          }
+        },
+        "ultra": {
+          "type": "product_tab",
+          "settings": {
+            "product": "aura-ultra",
+            "label": "Aura Ultra",
+            "benefit_1_title": "Temperature stable",
+            "benefit_2_title": "Sweat resistance",
+            "benefit_3_title": "Maximum barrier"
+          }
+        },
+        "recovery": {
+          "type": "product_tab",
+          "settings": {
+            "product": "aura-recovery",
+            "label": "Aura Recovery",
+            "benefit_1_title": "Barrier replenishment",
+            "benefit_2_title": "Calm and hydration",
+            "benefit_3_title": "The recovery window"
+          }
+        }
+      },
+      "block_order": ["full", "ultra", "recovery"]
+    },
     "product_showcase": {
       "type": "product-showcase",
       "blocks": {
@@ -291,6 +334,7 @@
   "order": [
     "hero",
     "featured",
+    "benefits",
     "product_showcase",
     "quote",
     "pillars",
