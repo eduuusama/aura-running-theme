@@ -20,12 +20,6 @@
     },
     "featured": {
       "type": "featured-products",
-      "settings": {
-        "label": "",
-        "heading": "Our Products",
-        "heading_is_h1": false,
-        "description": ""
-      },
       "blocks": {
         "full": {
           "type": "product",
@@ -58,7 +52,17 @@
           }
         }
       },
-      "block_order": ["full", "ultra", "recovery"]
+      "block_order": [
+        "full",
+        "ultra",
+        "recovery"
+      ],
+      "settings": {
+        "label": "",
+        "heading": "Our Products",
+        "heading_is_h1": false,
+        "description": ""
+      }
     },
     "quote": {
       "type": "quote-section",
@@ -214,10 +218,6 @@
     },
     "benefits": {
       "type": "benefits-showcase",
-      "settings": {
-        "heading": "Built for the miles ahead",
-        "description": "Three formulas, one job: keep skin out of the way. Switch between products to see what each one is built to do."
-      },
       "blocks": {
         "full": {
           "type": "product_tab",
@@ -262,7 +262,15 @@
           }
         }
       },
-      "block_order": ["full", "ultra", "recovery"]
+      "block_order": [
+        "full",
+        "ultra",
+        "recovery"
+      ],
+      "settings": {
+        "heading": "Built for the miles ahead",
+        "description": "Three formulas, one job: keep skin out of the way. Switch between products to see what each one is built to do."
+      }
     },
     "product_showcase": {
       "type": "product-showcase",
@@ -295,7 +303,6 @@
           }
         }
       },
-      "block_order": [],
       "settings": {
         "product": "aura-full",
         "ref_label": "",
