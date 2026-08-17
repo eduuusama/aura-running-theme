@@ -65,18 +65,23 @@
 
     {%- comment -%} Sticky Add to Cart - Mobile (full black bar) {%- endcomment -%}
     <div class="fixed bottom-0 left-0 right-0 {% if product.available %}bg-foreground{% else %}bg-muted{% endif %} p-4 z-40 lg:hidden">
-      <button
-        id="add-to-cart-btn-mobile"
-        class="w-full {% if product.available %}bg-foreground text-background{% else %}bg-muted text-muted-foreground{% endif %} text-sm font-medium h-12 transition-all duration-300 disabled:cursor-not-allowed"
-        {% unless product.available %}disabled{% endunless %}
-        onclick="window.ProductForm.addToCart()"
-      >
-        {%- if product.available -%}
+      {%- if product.available -%}
+        <button
+          id="add-to-cart-btn-mobile"
+          class="w-full bg-foreground text-background text-sm font-medium h-12 transition-all duration-300"
+          onclick="window.ProductForm.addToCart()"
+        >
           Add to cart
-        {%- else -%}
-          {{ 'general.sold_out' | t }}
-        {%- endif -%}
-      </button>
+        </button>
+      {%- else -%}
+        <button
+          id="add-to-cart-btn-mobile"
+          class="w-full bg-muted text-muted-foreground text-sm font-medium h-12 transition-all duration-300"
+          onclick="window.openWaitlist('{{ product.handle }}', '{{ product.title | escape }}')"
+        >
+          Sold Out &ndash; Join Waitlist
+        </button>
+      {%- endif -%}
     </div>
 
     {%- comment -%} Product Accordions - Mobile {%- endcomment -%}
@@ -222,53 +227,24 @@
             </button>
           </div>
 
-          <button
-            id="add-to-cart-btn"
-            class="flex-1 h-14 {% if product.available %}bg-foreground text-background hover:bg-foreground/90{% else %}bg-muted text-muted-foreground{% endif %} flex items-center justify-center text-sm font-medium transition-all duration-300 disabled:cursor-not-allowed"
-            {% unless product.available %}disabled{% endunless %}
-            onclick="window.ProductForm.addToCart()"
-          >
-            {%- if product.available -%}
+          {%- if product.available -%}
+            <button
+              id="add-to-cart-btn"
+              class="flex-1 h-14 bg-foreground text-background hover:bg-foreground/90 flex items-center justify-center text-sm font-medium transition-all duration-300"
+              onclick="window.ProductForm.addToCart()"
+            >
               Add to cart
-            {%- else -%}
-              {{ 'general.sold_out' | t }}
-            {%- endif -%}
-          </button>
+            </button>
+          {%- else -%}
+            <button
+              id="add-to-cart-btn"
+              class="flex-1 h-14 bg-muted text-muted-foreground hover:bg-muted/80 flex items-center justify-center text-sm font-medium transition-all duration-300"
+              onclick="window.openWaitlist('{{ product.handle }}', '{{ product.title | escape }}')"
+            >
+              Sold Out &ndash; Join Waitlist
+            </button>
+          {%- endif -%}
         </div>
-
-        {%- comment -%} Back-in-stock notification (sold out only) {%- endcomment -%}
-        {%- unless product.available -%}
-          <div class="mb-10 border border-border p-6">
-            {%- form 'customer', id: 'notify-form' -%}
-              {%- if form.posted_successfully? -%}
-                <p class="text-sm font-light">You are on the list. We will email you the moment {{ product.title }} is back in stock.</p>
-              {%- else -%}
-                <p class="text-sm font-medium mb-1">Get notified when it is back</p>
-                <p class="text-sm text-muted-foreground font-light mb-4">Leave your email and we will let you know when {{ product.title }} restocks.</p>
-                {%- if form.errors -%}
-                  <p class="text-sm font-light mb-3" style="color:#b42318">Please enter a valid email address.</p>
-                {%- endif -%}
-                <input type="hidden" name="contact[tags]" value="back-in-stock,notify-{{ product.handle }}">
-                <div class="flex flex-col sm:flex-row gap-2">
-                  <input
-                    type="email"
-                    name="contact[email]"
-                    required
-                    placeholder="Email address"
-                    aria-label="Email address for restock notification"
-                    class="flex-1 h-12 px-4 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none"
-                  >
-                  <button
-                    type="submit"
-                    class="h-12 px-6 bg-foreground text-background text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors rounded-none"
-                  >
-                    Notify Me
-                  </button>
-                </div>
-              {%- endif -%}
-            {%- endform -%}
-          </div>
-        {%- endunless -%}
 
         {%- comment -%} Product Accordions {%- endcomment -%}
         <div class="accordion-group">

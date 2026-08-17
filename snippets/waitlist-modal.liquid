@@ -1,0 +1,93 @@
+{%- comment -%}
+  Waitlist Modal — global popup opened by "Sold Out - Join Waitlist" buttons.
+  Buttons call window.openWaitlist(handle, title). Submissions create a
+  customer tagged "back-in-stock,notify-<handle>". Rendered once in theme.liquid.
+{%- endcomment -%}
+
+<div id="waitlist-modal" class="waitlist-modal" hidden>
+  <div class="waitlist-overlay" data-waitlist-close></div>
+  <div class="waitlist-dialog" role="dialog" aria-modal="true" aria-labelledby="waitlist-heading">
+    <button type="button" class="waitlist-close" data-waitlist-close aria-label="Close">&times;</button>
+
+    <div id="waitlist-success" hidden>
+      <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 font-light">Waitlist</p>
+      <h2 class="font-serif text-2xl mb-3">You are on the list</h2>
+      <p class="text-sm text-muted-foreground font-light leading-relaxed">We will email you the moment it is back in stock.</p>
+    </div>
+
+    <div id="waitlist-form-wrap">
+      <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 font-light">Waitlist</p>
+      <h2 id="waitlist-heading" class="font-serif text-2xl mb-3">Join the Waitlist</h2>
+      <p class="text-sm text-muted-foreground font-light leading-relaxed mb-6">
+        <span id="waitlist-product">This product</span> is sold out. Leave your email and we will notify you the moment it restocks.
+      </p>
+      {%- form 'customer', id: 'waitlist-form' -%}
+        <input type="hidden" name="contact[tags]" id="waitlist-tags" value="back-in-stock">
+        <input type="hidden" name="return_to" id="waitlist-return" value="/?waitlist=joined">
+        <div class="flex flex-col gap-2">
+          <input
+            type="email"
+            name="contact[email]"
+            required
+            placeholder="Email address"
+            aria-label="Email address for restock notification"
+            class="w-full h-12 px-4 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none"
+          >
+          <button
+            type="submit"
+            class="w-full h-12 bg-foreground text-background text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors rounded-none"
+          >
+            Notify Me
+          </button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .waitlist-modal { position: fixed; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  .waitlist-modal[hidden] { display: none; }
+  .waitlist-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); }
+  .waitlist-dialog { position: relative; background: hsl(var(--background)); width: 100%; max-width: 26rem; padding: 2.5rem 2rem 2rem; border: 1px solid hsl(var(--border)); }
+  .waitlist-close { position: absolute; top: 0.75rem; right: 1rem; font-size: 1.5rem; line-height: 1; font-weight: 300; opacity: 0.6; }
+  .waitlist-close:hover { opacity: 1; }
+</style>
+
+<script>
+  (function () {
+    var modal = document.getElementById('waitlist-modal');
+    if (!modal) return;
+    var success = document.getElementById('waitlist-success');
+    var formWrap = document.getElementById('waitlist-form-wrap');
+
+    window.openWaitlist = function (handle, title) {
+      document.getElementById('waitlist-tags').value = 'back-in-stock,notify-' + handle;
+      document.getElementById('waitlist-return').value = window.location.pathname + '?waitlist=joined';
+      document.getElementById('waitlist-product').textContent = title || 'This product';
+      success.hidden = true;
+      formWrap.hidden = false;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+
+    function closeWaitlist() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    modal.querySelectorAll('[data-waitlist-close]').forEach(function (el) {
+      el.addEventListener('click', closeWaitlist);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeWaitlist();
+    });
+
+    if (window.location.search.indexOf('waitlist=joined') !== -1) {
+      formWrap.hidden = true;
+      success.hidden = false;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+  })();
+</script>

@@ -38,15 +38,20 @@
     {%- endif -%}
     <p class="text-sm font-light mb-4">{{ product.price | money }}</p>
 
-    <button
-      class="w-full h-14 rounded-none bg-foreground text-background hover:bg-foreground/90 transition-colors text-xs font-medium uppercase tracking-[0.15em]"
-      onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('cart:add', { detail: { id: {{ product.selected_or_first_available_variant.id }} } }))"
-    >
-      {%- if product.available -%}
+    {%- if product.available -%}
+      <button
+        class="w-full h-14 rounded-none bg-foreground text-background hover:bg-foreground/90 transition-colors text-xs font-medium uppercase tracking-[0.15em]"
+        onclick="event.preventDefault(); document.dispatchEvent(new CustomEvent('cart:add', { detail: { id: {{ product.selected_or_first_available_variant.id }} } }))"
+      >
         {{ 'general.add_to_cart' | t }}
-      {%- else -%}
-        {{ 'general.sold_out' | t }}
-      {%- endif -%}
-    </button>
+      </button>
+    {%- else -%}
+      <button
+        class="w-full h-14 rounded-none bg-muted text-muted-foreground hover:bg-muted/80 transition-colors text-xs font-medium uppercase tracking-[0.15em]"
+        onclick="event.preventDefault(); window.openWaitlist('{{ product.handle }}', '{{ product.title | escape }}')"
+      >
+        Sold Out &ndash; Join Waitlist
+      </button>
+    {%- endif -%}
   </div>
 </div>

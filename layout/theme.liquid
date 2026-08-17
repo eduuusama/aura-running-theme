@@ -106,6 +106,9 @@
   {%- comment -%} Footer {%- endcomment -%}
   {% section 'footer' %}
 
+  {%- comment -%} Waitlist popup (sold-out products) {%- endcomment -%}
+  {% render 'waitlist-modal' %}
+
   {%- comment -%} Cart Drawer {%- endcomment -%}
   <div class="cart-drawer-overlay" id="cart-overlay" onclick="window.CartDrawer.close()"></div>
   <div class="cart-drawer" id="cart-drawer" aria-label="{{ 'cart.title' | t }}">

@@ -54,8 +54,8 @@
       },
       "block_order": [
         "full",
-        "ultra",
-        "recovery"
+        "recovery",
+        "ultra"
       ],
       "settings": {
         "label": "",
@@ -264,8 +264,8 @@
       },
       "block_order": [
         "full",
-        "ultra",
-        "recovery"
+        "recovery",
+        "ultra"
       ],
       "settings": {
         "heading": "Built for the miles ahead",
