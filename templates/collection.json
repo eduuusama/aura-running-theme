@@ -12,6 +12,7 @@
     "hero": {
       "type": "collection-hero",
       "settings": {
+        "image": "shopify://shop_images/runner-aura-anti-chafing.jpg",
         "heading": "Shop",
         "subtitle": "Premium anti-chafe solutions engineered for distance runners."
       }
