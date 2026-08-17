@@ -43,26 +43,35 @@
           {%- for i in (1..3) -%}
             {%- assign title_key = 'benefit_' | append: i | append: '_title' -%}
             {%- assign image_key = 'benefit_' | append: i | append: '_image' -%}
+            {%- assign desc_key = 'benefit_' | append: i | append: '_description' -%}
             {%- assign benefit_title = block.settings[title_key] -%}
             {%- assign benefit_image = block.settings[image_key] -%}
+            {%- assign benefit_description = block.settings[desc_key] -%}
             {%- if benefit_title != blank -%}
-              <div class="relative overflow-hidden bg-muted" style="aspect-ratio:3/4">
-                {%- if benefit_image -%}
-                  <img
-                    src="{{ benefit_image | image_url: width: 800 }}"
-                    alt="{{ benefit_image.alt | default: benefit_title }}"
-                    class="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                  >
-                {%- else -%}
-                  <div class="absolute inset-0 flex items-center justify-center" style="background:#e5e5e5">
-                    <span class="text-xs uppercase tracking-widest text-muted-foreground">Image Coming Soon</span>
-                  </div>
+              <div>
+                <div class="relative overflow-hidden bg-muted mb-4" style="aspect-ratio:3/4">
+                  {%- if benefit_image -%}
+                    <img
+                      src="{{ benefit_image | image_url: width: 800 }}"
+                      alt="{{ benefit_image.alt | default: benefit_title }}"
+                      class="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    <div class="absolute inset-0 flex items-center justify-center" style="background:#e5e5e5">
+                      <span class="text-xs uppercase tracking-widest text-muted-foreground">Image Coming Soon</span>
+                    </div>
+                  {%- endif -%}
+                  <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 40%)"></div>
+                  <p class="absolute top-5 left-5 right-5 text-xs md:text-sm uppercase tracking-[0.12em] text-white font-medium">
+                    {{ benefit_title }}
+                  </p>
+                </div>
+                {%- if benefit_description != blank -%}
+                  <p class="text-sm font-light leading-relaxed" style="color:rgba(255,255,255,0.65)">
+                    {{ benefit_description }}
+                  </p>
                 {%- endif -%}
-                <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 40%)"></div>
-                <p class="absolute top-5 left-5 right-5 text-xs md:text-sm uppercase tracking-[0.12em] text-white font-medium">
-                  {{ benefit_title }}
-                </p>
               </div>
             {%- endif -%}
           {%- endfor -%}
@@ -126,10 +135,13 @@
         { "type": "text", "id": "label", "label": "Tab Label" },
         { "type": "text", "id": "benefit_1_title", "label": "Benefit 1 Title" },
         { "type": "image_picker", "id": "benefit_1_image", "label": "Benefit 1 Image" },
+        { "type": "textarea", "id": "benefit_1_description", "label": "Benefit 1 Description" },
         { "type": "text", "id": "benefit_2_title", "label": "Benefit 2 Title" },
         { "type": "image_picker", "id": "benefit_2_image", "label": "Benefit 2 Image" },
+        { "type": "textarea", "id": "benefit_2_description", "label": "Benefit 2 Description" },
         { "type": "text", "id": "benefit_3_title", "label": "Benefit 3 Title" },
-        { "type": "image_picker", "id": "benefit_3_image", "label": "Benefit 3 Image" }
+        { "type": "image_picker", "id": "benefit_3_image", "label": "Benefit 3 Image" },
+        { "type": "textarea", "id": "benefit_3_description", "label": "Benefit 3 Description" }
       ]
     }
   ],

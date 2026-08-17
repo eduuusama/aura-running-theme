@@ -226,10 +226,13 @@
             "label": "Aura Full",
             "benefit_1_title": "Friction control",
             "benefit_1_image": "shopify://shop_images/benefit-friction-control.jpg",
+            "benefit_1_description": "A water-repellent barrier that stays in place through sweat and repetitive motion, reducing the rub that becomes chafing over distance.",
             "benefit_2_title": "Skin conditioning",
             "benefit_2_image": "shopify://shop_images/benefit-skin-conditioning.jpg",
+            "benefit_2_description": "Butters and oils condition skin as you run, so long efforts end without the raw, stripped feeling. Protection and care in a single application.",
             "benefit_3_title": "One application",
-            "benefit_3_image": "shopify://shop_images/benefit-one-application.jpg"
+            "benefit_3_image": "shopify://shop_images/benefit-one-application.jpg",
+            "benefit_3_description": "Apply 15-20 minutes before running. The barrier sets in and holds through sweat and distance. Unchecked friction changes your stride, and a changed stride is where injury begins."
           }
         },
         "ultra": {
@@ -238,8 +241,11 @@
             "product": "aura-ultra",
             "label": "Aura Ultra",
             "benefit_1_title": "Temperature stable",
+            "benefit_1_description": "The wax-and-petrolatum structure holds a workable texture from desert heat to alpine cold, where natural oil-and-butter balms liquefy or seize solid.",
             "benefit_2_title": "Sweat resistance",
-            "benefit_3_title": "Maximum barrier"
+            "benefit_2_description": "An occlusive petrolatum and lanolin barrier that resists washoff through hours of sustained sweat, long after film-forming sticks wear through.",
+            "benefit_3_title": "Maximum barrier",
+            "benefit_3_description": "It's not trying to feel weightless. A rich, occlusive balm, closer to an ointment than a dry-touch film, built to protect when the distance demands everything."
           }
         },
         "recovery": {
@@ -248,8 +254,11 @@
             "product": "aura-recovery",
             "label": "Aura Recovery",
             "benefit_1_title": "Barrier replenishment",
+            "benefit_1_description": "Ceramides, the same lipids your skin's barrier is made of, replenished directly where friction and sweat have worn it down.",
             "benefit_2_title": "Calm and hydration",
-            "benefit_3_title": "The recovery window"
+            "benefit_2_description": "Niacinamide, panthenol, and centella asiatica ease the look of redness while glycerin and squalane draw in and hold moisture.",
+            "benefit_3_title": "The recovery window",
+            "benefit_3_description": "Apply within 30-60 minutes of finishing, when skin is most responsive to barrier-supportive ingredients. Light enough to double as a daily hydration cream on rest days."
           }
         }
       },
@@ -286,18 +295,14 @@
           }
         }
       },
-      "block_order": [
-        "coconut",
-        "beeswax",
-        "vitamine"
-      ],
+      "block_order": [],
       "settings": {
         "product": "aura-full",
-        "ref_label": "Ref — 001",
+        "ref_label": "",
         "product_title": "Aura Full",
         "product_tagline": "For marathon distance",
         "price": "$39.00",
-        "description": "",
+        "description": "Anti-chafe protection engineered for marathon distance and the training that earns it. A friction barrier that holds through heat, sweat, and hours of repetitive motion, tested across the long miles it was built for. Lanolin-forward, natural-inspired, and built for high-mileage athletes who want performance without compromise.",
         "how_to_apply": "Apply to clean, dry skin 15-20 minutes before running. Focus on high-friction areas: inner thighs, underarms, feet, sports bra line, and anywhere clothing or pack straps contact skin.",
         "ingredients_list": "Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil",
         "discover_link": "",

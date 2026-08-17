@@ -31,9 +31,11 @@
     {%- comment -%} Right — Product Info + Accordions {%- endcomment -%}
     <div class="md:h-full overflow-y-auto">
       <div class="px-8 py-6 md:px-12 lg:px-20 md:pt-12 md:pb-8 w-full">
-        <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
-          {{ section.settings.ref_label | default: 'Ref — 001' }}
-        </p>
+        {%- if section.settings.ref_label != blank -%}
+          <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
+            {{ section.settings.ref_label }}
+          </p>
+        {%- endif -%}
         <h2 class="text-3xl md:text-4xl font-light tracking-tight mb-2">
           {%- if featured_product -%}
             {{ featured_product.title }}
