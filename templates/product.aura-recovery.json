@@ -38,7 +38,8 @@
           "settings": {
             "name": "Niacinamide",
             "benefit": "The calm",
-            "description": "A well-studied form of vitamin B3 that supports barrier strength and eases the look of redness and irritation."
+            "description": "A well-studied form of vitamin B3 that supports barrier strength and eases the look of redness and irritation.",
+            "image": "shopify://shop_images/niacinamide.jpg"
           }
         },
         "centella": {
@@ -46,7 +47,8 @@
           "settings": {
             "name": "Centella Asiatica",
             "benefit": "The soothe",
-            "description": "A botanical with a long history in skin recovery, used here to calm stressed, friction-irritated skin."
+            "description": "A botanical with a long history in skin recovery, used here to calm stressed, friction-irritated skin.",
+            "image": "shopify://shop_images/centella-asiatica.jpg"
           }
         },
         "panthenol": {
