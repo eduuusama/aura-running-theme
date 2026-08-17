@@ -236,6 +236,40 @@
           </button>
         </div>
 
+        {%- comment -%} Back-in-stock notification (sold out only) {%- endcomment -%}
+        {%- unless product.available -%}
+          <div class="mb-10 border border-border p-6">
+            {%- form 'customer', id: 'notify-form' -%}
+              {%- if form.posted_successfully? -%}
+                <p class="text-sm font-light">You are on the list. We will email you the moment {{ product.title }} is back in stock.</p>
+              {%- else -%}
+                <p class="text-sm font-medium mb-1">Get notified when it is back</p>
+                <p class="text-sm text-muted-foreground font-light mb-4">Leave your email and we will let you know when {{ product.title }} restocks.</p>
+                {%- if form.errors -%}
+                  <p class="text-sm font-light mb-3" style="color:#b42318">Please enter a valid email address.</p>
+                {%- endif -%}
+                <input type="hidden" name="contact[tags]" value="back-in-stock,notify-{{ product.handle }}">
+                <div class="flex flex-col sm:flex-row gap-2">
+                  <input
+                    type="email"
+                    name="contact[email]"
+                    required
+                    placeholder="Email address"
+                    aria-label="Email address for restock notification"
+                    class="flex-1 h-12 px-4 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none"
+                  >
+                  <button
+                    type="submit"
+                    class="h-12 px-6 bg-foreground text-background text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors rounded-none"
+                  >
+                    Notify Me
+                  </button>
+                </div>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+        {%- endunless -%}
+
         {%- comment -%} Product Accordions {%- endcomment -%}
         <div class="accordion-group">
           {%- if product.description != blank -%}
