@@ -62,7 +62,8 @@
           "settings": {
             "name": "Squalane & Shea Butter",
             "benefit": "The soft",
-            "description": "Lightweight, skin-identical emollients that soften without the heavy feel of a barrier balm. Meant to sink in, not sit on top."
+            "description": "Lightweight, skin-identical emollients that soften without the heavy feel of a barrier balm. Meant to sink in, not sit on top.",
+            "image": "shopify://shop_images/squalane-shea-butter.jpg"
           }
         }
       },
