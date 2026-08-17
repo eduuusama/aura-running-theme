@@ -8,7 +8,7 @@
   <div class="container">
     {%- comment -%} Centered header (hidden entirely when empty) {%- endcomment -%}
     {%- if section.settings.label != blank or section.settings.heading != blank or section.settings.description != blank -%}
-      <div class="text-center md:text-right max-w-2xl mx-auto md:mx-0 md:ml-auto mb-16 md:mb-20">
+      <div class="text-center md:text-left max-w-2xl mx-auto md:mx-0 mb-16 md:mb-20">
         {%- if section.settings.label != blank -%}
           <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">
             {{ section.settings.label }}

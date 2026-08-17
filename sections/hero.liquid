@@ -8,7 +8,7 @@
   {%- if section.settings.image -%}
     <img
       src="{{ section.settings.image | image_url: width: 2000 }}"
-      alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+      alt="{{ section.settings.image.alt | default: section.settings.heading | strip_html }}"
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
       fetchpriority="high"
@@ -16,7 +16,7 @@
   {%- else -%}
     <img
       src="{{ 'runners-desert-road-golden-hour.jpg' | asset_url }}"
-      alt="{{ section.settings.heading }}"
+      alt="{{ section.settings.heading | strip_html }}"
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
       fetchpriority="high"
