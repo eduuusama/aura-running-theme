@@ -31,21 +31,30 @@
           "type": "product",
           "settings": {
             "product": "aura-full",
-            "descriptor": "The natural lanolin barrier for marathon distance and the training that earns it."
+            "descriptor": "The natural lanolin barrier for marathon distance and the training that earns it.",
+            "bullet_1": "Natural-inspired, lanolin-forward formula",
+            "bullet_2": "Marathon and half marathon race day",
+            "bullet_3": "No petrolatum, no synthetic fragrance"
           }
         },
         "ultra": {
           "type": "product",
           "settings": {
             "product": "aura-ultra",
-            "descriptor": "The petrolatum barrier system for ultra distance, extreme heat, and alpine cold."
+            "descriptor": "The petrolatum barrier system for ultra distance, extreme heat, and alpine cold.",
+            "bullet_1": "Engineered for 50K to 100+ mile races",
+            "bullet_2": "Holds up in extreme heat and alpine cold",
+            "bullet_3": "Built for hours of sustained sweat exposure"
           }
         },
         "recovery": {
           "type": "product",
           "settings": {
             "product": "aura-recovery",
-            "descriptor": "The ceramide recovery cream for the hour after the run, when skin is most responsive."
+            "descriptor": "The ceramide recovery cream for the hour after the run, when skin is most responsive.",
+            "bullet_1": "Ceramide complex, niacinamide, centella asiatica",
+            "bullet_2": "Apply within 30-60 minutes post-run",
+            "bullet_3": "Works as a daily hydration cream too"
           }
         }
       },
