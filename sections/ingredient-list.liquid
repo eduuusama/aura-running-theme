@@ -18,7 +18,7 @@
                 {{ article.excerpt | strip_html }}
               </p>
             {%- endif -%}
-            <div class="relative overflow-hidden rounded-xl bg-muted aspect-[2/1]">
+            <div class="relative overflow-hidden rounded-xl bg-muted aspect-[4/1]">
               {%- if article.image -%}
                 <img
                   src="{{ article.image | image_url: width: 1600 }}"
