@@ -240,16 +240,16 @@
         "vitamine"
       ],
       "settings": {
-        "product": "aura-ultra",
+        "product": "aura-full",
         "ref_label": "Ref — 001",
-        "product_title": "Aura Ultra",
-        "product_tagline": "For ultra distances",
-        "price": "$49.00",
+        "product_title": "Aura Full",
+        "product_tagline": "For marathon distance",
+        "price": "$39.00",
         "description": "",
-        "how_to_apply": "Apply to completely dry skin 30-45 minutes before race start to allow the barrier to fully set. Cover all high-friction zones thoroughly. Reapply at crew-accessible aid stations on extended efforts.",
-        "ingredients_list": "Coconut Oil, Beeswax, Cocoa Butter, Vitamin E, Zinc Oxide, Shea Butter",
+        "how_to_apply": "Apply to clean, dry skin 15-20 minutes before running. Focus on high-friction areas: inner thighs, underarms, feet, sports bra line, and anywhere clothing or pack straps contact skin.",
+        "ingredients_list": "Lanolin, Shea Butter, Coconut Oil, Beeswax, Jojoba Oil, Castor Oil, Vitamin E, Tea Tree Oil",
         "discover_link": "",
-        "ingredients_description": "Each ingredient is selected for its proven ability to create a lasting moisture barrier while nourishing the skin through hours of repetitive movement."
+        "ingredients_description": "A natural-inspired barrier built around lanolin, paired with shea, coconut, jojoba, and castor oil for glide and conditioning."
       }
     },
     "editorial": {
