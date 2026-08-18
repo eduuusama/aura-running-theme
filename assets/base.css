@@ -38,6 +38,15 @@
   border-color: hsl(var(--border));
 }
 
+html, body {
+  overflow-x: hidden;
+}
+@supports (overflow-x: clip) {
+  html, body {
+    overflow-x: clip;
+  }
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: hsl(var(--background));
