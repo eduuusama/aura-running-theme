@@ -4,10 +4,10 @@
 
 <footer class="border-t border-border bg-primary text-primary-foreground" role="contentinfo">
   <div class="container py-16">
-    <div class="grid gap-12 md:grid-cols-4">
+    <div class="grid grid-cols-2 gap-x-6 gap-y-12 md:gap-12 md:grid-cols-4">
 
       {%- comment -%} Brand Column {%- endcomment -%}
-      <div class="md:col-span-1">
+      <div class="col-span-2 md:col-span-1">
         <img
           src="{{ 'logo.png' | asset_url }}"
           alt="{{ shop.name }}"
@@ -84,7 +84,7 @@
       </div>
 
       {%- comment -%} Policies Column {%- endcomment -%}
-      <div>
+      <div class="col-span-2 md:col-span-1">
         <h4 class="text-xs font-medium tracking-[0.15em] uppercase mb-6 text-primary-foreground/60">
           {{ 'footer.policies' | t }}
         </h4>
