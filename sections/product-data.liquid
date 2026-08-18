@@ -27,66 +27,67 @@
       {%- endif -%}
     </div>
 
-    {%- comment -%} Stat arcs {%- endcomment -%}
-    {%- if section.blocks.size > 0 -%}
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8 mb-20 md:mb-28">
-        {%- for block in section.blocks -%}
-          <div class="flex justify-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
-            <div class="relative w-[240px] h-[240px] md:w-[260px] md:h-[260px]">
-              {%- assign vis = block.settings.visual | default: 'percent' -%}
-              {%- assign pct = block.settings.percent | default: 0 -%}
-              {%- assign segs = block.settings.segments | default: 0 -%}
-              <svg viewBox="0 0 240 240" class="absolute inset-0 w-full h-full" fill="none" aria-hidden="true">
+    {%- comment -%} One row: stat rings + chart {%- endcomment -%}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-14 items-center">
+      {%- for block in section.blocks -%}
+        <div class="flex justify-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
+          <div class="relative w-[220px] h-[220px]">
+            {%- assign vis = block.settings.visual | default: 'percent' -%}
+            {%- assign pct = block.settings.percent | default: 0 -%}
+            {%- assign segs = block.settings.segments | default: 0 -%}
+            <svg viewBox="0 0 240 240" class="absolute inset-0 w-full h-full" fill="none" aria-hidden="true">
+              {%- if vis == 'segments' and segs > 0 -%}
+                {%- assign unit = 628.3185 | divided_by: segs -%}
+                {%- assign dash = unit | times: 0.7 -%}
+                {%- assign gap = unit | times: 0.3 -%}
+                {%- assign seg_off = dash | divided_by: 2.0 | plus: 157.0796 -%}
+                <circle class="pd-seg" cx="120" cy="120" r="100" stroke="#fafafa" stroke-width="2.5" stroke-dasharray="{{ dash }} {{ gap }}" stroke-dashoffset="{{ seg_off }}" fill="none"/>
+              {%- else -%}
                 <circle cx="120" cy="120" r="100" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
-                {%- if vis == 'segments' and segs > 0 -%}
-                  {%- assign plen = segs | times: 10 -%}
-                  <circle class="pd-seg" cx="120" cy="120" r="100" pathLength="{{ plen }}" stroke="#fafafa" stroke-width="3" stroke-dasharray="6.5 3.5" transform="rotate(-90 120 120)"/>
-                {%- else -%}
-                  <circle class="pd-arc" cx="120" cy="120" r="100" pathLength="100" stroke="#fafafa" stroke-width="1.5" stroke-dasharray="0 100" data-pct="{{ pct }}" transform="rotate(-90 120 120)"/>
-                  <rect x="116.5" y="16.5" width="7" height="7" fill="#fafafa"/>
-                  {%- if pct > 0 -%}
-                    {%- assign deg = pct | times: 3.6 -%}
-                    <g transform="rotate({{ deg }} 120 120)"><rect class="pd-dot" x="116.5" y="16.5" width="7" height="7" fill="#fafafa"/></g>
-                  {%- endif -%}
+                <circle class="pd-arc" cx="120" cy="120" r="100" pathLength="100" stroke="#fafafa" stroke-width="1.5" stroke-dasharray="0 100" data-pct="{{ pct }}" transform="rotate(-90 120 120)"/>
+                <rect x="116.5" y="16.5" width="7" height="7" fill="#fafafa"/>
+                {%- if pct > 0 -%}
+                  {%- assign deg = pct | times: 3.6 -%}
+                  <g transform="rotate({{ deg }} 120 120)"><rect class="pd-dot" x="116.5" y="16.5" width="7" height="7" fill="#fafafa"/></g>
                 {%- endif -%}
-              </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
-                <p class="text-4xl md:text-5xl font-light mb-3 pd-count" data-value="{{ block.settings.value | escape }}" style="color:#fafafa">{{ block.settings.value }}</p>
-                <p class="text-sm font-light leading-snug" style="color:rgba(255,255,255,0.75)">{{ block.settings.caption }}</p>
-              </div>
+              {%- endif -%}
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-9">
+              <p class="text-4xl font-light mb-3 pd-count" data-value="{{ block.settings.value | escape }}" style="color:#fafafa">{{ block.settings.value }}</p>
+              <p class="text-[13px] font-light leading-snug" style="color:rgba(255,255,255,0.75)">{{ block.settings.caption }}</p>
             </div>
           </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+        </div>
+      {%- endfor -%}
 
-    {%- comment -%} Comparison chart {%- endcomment -%}
-    {%- if section.settings.show_chart -%}
-      <div class="max-w-4xl mx-auto pd-fade" style="transition-delay: 300ms">
-        <p class="text-xs tracking-[0.2em] uppercase mb-8 font-light" style="color:rgba(255,255,255,0.5)">
-          {{ section.settings.chart_title }}
-        </p>
-        <svg viewBox="0 0 800 280" class="w-full h-auto" fill="none" role="img" aria-label="Chart: {{ section.settings.chart_title | escape }}">
-          <path class="pd-draw" d="{{ section.settings.compare_path | default: 'M 40 130 C 200 118, 400 84, 720 40' }}" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-dasharray="4 5"/>
-          <text x="40" y="{{ section.settings.compare_label_y | default: 112 }}" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">{{ section.settings.compare_label }}</text>
+      {%- comment -%} Comparison chart as fourth column {%- endcomment -%}
+      {%- if section.settings.show_chart -%}
+        <div class="pd-fade sm:col-span-2 lg:col-span-1" style="transition-delay: 450ms">
+          <p class="text-xs tracking-[0.2em] uppercase mb-5 font-light" style="color:rgba(255,255,255,0.5)">
+            {{ section.settings.chart_title }}
+          </p>
+          <svg viewBox="0 0 800 300" class="w-full h-auto" fill="none" role="img" aria-label="Chart: {{ section.settings.chart_title | escape }}">
+            <path class="pd-draw" d="{{ section.settings.compare_path | default: 'M 40 130 C 200 118, 400 84, 720 40' }}" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="7 8"/>
+            <text x="40" y="{{ section.settings.compare_label_y | default: 112 }}" fill="rgba(255,255,255,0.5)" font-size="24" font-family="Inter, sans-serif" letter-spacing="0.06em">{{ section.settings.compare_label }}</text>
 
-          <path class="pd-draw" d="{{ section.settings.product_path | default: 'M 40 216 C 220 214, 460 210, 720 200' }}" stroke="#fafafa" stroke-width="1.5"/>
-          <rect class="pd-dot" x="{{ section.settings.product_dot_x | default: 716.5 }}" y="{{ section.settings.product_dot_y | default: 196.5 }}" width="7" height="7" fill="#fafafa"/>
-          <text x="40" y="{{ section.settings.product_label_y | default: 200 }}" fill="#fafafa" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">{{ section.settings.product_label }}</text>
+            <path class="pd-draw" d="{{ section.settings.product_path | default: 'M 40 216 C 220 214, 460 210, 720 200' }}" stroke="#fafafa" stroke-width="3"/>
+            <rect class="pd-dot" x="{{ section.settings.product_dot_x | default: 716.5 }}" y="{{ section.settings.product_dot_y | default: 196.5 }}" width="11" height="11" fill="#fafafa"/>
+            <text x="40" y="{{ section.settings.product_label_y | default: 200 }}" fill="#fafafa" font-size="24" font-family="Inter, sans-serif" letter-spacing="0.06em">{{ section.settings.product_label }}</text>
 
-          <line x1="40" y1="248" x2="760" y2="248" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-          {%- for i in (0..72) -%}
-            {%- assign x = i | times: 10 | plus: 40 -%}
-            {%- assign rem = i | modulo: 9 -%}
-            <line x1="{{ x }}" y1="248" x2="{{ x }}" y2="{% if rem == 0 %}238{% else %}243{% endif %}" stroke="rgba(255,255,255,{% if rem == 0 %}0.4{% else %}0.2{% endif %})" stroke-width="1"/>
-          {%- endfor -%}
-          <text x="40" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x0 }}</text>
-          <text x="308" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x1 }}</text>
-          <text x="578" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x2 }}</text>
-          <text x="732" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x3 }}</text>
-        </svg>
-      </div>
-    {%- endif -%}
+            <line x1="40" y1="252" x2="760" y2="252" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+            {%- for i in (0..36) -%}
+              {%- assign x = i | times: 20 | plus: 40 -%}
+              {%- assign rem = i | modulo: 9 -%}
+              <line x1="{{ x }}" y1="252" x2="{{ x }}" y2="{% if rem == 0 %}238{% else %}245{% endif %}" stroke="rgba(255,255,255,{% if rem == 0 %}0.4{% else %}0.2{% endif %})" stroke-width="1.5"/>
+            {%- endfor -%}
+            <text x="40" y="290" fill="rgba(255,255,255,0.5)" font-size="22" font-family="Inter, sans-serif">{{ section.settings.x0 }}</text>
+            <text x="300" y="290" fill="rgba(255,255,255,0.5)" font-size="22" font-family="Inter, sans-serif">{{ section.settings.x1 }}</text>
+            <text x="560" y="290" fill="rgba(255,255,255,0.5)" font-size="22" font-family="Inter, sans-serif">{{ section.settings.x2 }}</text>
+            <text x="710" y="290" fill="rgba(255,255,255,0.5)" font-size="22" font-family="Inter, sans-serif">{{ section.settings.x3 }}</text>
+          </svg>
+        </div>
+      {%- endif -%}
+    </div>
 
     {%- if section.settings.footnote != blank -%}
       <p class="text-xs font-light mt-14 max-w-xl pd-fade" style="transition-delay: 450ms; color:rgba(255,255,255,0.35)">
