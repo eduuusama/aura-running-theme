@@ -30,7 +30,8 @@
           "settings": {
             "name": "Ceramide Complex",
             "benefit": "The repair",
-            "description": "The same lipids that make up skin's natural barrier, replenished directly where friction and sweat have worn it down."
+            "description": "The same lipids that make up skin's natural barrier, replenished directly where friction and sweat have worn it down.",
+            "image": "shopify://shop_images/ceramide-complex-ingredient.jpg"
           }
         },
         "niacinamide": {
@@ -56,7 +57,8 @@
           "settings": {
             "name": "Panthenol",
             "benefit": "The hydration",
-            "description": "Provitamin B5, draws in moisture and supports skin's own recovery process."
+            "description": "Provitamin B5, draws in moisture and supports skin's own recovery process.",
+            "image": "shopify://shop_images/panthenol-ingredient.jpg"
           }
         },
         "squalane": {
@@ -69,7 +71,13 @@
           }
         }
       },
-      "block_order": ["ceramides", "niacinamide", "centella", "panthenol", "squalane"],
+      "block_order": [
+        "ceramides",
+        "niacinamide",
+        "centella",
+        "panthenol",
+        "squalane"
+      ],
       "settings": {
         "heading": "Key Ingredients",
         "description": ""
@@ -105,7 +113,11 @@
           }
         }
       },
-      "block_order": ["barrier", "calm", "window"]
+      "block_order": [
+        "barrier",
+        "calm",
+        "window"
+      ]
     },
     "faq": {
       "type": "product-faq",
@@ -185,7 +197,18 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"]
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10"
+      ]
     },
     "related-products": {
       "type": "related-products",
