@@ -4,11 +4,11 @@
   hover, full-width uppercase button). Sold out renders grey.
 {%- endcomment -%}
 
-<section class="py-20 md:py-28 bg-background">
+<section class="py-12 md:py-16 bg-background">
   <div class="container">
     {%- comment -%} Centered header (hidden entirely when empty) {%- endcomment -%}
     {%- if section.settings.label != blank or section.settings.heading != blank or section.settings.description != blank -%}
-      <div class="text-center md:text-left max-w-2xl mx-auto md:mx-0 mb-16 md:mb-20">
+      <div class="text-center md:text-left max-w-2xl mx-auto md:mx-0 mb-10 md:mb-12">
         {%- if section.settings.label != blank -%}
           <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">
             {{ section.settings.label }}

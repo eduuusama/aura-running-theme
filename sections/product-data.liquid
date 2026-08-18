@@ -1,13 +1,15 @@
 {%- comment -%}
   Product Data — lab-style stats section.
-  Thin-stroke stat arcs (reference: editorial data overlays) + a minimal
-  friction-over-distance SVG chart. Values are merchant-entered estimates;
+  Stat arcs + a minimal comparison chart, both configurable per product.
+  Animates on first scroll into view: arcs and chart lines draw in,
+  numeric values count up. Values are merchant-entered estimates; the
   footnote setting renders a disclaimer.
 {%- endcomment -%}
 
-<section class="py-20 md:py-28" style="background:#0a0a0a">
+{%- assign sid = section.id -%}
+<section class="py-20 md:py-28 product-data-section" style="background:#0a0a0a" id="data-{{ sid }}">
   <div class="container">
-    <div class="mb-14 md:mb-20">
+    <div class="mb-14 md:mb-20 pd-fade">
       {%- if section.settings.label != blank -%}
         <p class="text-xs tracking-[0.2em] uppercase mb-5 font-light" style="color:rgba(255,255,255,0.5)">
           {{ section.settings.label }}
@@ -29,15 +31,15 @@
     {%- if section.blocks.size > 0 -%}
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8 mb-20 md:mb-28">
         {%- for block in section.blocks -%}
-          <div class="flex justify-center" {{ block.shopify_attributes }}>
+          <div class="flex justify-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
             <div class="relative w-[240px] h-[240px] md:w-[260px] md:h-[260px]">
               <svg viewBox="0 0 240 240" class="absolute inset-0 w-full h-full" fill="none" aria-hidden="true">
-                <path d="M 145.9 23.4 A 100 100 0 1 0 190.7 190.7" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-                <rect x="142.4" y="19.9" width="7" height="7" fill="#fafafa"/>
-                <rect x="187.2" y="187.2" width="7" height="7" fill="#fafafa"/>
+                <path class="pd-draw" d="M 145.9 23.4 A 100 100 0 1 0 190.7 190.7" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+                <rect class="pd-dot" x="142.4" y="19.9" width="7" height="7" fill="#fafafa"/>
+                <rect class="pd-dot" x="187.2" y="187.2" width="7" height="7" fill="#fafafa"/>
               </svg>
               <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
-                <p class="text-4xl md:text-5xl font-light mb-3" style="color:#fafafa">{{ block.settings.value }}</p>
+                <p class="text-4xl md:text-5xl font-light mb-3 pd-count" data-value="{{ block.settings.value | escape }}" style="color:#fafafa">{{ block.settings.value }}</p>
                 <p class="text-sm font-light leading-snug" style="color:rgba(255,255,255,0.75)">{{ block.settings.caption }}</p>
               </div>
             </div>
@@ -46,44 +48,135 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} Friction-over-distance chart {%- endcomment -%}
+    {%- comment -%} Comparison chart {%- endcomment -%}
     {%- if section.settings.show_chart -%}
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl mx-auto pd-fade" style="transition-delay: 300ms">
         <p class="text-xs tracking-[0.2em] uppercase mb-8 font-light" style="color:rgba(255,255,255,0.5)">
-          {{ section.settings.chart_title | default: 'Relative friction over marathon distance' }}
+          {{ section.settings.chart_title }}
         </p>
-        <svg viewBox="0 0 800 280" class="w-full h-auto" fill="none" aria-label="Chart: relative skin friction over distance, untreated skin versus Aura Full">
-          {%- comment -%} Untreated line (dashed, rising) {%- endcomment -%}
-          <path d="M 40 130 C 200 118, 400 84, 720 40" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-dasharray="4 5"/>
-          <text x="40" y="112" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">UNTREATED SKIN</text>
+        <svg viewBox="0 0 800 280" class="w-full h-auto" fill="none" role="img" aria-label="Chart: {{ section.settings.chart_title | escape }}">
+          <path class="pd-draw" d="{{ section.settings.compare_path | default: 'M 40 130 C 200 118, 400 84, 720 40' }}" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-dasharray="4 5"/>
+          <text x="40" y="{{ section.settings.compare_label_y | default: 112 }}" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">{{ section.settings.compare_label }}</text>
 
-          {%- comment -%} Aura Full line (solid, low + flat) {%- endcomment -%}
-          <path d="M 40 216 C 220 214, 460 210, 720 200" stroke="#fafafa" stroke-width="1.5"/>
-          <rect x="716.5" y="196.5" width="7" height="7" fill="#fafafa"/>
-          <text x="40" y="200" fill="#fafafa" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">AURA FULL</text>
+          <path class="pd-draw" d="{{ section.settings.product_path | default: 'M 40 216 C 220 214, 460 210, 720 200' }}" stroke="#fafafa" stroke-width="1.5"/>
+          <rect class="pd-dot" x="{{ section.settings.product_dot_x | default: 716.5 }}" y="{{ section.settings.product_dot_y | default: 196.5 }}" width="7" height="7" fill="#fafafa"/>
+          <text x="40" y="{{ section.settings.product_label_y | default: 200 }}" fill="#fafafa" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">{{ section.settings.product_label }}</text>
 
-          {%- comment -%} Baseline + ruler ticks {%- endcomment -%}
           <line x1="40" y1="248" x2="760" y2="248" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
           {%- for i in (0..72) -%}
             {%- assign x = i | times: 10 | plus: 40 -%}
             {%- assign rem = i | modulo: 9 -%}
             <line x1="{{ x }}" y1="248" x2="{{ x }}" y2="{% if rem == 0 %}238{% else %}243{% endif %}" stroke="rgba(255,255,255,{% if rem == 0 %}0.4{% else %}0.2{% endif %})" stroke-width="1"/>
           {%- endfor -%}
-          <text x="40" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">MI 0</text>
-          <text x="308" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">10</text>
-          <text x="578" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">20</text>
-          <text x="732" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">26.2</text>
+          <text x="40" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x0 }}</text>
+          <text x="308" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x1 }}</text>
+          <text x="578" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x2 }}</text>
+          <text x="732" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">{{ section.settings.x3 }}</text>
         </svg>
       </div>
     {%- endif -%}
 
     {%- if section.settings.footnote != blank -%}
-      <p class="text-xs font-light mt-14 max-w-xl" style="color:rgba(255,255,255,0.35)">
+      <p class="text-xs font-light mt-14 max-w-xl pd-fade" style="transition-delay: 450ms; color:rgba(255,255,255,0.35)">
         {{ section.settings.footnote }}
       </p>
     {%- endif -%}
   </div>
 </section>
+
+<style>
+  .product-data-section .pd-fade {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .product-data-section.pd-visible .pd-fade {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .product-data-section .pd-dot {
+    opacity: 0;
+    transition: opacity 0.4s ease 1.4s;
+  }
+  .product-data-section.pd-visible .pd-dot {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .product-data-section .pd-fade,
+    .product-data-section .pd-dot { opacity: 1; transform: none; transition: none; }
+    .product-data-section .pd-draw { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; transition: none !important; }
+  }
+</style>
+
+<script>
+  (function () {
+    var section = document.getElementById('data-{{ sid }}');
+    if (!section || section.dataset.pdInit) return;
+    section.dataset.pdInit = '1';
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var draws = section.querySelectorAll('path.pd-draw');
+    if (!reduced) {
+      draws.forEach(function (p) {
+        var len = p.getTotalLength();
+        var dash = p.getAttribute('stroke-dasharray');
+        p.dataset.pdDashed = dash || '';
+        p.style.strokeDasharray = len;
+        p.style.strokeDashoffset = len;
+      });
+    }
+
+    function countUp(el) {
+      var raw = el.dataset.value || '';
+      var m = raw.match(/^(\d+(?:\.\d+)?)(.*)$/);
+      if (!m) return;
+      var target = parseFloat(m[1]);
+      var suffix = m[2];
+      var decimals = (m[1].split('.')[1] || '').length;
+      var start = null;
+      var dur = 1300;
+      function step(ts) {
+        if (!start) start = ts;
+        var t = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = (target * eased).toFixed(decimals) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = raw;
+      }
+      requestAnimationFrame(step);
+    }
+
+    function reveal() {
+      section.classList.add('pd-visible');
+      if (!reduced) {
+        draws.forEach(function (p) {
+          p.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+          p.style.strokeDashoffset = '0';
+          if (p.dataset.pdDashed) {
+            p.addEventListener('transitionend', function () {
+              p.style.transition = 'none';
+              p.style.strokeDasharray = p.dataset.pdDashed;
+              p.style.strokeDashoffset = '0';
+            }, { once: true });
+          }
+        });
+        section.querySelectorAll('.pd-count').forEach(countUp);
+      }
+    }
+
+    if ('IntersectionObserver' in window && !reduced) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { reveal(); io.disconnect(); }
+        });
+      }, { threshold: 0.2 });
+      io.observe(section);
+    } else {
+      reveal();
+    }
+  })();
+</script>
 
 {% schema %}
 {
@@ -92,8 +185,20 @@
     { "type": "text", "id": "label", "label": "Label", "default": "Lab Notes" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "The Data" },
     { "type": "textarea", "id": "description", "label": "Description" },
-    { "type": "checkbox", "id": "show_chart", "label": "Show friction chart", "default": true },
+    { "type": "checkbox", "id": "show_chart", "label": "Show chart", "default": true },
     { "type": "text", "id": "chart_title", "label": "Chart title" },
+    { "type": "text", "id": "compare_label", "label": "Comparison line label", "default": "UNTREATED SKIN" },
+    { "type": "text", "id": "compare_path", "label": "Comparison line SVG path" },
+    { "type": "number", "id": "compare_label_y", "label": "Comparison label Y" },
+    { "type": "text", "id": "product_label", "label": "Product line label" },
+    { "type": "text", "id": "product_path", "label": "Product line SVG path" },
+    { "type": "number", "id": "product_label_y", "label": "Product label Y" },
+    { "type": "number", "id": "product_dot_x", "label": "Product endpoint dot X" },
+    { "type": "number", "id": "product_dot_y", "label": "Product endpoint dot Y" },
+    { "type": "text", "id": "x0", "label": "X axis label 1", "default": "MI 0" },
+    { "type": "text", "id": "x1", "label": "X axis label 2", "default": "10" },
+    { "type": "text", "id": "x2", "label": "X axis label 3", "default": "20" },
+    { "type": "text", "id": "x3", "label": "X axis label 4", "default": "26.2" },
     { "type": "textarea", "id": "footnote", "label": "Footnote / disclaimer" }
   ],
   "blocks": [

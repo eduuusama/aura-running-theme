@@ -71,7 +71,13 @@
           }
         }
       },
-      "block_order": ["petrolatum", "lanolin", "waxes", "sterols", "teatree"],
+      "block_order": [
+        "petrolatum",
+        "lanolin",
+        "waxes",
+        "sterols",
+        "teatree"
+      ],
       "settings": {
         "heading": "Key Ingredients",
         "description": ""
@@ -107,7 +113,11 @@
           }
         }
       },
-      "block_order": ["temperature", "sweat", "barrier"]
+      "block_order": [
+        "temperature",
+        "sweat",
+        "barrier"
+      ]
     },
     "faq": {
       "type": "product-faq",
@@ -208,7 +218,21 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13"]
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11",
+        "q12",
+        "q13"
+      ]
     },
     "related-products": {
       "type": "related-products",
@@ -221,12 +245,64 @@
       "settings": {
         "heading": "From the Editorial"
       }
+    },
+    "data": {
+      "type": "product-data",
+      "settings": {
+        "label": "Lab Notes",
+        "heading": "The Data",
+        "description": "How an occlusive petrolatum system holds up when the hours stack: barrier retention through sweat, and stability across temperature.",
+        "show_chart": true,
+        "chart_title": "Barrier retention over ultra distance",
+        "compare_label": "FILM-FORMING STICK",
+        "compare_path": "M 40 80 C 220 96, 420 150, 720 216",
+        "compare_label_y": 66,
+        "product_label": "AURA ULTRA",
+        "product_path": "M 40 52 C 260 54, 500 62, 720 76",
+        "product_label_y": 40,
+        "product_dot_x": 716.5,
+        "product_dot_y": 72.5,
+        "x0": "MI 0",
+        "x1": "25",
+        "x2": "50",
+        "x3": "100",
+        "footnote": "Figures are internal bench estimates on synthetic skin substrates, shown for illustration. Field validation in progress; methodology will be published when complete."
+      },
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "94%",
+            "caption": "estimated barrier retained after six hours of sustained sweat exposure"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "3x",
+            "caption": "estimated wear life versus film-forming stick formulas"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "0",
+            "caption": "added fragrance, dyes, or fillers"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
     }
   },
   "order": [
     "main",
     "ingredients",
     "usage",
+    "data",
     "faq",
     "related-products",
     "related"

@@ -221,12 +221,64 @@
       "settings": {
         "heading": "From the Editorial"
       }
+    },
+    "data": {
+      "type": "product-data",
+      "settings": {
+        "label": "Lab Notes",
+        "heading": "The Data",
+        "description": "What happens overnight: how a ceramide and panthenol barrier supports skin hydration through the recovery window.",
+        "show_chart": true,
+        "chart_title": "Skin hydration through the overnight window",
+        "compare_label": "UNASSISTED SKIN",
+        "compare_path": "M 40 200 C 240 196, 480 188, 720 176",
+        "compare_label_y": 224,
+        "product_label": "AURA RECOVERY",
+        "product_path": "M 40 196 C 240 160, 480 96, 720 56",
+        "product_label_y": 44,
+        "product_dot_x": 716.5,
+        "product_dot_y": 52.5,
+        "x0": "HR 0",
+        "x1": "2",
+        "x2": "5",
+        "x3": "8",
+        "footnote": "Figures are internal bench estimates on synthetic skin substrates, shown for illustration. Field validation in progress; methodology will be published when complete."
+      },
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "4%",
+            "caption": "niacinamide, at the concentration used in barrier research"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "5",
+            "caption": "recovery actives, each at a working concentration"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "8h",
+            "caption": "the overnight window the formula is built around"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
     }
   },
   "order": [
     "main",
     "ingredients",
     "usage",
+    "data",
     "faq",
     "related-products",
     "related"
