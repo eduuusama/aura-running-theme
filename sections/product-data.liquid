@@ -33,10 +33,22 @@
         {%- for block in section.blocks -%}
           <div class="flex justify-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
             <div class="relative w-[240px] h-[240px] md:w-[260px] md:h-[260px]">
+              {%- assign vis = block.settings.visual | default: 'percent' -%}
+              {%- assign pct = block.settings.percent | default: 0 -%}
+              {%- assign segs = block.settings.segments | default: 0 -%}
               <svg viewBox="0 0 240 240" class="absolute inset-0 w-full h-full" fill="none" aria-hidden="true">
-                <path class="pd-draw" d="M 145.9 23.4 A 100 100 0 1 0 190.7 190.7" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-                <rect class="pd-dot" x="142.4" y="19.9" width="7" height="7" fill="#fafafa"/>
-                <rect class="pd-dot" x="187.2" y="187.2" width="7" height="7" fill="#fafafa"/>
+                <circle cx="120" cy="120" r="100" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+                {%- if vis == 'segments' and segs > 0 -%}
+                  {%- assign plen = segs | times: 10 -%}
+                  <circle class="pd-seg" cx="120" cy="120" r="100" pathLength="{{ plen }}" stroke="#fafafa" stroke-width="3" stroke-dasharray="6.5 3.5" transform="rotate(-90 120 120)"/>
+                {%- else -%}
+                  <circle class="pd-arc" cx="120" cy="120" r="100" pathLength="100" stroke="#fafafa" stroke-width="1.5" stroke-dasharray="0 100" data-pct="{{ pct }}" transform="rotate(-90 120 120)"/>
+                  <rect x="116.5" y="16.5" width="7" height="7" fill="#fafafa"/>
+                  {%- if pct > 0 -%}
+                    {%- assign deg = pct | times: 3.6 -%}
+                    <g transform="rotate({{ deg }} 120 120)"><rect class="pd-dot" x="116.5" y="16.5" width="7" height="7" fill="#fafafa"/></g>
+                  {%- endif -%}
+                {%- endif -%}
               </svg>
               <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
                 <p class="text-4xl md:text-5xl font-light mb-3 pd-count" data-value="{{ block.settings.value | escape }}" style="color:#fafafa">{{ block.settings.value }}</p>
@@ -101,10 +113,19 @@
   .product-data-section.pd-visible .pd-dot {
     opacity: 1;
   }
+  .product-data-section .pd-seg {
+    opacity: 0;
+    transform-box: fill-box;
+    transition: opacity 1.2s ease 0.3s;
+  }
+  .product-data-section.pd-visible .pd-seg {
+    opacity: 1;
+  }
   @media (prefers-reduced-motion: reduce) {
     .product-data-section .pd-fade,
     .product-data-section .pd-dot { opacity: 1; transform: none; transition: none; }
     .product-data-section .pd-draw { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; transition: none !important; }
+    .product-data-section .pd-seg { opacity: 1; }
   }
 </style>
 
@@ -149,6 +170,12 @@
 
     function reveal() {
       section.classList.add('pd-visible');
+      if (reduced) {
+        section.querySelectorAll('.pd-arc').forEach(function (c) {
+          var pct = parseFloat(c.dataset.pct) || 0;
+          c.style.strokeDasharray = pct + ' ' + (100 - pct);
+        });
+      }
       if (!reduced) {
         draws.forEach(function (p) {
           p.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -160,6 +187,13 @@
               p.style.strokeDashoffset = '0';
             }, { once: true });
           }
+        });
+        section.querySelectorAll('.pd-arc').forEach(function (c) {
+          var pct = parseFloat(c.dataset.pct) || 0;
+          c.style.transition = 'stroke-dasharray 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+          requestAnimationFrame(function () {
+            c.style.strokeDasharray = pct + ' ' + (100 - pct);
+          });
         });
         section.querySelectorAll('.pd-count').forEach(countUp);
       }
@@ -207,7 +241,10 @@
       "name": "Stat",
       "settings": [
         { "type": "text", "id": "value", "label": "Value (e.g. 78%)" },
-        { "type": "text", "id": "caption", "label": "Caption" }
+        { "type": "text", "id": "caption", "label": "Caption" },
+        { "type": "select", "id": "visual", "label": "Ring visual", "options": [ { "value": "percent", "label": "Percent fill" }, { "value": "segments", "label": "Segment count" } ], "default": "percent" },
+        { "type": "number", "id": "percent", "label": "Percent fill (0-100)" },
+        { "type": "number", "id": "segments", "label": "Number of segments" }
       ]
     }
   ],

@@ -249,21 +249,30 @@
           "type": "stat",
           "settings": {
             "value": "4%",
-            "caption": "niacinamide, at the concentration used in barrier research"
+            "caption": "niacinamide, at the concentration used in barrier research",
+            "visual": "percent",
+            "percent": 4,
+            "segments": 0
           }
         },
         "s2": {
           "type": "stat",
           "settings": {
             "value": "5",
-            "caption": "recovery actives, each at a working concentration"
+            "caption": "recovery actives, each at a working concentration",
+            "visual": "segments",
+            "percent": 0,
+            "segments": 5
           }
         },
         "s3": {
           "type": "stat",
           "settings": {
             "value": "8h",
-            "caption": "the overnight window the formula is built around"
+            "caption": "the overnight window the formula is built around",
+            "visual": "percent",
+            "percent": 33,
+            "segments": 0
           }
         }
       },

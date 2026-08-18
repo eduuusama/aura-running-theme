@@ -273,21 +273,30 @@
           "type": "stat",
           "settings": {
             "value": "94%",
-            "caption": "estimated barrier retained after six hours of sustained sweat exposure"
+            "caption": "estimated barrier retained after six hours of sustained sweat exposure",
+            "visual": "percent",
+            "percent": 94,
+            "segments": 0
           }
         },
         "s2": {
           "type": "stat",
           "settings": {
             "value": "3x",
-            "caption": "estimated wear life versus film-forming stick formulas"
+            "caption": "estimated wear life versus film-forming stick formulas",
+            "visual": "segments",
+            "percent": 0,
+            "segments": 3
           }
         },
         "s3": {
           "type": "stat",
           "settings": {
             "value": "0",
-            "caption": "added fragrance, dyes, or fillers"
+            "caption": "added fragrance, dyes, or fillers",
+            "visual": "percent",
+            "percent": 0,
+            "segments": 0
           }
         }
       },

@@ -268,21 +268,30 @@
           "type": "stat",
           "settings": {
             "value": "78%",
-            "caption": "estimated reduction in skin-on-fabric friction after one application"
+            "caption": "estimated reduction in skin-on-fabric friction after one application",
+            "visual": "percent",
+            "percent": 78,
+            "segments": 0
           }
         },
         "s2": {
           "type": "stat",
           "settings": {
             "value": "92%",
-            "caption": "of the formula is natural-origin ingredients"
+            "caption": "of the formula is natural-origin ingredients",
+            "visual": "percent",
+            "percent": 92,
+            "segments": 0
           }
         },
         "s3": {
           "type": "stat",
           "settings": {
             "value": "8",
-            "caption": "ingredients. Nothing that does not earn its place"
+            "caption": "ingredients. Nothing that does not earn its place",
+            "visual": "segments",
+            "percent": 0,
+            "segments": 8
           }
         }
       },
