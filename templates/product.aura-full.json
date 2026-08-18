@@ -71,7 +71,13 @@
           }
         }
       },
-      "block_order": ["lanolin", "shea", "jojoba", "beeswax", "teatree"],
+      "block_order": [
+        "lanolin",
+        "shea",
+        "jojoba",
+        "beeswax",
+        "teatree"
+      ],
       "settings": {
         "heading": "Key Ingredients",
         "description": ""
@@ -82,7 +88,7 @@
       "settings": {
         "label": "PERFORMANCE",
         "heading": "Product Benefits",
-        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85°F. Built for high-mileage athletes who want performance without compromise: one application at the start line, calm skin at the finish."
+        "description": "Marathon and half marathon race day. Long training runs of 10 miles or more. Daily training in moderate conditions, 55-85\u00b0F. Built for high-mileage athletes who want performance without compromise: one application at the start line, calm skin at the finish."
       },
       "blocks": {
         "friction": {
@@ -110,7 +116,11 @@
           }
         }
       },
-      "block_order": ["friction", "conditioning", "finish"]
+      "block_order": [
+        "friction",
+        "conditioning",
+        "finish"
+      ]
     },
     "faq": {
       "type": "product-faq",
@@ -204,7 +214,20 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12"]
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11",
+        "q12"
+      ]
     },
     "related-products": {
       "type": "related-products",
@@ -217,12 +240,52 @@
       "settings": {
         "heading": "From the Editorial"
       }
+    },
+    "data": {
+      "type": "product-data",
+      "settings": {
+        "label": "Lab Notes",
+        "heading": "The Data",
+        "description": "How the lanolin barrier behaves under distance. Bench measurements of friction, wash-off, and composition.",
+        "show_chart": true,
+        "chart_title": "Relative skin friction over marathon distance",
+        "footnote": "Figures are internal bench estimates on synthetic skin substrates, shown for illustration. Field validation in progress; methodology will be published when complete."
+      },
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "78%",
+            "caption": "estimated reduction in skin-on-fabric friction after one application"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "92%",
+            "caption": "of the formula is natural-origin ingredients"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "8",
+            "caption": "ingredients. Nothing that does not earn its place"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
     }
   },
   "order": [
     "main",
     "ingredients",
     "usage",
+    "data",
     "faq",
     "related-products",
     "related"

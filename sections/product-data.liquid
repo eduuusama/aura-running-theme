@@ -1,0 +1,111 @@
+{%- comment -%}
+  Product Data — lab-style stats section.
+  Thin-stroke stat arcs (reference: editorial data overlays) + a minimal
+  friction-over-distance SVG chart. Values are merchant-entered estimates;
+  footnote setting renders a disclaimer.
+{%- endcomment -%}
+
+<section class="py-20 md:py-28" style="background:#0a0a0a">
+  <div class="container">
+    <div class="mb-14 md:mb-20">
+      {%- if section.settings.label != blank -%}
+        <p class="text-xs tracking-[0.2em] uppercase mb-5 font-light" style="color:rgba(255,255,255,0.5)">
+          {{ section.settings.label }}
+        </p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl" style="color:#fafafa">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="text-base font-light leading-relaxed max-w-lg mt-6" style="color:rgba(255,255,255,0.65)">
+          {{ section.settings.description }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Stat arcs {%- endcomment -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8 mb-20 md:mb-28">
+        {%- for block in section.blocks -%}
+          <div class="flex justify-center" {{ block.shopify_attributes }}>
+            <div class="relative w-[240px] h-[240px] md:w-[260px] md:h-[260px]">
+              <svg viewBox="0 0 240 240" class="absolute inset-0 w-full h-full" fill="none" aria-hidden="true">
+                <path d="M 145.9 23.4 A 100 100 0 1 0 190.7 190.7" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+                <rect x="142.4" y="19.9" width="7" height="7" fill="#fafafa"/>
+                <rect x="187.2" y="187.2" width="7" height="7" fill="#fafafa"/>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
+                <p class="text-4xl md:text-5xl font-light mb-3" style="color:#fafafa">{{ block.settings.value }}</p>
+                <p class="text-sm font-light leading-snug" style="color:rgba(255,255,255,0.75)">{{ block.settings.caption }}</p>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Friction-over-distance chart {%- endcomment -%}
+    {%- if section.settings.show_chart -%}
+      <div class="max-w-4xl mx-auto">
+        <p class="text-xs tracking-[0.2em] uppercase mb-8 font-light" style="color:rgba(255,255,255,0.5)">
+          {{ section.settings.chart_title | default: 'Relative friction over marathon distance' }}
+        </p>
+        <svg viewBox="0 0 800 280" class="w-full h-auto" fill="none" aria-label="Chart: relative skin friction over distance, untreated skin versus Aura Full">
+          {%- comment -%} Untreated line (dashed, rising) {%- endcomment -%}
+          <path d="M 40 130 C 200 118, 400 84, 720 40" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-dasharray="4 5"/>
+          <text x="40" y="112" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">UNTREATED SKIN</text>
+
+          {%- comment -%} Aura Full line (solid, low + flat) {%- endcomment -%}
+          <path d="M 40 216 C 220 214, 460 210, 720 200" stroke="#fafafa" stroke-width="1.5"/>
+          <rect x="716.5" y="196.5" width="7" height="7" fill="#fafafa"/>
+          <text x="40" y="200" fill="#fafafa" font-size="12" font-family="Inter, sans-serif" letter-spacing="0.08em">AURA FULL</text>
+
+          {%- comment -%} Baseline + ruler ticks {%- endcomment -%}
+          <line x1="40" y1="248" x2="760" y2="248" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          {%- for i in (0..72) -%}
+            {%- assign x = i | times: 10 | plus: 40 -%}
+            {%- assign rem = i | modulo: 9 -%}
+            <line x1="{{ x }}" y1="248" x2="{{ x }}" y2="{% if rem == 0 %}238{% else %}243{% endif %}" stroke="rgba(255,255,255,{% if rem == 0 %}0.4{% else %}0.2{% endif %})" stroke-width="1"/>
+          {%- endfor -%}
+          <text x="40" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">MI 0</text>
+          <text x="308" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">10</text>
+          <text x="578" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">20</text>
+          <text x="732" y="272" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter, sans-serif">26.2</text>
+        </svg>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="text-xs font-light mt-14 max-w-xl" style="color:rgba(255,255,255,0.35)">
+        {{ section.settings.footnote }}
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Data",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Lab Notes" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Data" },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "checkbox", "id": "show_chart", "label": "Show friction chart", "default": true },
+    { "type": "text", "id": "chart_title", "label": "Chart title" },
+    { "type": "textarea", "id": "footnote", "label": "Footnote / disclaimer" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value (e.g. 78%)" },
+        { "type": "text", "id": "caption", "label": "Caption" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Product Data" }]
+}
+{% endschema %}
