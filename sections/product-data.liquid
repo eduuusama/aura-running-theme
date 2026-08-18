@@ -170,7 +170,7 @@
         entries.forEach(function (e) {
           if (e.isIntersecting) { reveal(); io.disconnect(); }
         });
-      }, { threshold: 0.2 });
+      }, { threshold: 0.12 });
       io.observe(section);
     } else {
       reveal();
