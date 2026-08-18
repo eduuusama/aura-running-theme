@@ -7,12 +7,21 @@
   {%- comment -%} Background Image {%- endcomment -%}
   {%- if section.settings.image -%}
     <img
-      src="{{ section.settings.image | image_url: width: 2000 }}"
+      src="{{ section.settings.image | image_url: width: 2600 }}"
       alt="{{ section.settings.image.alt | default: section.settings.heading | strip_html }}"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="absolute inset-0 w-full h-full object-cover{% if section.settings.image_mobile %} hidden md:block{% endif %}"
       loading="eager"
       fetchpriority="high"
     >
+    {%- if section.settings.image_mobile -%}
+      <img
+        src="{{ section.settings.image_mobile | image_url: width: 1200 }}"
+        alt="{{ section.settings.image_mobile.alt | default: section.settings.heading | strip_html }}"
+        class="absolute inset-0 w-full h-full object-cover md:hidden"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {%- endif -%}
   {%- else -%}
     <img
       src="{{ 'runners-desert-road-golden-hour.jpg' | asset_url }}"
@@ -68,6 +77,11 @@
       "type": "image_picker",
       "id": "image",
       "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Background Image (Mobile)"
     },
     {
       "type": "text",
