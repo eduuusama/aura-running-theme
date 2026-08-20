@@ -51,7 +51,22 @@
         "price": {{ product.price | money_without_currency | json }},
         "priceCurrency": {{ cart.currency.iso_code | json }},
         "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
-        "url": "{{ shop.url }}{{ product.url }}"
+        "url": "{{ shop.url }}{{ product.url }}",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": { "@type": "MonetaryAmount", "value": 5.95, "currency": "USD" },
+          "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+            "transitTime": { "@type": "QuantitativeValue", "minValue": 5, "maxValue": 7, "unitCode": "DAY" }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+        }
       }
     }
   </script>
