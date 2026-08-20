@@ -46,11 +46,17 @@
         "@type": "Brand",
         "name": {{ shop.name | json }}
       },
+      {%- if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+      {%- endif -%}
       "offers": {
         "@type": "Offer",
         "price": {{ product.price | money_without_currency | json }},
         "priceCurrency": {{ cart.currency.iso_code | json }},
         "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+        "itemCondition": "https://schema.org/NewCondition",
+        "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' }}",
+        "seller": { "@type": "Organization", "name": "Aura Running" },
         "url": "{{ shop.url }}{{ product.url }}",
         "shippingDetails": {
           "@type": "OfferShippingDetails",
