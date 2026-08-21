@@ -21,9 +21,7 @@
     {%- if section.settings.image_1 -%}
       <img src="{{ section.settings.image_1 | image_url: width: 2400 }}" alt="{{ section.settings.image_1.alt | default: 'Aura Running athletes on the trail' }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
     {%- else -%}
-      <div class="absolute inset-0 flex items-center justify-center">
-        <span class="text-xs uppercase tracking-[0.2em] text-muted-foreground font-light">Image coming soon</span>
-      </div>
+      <img src="{{ 'backyard-ultra-runners-last-person-standing.jpg' | asset_url }}" alt="Runners moving through a street market in the sun" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
     {%- endif -%}
   </div>
 
@@ -52,9 +50,7 @@
         {%- if section.settings.image_2 -%}
           <img src="{{ section.settings.image_2 | image_url: width: 1400 }}" alt="{{ section.settings.image_2.alt | default: 'Trail runner in motion' }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         {%- else -%}
-          <div class="absolute inset-0 flex items-center justify-center">
-            <span class="text-xs uppercase tracking-[0.2em] text-muted-foreground font-light">Image coming soon</span>
-          </div>
+          <img src="{{ 'pillar-presence-runner-motion.jpg' | asset_url }}" alt="Runner in motion, blurred against the trail" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         {%- endif -%}
       </div>
       <div>

@@ -30,7 +30,7 @@
     {%- comment -%} One row: stat rings + chart {%- endcomment -%}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-14 items-center">
       {%- for block in section.blocks -%}
-        <div class="flex justify-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
+        <div class="flex flex-col items-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
           <div class="relative w-[220px] h-[220px]">
             {%- assign vis = block.settings.visual | default: 'percent' -%}
             {%- assign pct = block.settings.percent | default: 0 -%}
@@ -52,11 +52,11 @@
                 {%- endif -%}
               {%- endif -%}
             </svg>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-9">
-              <p class="text-4xl font-light mb-3 pd-count" data-value="{{ block.settings.value | escape }}" style="color:#fafafa">{{ block.settings.value }}</p>
-              <p class="text-[13px] font-light leading-snug" style="color:rgba(255,255,255,0.75)">{{ block.settings.caption }}</p>
+            <div class="absolute inset-0 flex items-center justify-center text-center px-9">
+              <p class="text-5xl font-light pd-count" data-value="{{ block.settings.value | escape }}" style="color:#fafafa">{{ block.settings.value }}</p>
             </div>
           </div>
+          <p class="text-[13px] font-light leading-snug text-center max-w-[220px] mt-5" style="color:rgba(255,255,255,0.75)">{{ block.settings.caption }}</p>
         </div>
       {%- endfor -%}
 
