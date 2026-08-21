@@ -1,0 +1,116 @@
+{%- comment -%}
+  About Page — editorial layout for /pages/about-us.
+  Header, full-bleed image, mission columns, portrait + who-we-are,
+  and a "what we are listening to" block with playlist embeds.
+  Image settings render placeholder blocks until images are chosen.
+{%- endcomment -%}
+
+<section class="bg-background">
+
+  {%- comment -%} Header {%- endcomment -%}
+  <div class="container pt-16 md:pt-24 pb-12 md:pb-16">
+    <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">About</p>
+    <h1 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 max-w-3xl">{{ section.settings.heading }}</h1>
+    <p class="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
+      {{ section.settings.intro }}
+    </p>
+  </div>
+
+  {%- comment -%} Full-bleed image 1 {%- endcomment -%}
+  <div class="relative overflow-hidden bg-muted aspect-[16/9] md:aspect-[21/9]">
+    {%- if section.settings.image_1 -%}
+      <img src="{{ section.settings.image_1 | image_url: width: 2400 }}" alt="{{ section.settings.image_1.alt | default: 'Aura Running athletes on the trail' }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+    {%- else -%}
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="text-xs uppercase tracking-[0.2em] text-muted-foreground font-light">Image coming soon</span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Mission columns {%- endcomment -%}
+  <div class="container py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+      <div>
+        <h2 class="font-serif text-2xl md:text-3xl mb-4">Our Mission</h2>
+        <p class="text-base text-muted-foreground font-light leading-relaxed">
+          Our mission is to protect runners so they can focus on what matters most: the run. Every formula we make is built for real distance and tested against real miles. We obsess over the details so you do not have to.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-serif text-2xl md:text-3xl mb-4">Built for Ultra Runners</h2>
+        <p class="text-base text-muted-foreground font-light leading-relaxed">
+          Our products work for every runner, but our hearts belong to the ultra endurance community. We have spent countless hours on trails, at training camps, and at races from local marathons to UTMB, learning what the distance actually demands. That knowledge goes into everything we make.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Portrait image + who we are {%- endcomment -%}
+  <div class="container pb-16 md:pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="relative overflow-hidden bg-muted aspect-[4/5]">
+        {%- if section.settings.image_2 -%}
+          <img src="{{ section.settings.image_2 | image_url: width: 1400 }}" alt="{{ section.settings.image_2.alt | default: 'Trail runner in motion' }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        {%- else -%}
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-xs uppercase tracking-[0.2em] text-muted-foreground font-light">Image coming soon</span>
+          </div>
+        {%- endif -%}
+      </div>
+      <div>
+        <h2 class="font-serif text-2xl md:text-3xl mb-4">Who We Are</h2>
+        <p class="text-base text-muted-foreground font-light leading-relaxed mb-4">
+          Aura Running is independently owned and operated by Eduardo Samayoa. We are based out of Golden, Colorado, with operations in Waco, Texas.
+        </p>
+        <p class="text-base text-muted-foreground font-light leading-relaxed">
+          Questions, ideas, or a race story worth telling? Write to us at
+          <a href="mailto:hello@aura-running.com" class="underline underline-offset-4 hover:opacity-60 transition-opacity">hello@aura-running.com</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} What we are listening to {%- endcomment -%}
+  <div class="py-16 md:py-24" style="background:#0a0a0a">
+    <div class="container">
+      <p class="text-xs tracking-[0.2em] uppercase mb-5 font-light" style="color:rgba(255,255,255,0.5)">On Rotation</p>
+      <h2 class="font-serif text-3xl md:text-4xl mb-4" style="color:#fafafa">What We Are Listening To</h2>
+      <p class="text-base font-light leading-relaxed max-w-lg mb-10" style="color:rgba(255,255,255,0.65)">
+        Long runs need long mixes. Two we keep coming back to.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div>
+          <iframe
+            src="https://open.spotify.com/embed/playlist/2brGJP5NCJGF7F0LQb5jl9"
+            width="100%" height="352" frameborder="0" loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Aura Running playlist on Spotify"
+            style="border-radius:0"></iframe>
+        </div>
+        <div>
+          <iframe
+            width="100%" height="166" scrolling="no" frameborder="no" loading="lazy"
+            title="RA.1000 DJ Harvey and Andrew Weatherall on SoundCloud"
+            src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fresident-advisor%2Fra1000-dj-harvey-andrew-weatherall&color=%23fafafa&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+          <p class="text-sm font-light mt-4" style="color:rgba(255,255,255,0.65)">
+            <a href="https://soundcloud.com/resident-advisor/ra1000-dj-harvey-andrew-weatherall" target="_blank" rel="noopener" class="underline underline-offset-4" style="color:rgba(255,255,255,0.8)">RA.1000: DJ Harvey and Andrew Weatherall</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "About Page",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "We Are Aura Running" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Running is more than a sport. We build the skin protection that lets high-mileage athletes go further, from a local 5K to a hundred miles through the mountains." },
+    { "type": "image_picker", "id": "image_1", "label": "Wide image" },
+    { "type": "image_picker", "id": "image_2", "label": "Portrait image" }
+  ],
+  "presets": [{ "name": "About Page" }]
+}
+{% endschema %}
