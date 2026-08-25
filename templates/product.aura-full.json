@@ -300,6 +300,12 @@
         "s2",
         "s3"
       ]
+    },
+    "reviews": {
+      "type": "product-reviews",
+      "settings": {
+        "heading": "From the Miles"
+      }
     }
   },
   "order": [
@@ -308,6 +314,7 @@
     "usage",
     "data",
     "faq",
+    "reviews",
     "related-products",
     "related"
   ]

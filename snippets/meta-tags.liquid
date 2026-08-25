@@ -49,6 +49,27 @@
       {%- if product.selected_or_first_available_variant.sku != blank -%}
       "sku": {{ product.selected_or_first_available_variant.sku | json }},
       {%- endif -%}
+      {%- assign ld_reviews = product.metafields.custom.reviews.value -%}
+      {%- assign ld_count = 0 -%}{%- assign ld_sum = 0 -%}
+      {%- for r in ld_reviews -%}{%- assign ld_count = ld_count | plus: 1 -%}{%- assign ld_sum = ld_sum | plus: r.rating.value -%}{%- endfor -%}
+      {%- if ld_count > 0 -%}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ ld_sum | times: 1.0 | divided_by: ld_count | round: 1 | json }},
+        "reviewCount": {{ ld_count }}
+      },
+      "review": [
+        {%- for r in ld_reviews limit: 5 -%}
+        {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": {{ r.rating.value }}, "bestRating": 5 },
+          "author": { "@type": "Person", "name": {{ r.author.value | json }} },
+          {%- if r.review_date.value -%}"datePublished": {{ r.review_date.value | date: '%Y-%m-%d' | json }},{%- endif -%}
+          "reviewBody": {{ r.body.value | json }}
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ],
+      {%- endif -%}
       "offers": {
         "@type": "Offer",
         "price": {{ product.price | money_without_currency | json }},

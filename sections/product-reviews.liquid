@@ -1,0 +1,146 @@
+{%- comment -%}
+  Product Reviews — fully custom, no app.
+  Reads active aura_review metaobjects from product.metafields.custom.reviews.
+  Submission form posts via Shopify contact form; entries arrive at the store
+  email for approval before being published as metaobjects.
+{%- endcomment -%}
+
+{%- assign reviews = product.metafields.custom.reviews.value -%}
+{%- assign review_count = 0 -%}
+{%- assign rating_sum = 0 -%}
+{%- for r in reviews -%}
+  {%- assign review_count = review_count | plus: 1 -%}
+  {%- assign rating_sum = rating_sum | plus: r.rating.value -%}
+{%- endfor -%}
+{%- if review_count > 0 -%}
+  {%- assign rating_avg = rating_sum | times: 1.0 | divided_by: review_count | round: 1 -%}
+  {%- assign rating_avg_rounded = rating_avg | round -%}
+{%- endif -%}
+
+<section class="py-16 md:py-24 bg-background border-t border-border" id="reviews">
+  <div class="container">
+    <div class="max-w-3xl mx-auto">
+
+      {%- comment -%} Header {%- endcomment -%}
+      <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-5 font-light">Reviews</p>
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-14">
+        <h2 class="font-serif text-3xl md:text-4xl tracking-tight">{{ section.settings.heading | default: 'From the Miles' }}</h2>
+        {%- if review_count > 0 -%}
+          <div class="flex items-center gap-3">
+            {% render 'star-rating', rating: rating_avg_rounded, size: 18 %}
+            <span class="text-sm font-light text-muted-foreground">{{ rating_avg }} out of 5 &middot; {{ review_count }} {% if review_count == 1 %}review{% else %}reviews{% endif %}</span>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Review list / empty state {%- endcomment -%}
+      {%- if review_count > 0 -%}
+        <div class="space-y-10 mb-16">
+          {%- for r in reviews -%}
+            <article class="border-b border-border pb-10">
+              <div class="flex items-center gap-3 mb-3">
+                {% render 'star-rating', rating: r.rating.value, size: 14 %}
+                {%- if r.title.value != blank -%}
+                  <h3 class="text-base font-medium tracking-tight">{{ r.title.value }}</h3>
+                {%- endif -%}
+              </div>
+              <p class="text-base text-muted-foreground font-light leading-relaxed mb-3">{{ r.body.value }}</p>
+              <p class="text-xs text-muted-foreground font-light tracking-wide">
+                {{ r.author.value }}{% if r.review_date.value %} &middot; {{ r.review_date.value | date: '%B %Y' }}{% endif %}
+              </p>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="text-base text-muted-foreground font-light leading-relaxed mb-16">
+          No reviews yet. Put in the miles, then tell us how it held up.
+        </p>
+      {%- endif -%}
+
+      {%- comment -%} Write a review {%- endcomment -%}
+      <div class="border border-border p-6 md:p-8">
+        {%- form 'contact', id: 'review-form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 font-light">Thank you</p>
+            <h3 class="font-serif text-2xl mb-3">Review received</h3>
+            <p class="text-sm text-muted-foreground font-light leading-relaxed">We read every review before it goes live. Yours will appear here shortly.</p>
+          {%- else -%}
+            <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 font-light">Write a review</p>
+            <h3 class="font-serif text-2xl mb-6">How did {{ product.title }} hold up?</h3>
+            {%- if form.errors -%}
+              <p class="text-sm font-light mb-4" style="color:#b42318">Please check your name, email, and review, then try again.</p>
+            {%- endif -%}
+            <input type="hidden" name="contact[product]" value="{{ product.title }} ({{ product.handle }})">
+            <input type="hidden" name="contact[type]" value="Product review submission">
+
+            <div class="mb-6">
+              <p class="text-sm font-light mb-2">Your rating</p>
+              <div class="review-stars" role="radiogroup" aria-label="Rating">
+                {%- for i in (1..5) -%}
+                  {%- assign star_value = 6 | minus: i -%}
+                  <input type="radio" id="star-{{ star_value }}" name="contact[rating]" value="{{ star_value }} of 5 stars" required>
+                  <label for="star-{{ star_value }}" aria-label="{{ star_value }} stars">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3.5l2.47 5.34 5.85.63-4.36 3.96 1.17 5.77L12 16.3l-5.13 2.9 1.17-5.77-4.36-3.96 5.85-.63z"/></svg>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <input type="text" name="contact[name]" required placeholder="Name" aria-label="Name"
+                class="w-full h-12 px-4 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none">
+              <input type="email" name="contact[email]" required placeholder="Email (not published)" aria-label="Email"
+                class="w-full h-12 px-4 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none">
+            </div>
+            <input type="text" name="contact[review_title]" placeholder="Review title (optional)" aria-label="Review title"
+              class="w-full h-12 px-4 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none mb-4">
+            <textarea name="contact[body]" required rows="4" placeholder="Where did you run in it, and how did it hold up?" aria-label="Review"
+              class="w-full px-4 py-3 border border-border bg-transparent text-sm font-light outline-none focus:border-foreground transition-colors rounded-none mb-6"></textarea>
+            <button type="submit" class="h-12 px-8 bg-foreground text-background text-xs font-medium uppercase tracking-[0.15em] hover:bg-foreground/90 transition-colors rounded-none">
+              Submit Review
+            </button>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .review-stars {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: 2px;
+  }
+  .review-stars input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .review-stars label {
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    opacity: 0.85;
+  }
+  .review-stars label svg { display: block; }
+  .review-stars input:checked ~ label svg,
+  .review-stars label:hover svg,
+  .review-stars label:hover ~ label svg {
+    fill: currentColor;
+  }
+  .review-stars input:focus-visible + label {
+    outline: 1px solid hsl(var(--foreground));
+    outline-offset: 2px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Reviews",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From the Miles" }
+  ],
+  "presets": [{ "name": "Product Reviews" }]
+}
+{% endschema %}
