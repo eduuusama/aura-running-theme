@@ -67,6 +67,12 @@
           </a>
         </div>
         <div class="p-6 bg-secondary">
+          <p class="text-xs font-medium uppercase tracking-[0.15em] mb-3">Phone</p>
+          <a href="tel:{{ section.settings.phone | default: '+13039071409' }}" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            {{ section.settings.phone_display | default: '+1 (303) 907-1409' }}
+          </a>
+        </div>
+        <div class="p-6 bg-secondary">
           <p class="text-xs font-medium uppercase tracking-[0.15em] mb-3">Hours</p>
           <p class="text-sm text-muted-foreground font-light">{{ section.settings.hours | default: 'Monday – Friday, 9am – 5pm EST' }}</p>
         </div>
@@ -87,6 +93,8 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Get in Touch" },
     { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
     { "type": "text", "id": "email", "label": "Email", "default": "hello@aura-running.com" },
+    { "type": "text", "id": "phone", "label": "Phone (tel: link, digits only)", "default": "+13039071409" },
+    { "type": "text", "id": "phone_display", "label": "Phone (displayed)", "default": "+1 (303) 907-1409" },
     { "type": "text", "id": "hours", "label": "Business Hours", "default": "Monday – Friday, 9am – 5pm EST" },
     { "type": "text", "id": "response_time", "label": "Response Time", "default": "We typically respond within 1–2 business days." }
   ],

@@ -40,12 +40,6 @@
         "heading": "Related Products"
       }
     },
-    "testimonials": {
-      "type": "product-testimonials",
-      "settings": {
-        "heading": "What Runners Say"
-      }
-    },
     "related": {
       "type": "related-articles",
       "settings": {
@@ -53,5 +47,5 @@
       }
     }
   },
-  "order": ["main", "ingredients", "usage", "faq", "related-products", "testimonials", "related"]
+  "order": ["main", "ingredients", "usage", "faq", "related-products", "related"]
 }

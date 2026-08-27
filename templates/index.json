@@ -66,14 +66,6 @@
         "description": ""
       }
     },
-    "quote": {
-      "type": "quote-section",
-      "settings": {
-        "quote": "Aura is the only product I trust for hundred-mile races. It holds up when nothing else does.",
-        "author": "Matty H.",
-        "attribution": "Western States Finisher"
-      }
-    },
     "pillars": {
       "type": "three-pillars",
       "blocks": {
@@ -111,112 +103,6 @@
         "longevity"
       ],
       "settings": {}
-    },
-    "marquee": {
-      "type": "athletes-marquee",
-      "blocks": {
-        "ws": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-western-states-100.png",
-            "name": "Western States"
-          }
-        },
-        "utmb": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-utmb-mont-blanc.png",
-            "name": "UTMB"
-          }
-        },
-        "mds": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-marathon-des-sables.png",
-            "name": "Marathon des Sables"
-          }
-        },
-        "london": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-tcs-london-marathon.png",
-            "name": "London Marathon"
-          }
-        },
-        "hardrock": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-hardrock-100.png",
-            "name": "Hardrock 100"
-          }
-        },
-        "boston": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-boston-marathon.png",
-            "name": "Boston Marathon"
-          }
-        },
-        "berlin": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-bmw-berlin-marathon.png",
-            "name": "Berlin Marathon"
-          }
-        },
-        "tdg": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-tor-des-geants.png",
-            "name": "Tor des G\u00e9ants"
-          }
-        },
-        "chicago": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-chicago-marathon.png",
-            "name": "Chicago Marathon"
-          }
-        },
-        "nyc": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-nyc-marathon.png",
-            "name": "NYC Marathon"
-          }
-        },
-        "tokyo": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-tokyo-marathon.png",
-            "name": "Tokyo Marathon"
-          }
-        },
-        "dragons": {
-          "type": "race",
-          "settings": {
-            "asset_filename": "logo-dragons-back-race.png",
-            "name": "Dragon's Back"
-          }
-        }
-      },
-      "block_order": [
-        "ws",
-        "utmb",
-        "mds",
-        "london",
-        "hardrock",
-        "boston",
-        "berlin",
-        "tdg",
-        "chicago",
-        "nyc",
-        "tokyo",
-        "dragons"
-      ],
-      "settings": {
-        "heading": "Used by athletes in"
-      }
     },
     "benefits": {
       "type": "benefits-showcase",
@@ -350,9 +236,7 @@
     "featured",
     "benefits",
     "product_showcase",
-    "quote",
     "pillars",
-    "marquee",
     "editorial",
     "newsletter",
     "brand_story"
