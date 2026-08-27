@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "skip_to_content": "Skip to content",
     "shop": "Shop",
     "editorial": "Editorial",
     "about": "About",
