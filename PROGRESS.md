@@ -1,60 +1,72 @@
-# Overnight SEO fix run — progress
+# Overnight SEO fix run — 2026-08-28
 
-Branch: `seo-audit-fixes` (NOT pushed — pushing to `main` deploys live, held for review)
+Branch: `seo-audit-fixes` — **committed but NOT pushed.** Pushing to `main` deploys straight
+to the live theme, which is a production deploy, so it is held for review.
 
 ## Status
 
 | # | Task | Status |
 |---|---|---|
-| 1 | Product pages render two `<h1>` | CODE DONE — verifying |
-| 2 | Homepage H1 "Balmfor" spacing bug | CODE DONE — verifying |
-| 3 | Breadcrumb JSON-LD hardcoded "Editorial" | CODE DONE — verifying |
-| 4 | blog-hero alt hardcoded "Editorial" | CODE DONE — verifying |
-| 5 | Article JSON-LD author hardcoded to org | CODE DONE — verifying |
-| 6 | Publisher logo URL protocol-relative | CODE DONE — verifying |
-| 7 | Empty settings_schema.json → sameAs always `[]` | CODE DONE — verifying |
-| 8 | Ingredients blog: 0/16 have SEO + FAQ schema | in progress (3 agents) |
-| 9 | 2 collections + 4 pages missing SEO fields | DONE + verified live |
-| 10 | Missing/mismatched redirects | DONE — already fixed, verified |
+| 1 | Product pages render two `<h1>` | DONE, verified |
+| 2 | Homepage H1 "Balmfor" spacing bug | DONE, verified |
+| 3 | Breadcrumb JSON-LD hardcoded "Editorial" | DONE, verified |
+| 4 | blog-hero alt hardcoded "Editorial" | DONE, verified |
+| 5 | Article JSON-LD author hardcoded to org | DONE, verified (see note) |
+| 6 | Publisher logo URL protocol-relative | DONE, verified vs production |
+| 7 | Empty settings_schema.json → sameAs always `[]` | DONE (needs social URLs from user) |
+| 8 | Ingredients blog 0/16 SEO + FAQ schema | DONE — 16/16 verified live |
+| 9 | 2 collections + 4 pages missing SEO | DONE — verified live |
+| 10 | Missing/mismatched redirects | Already fixed; verified, GSC re-validation started |
 | 11 | Two possible cannibalizing article pairs | BLOCKED — needs user decision |
 
-## Task 9 — done, verified live
+## Theme code (tasks 1-7) — on branch, awaiting push
 
-Collections (`seo.title`/`seo.description` via collectionUpdate): `all`, `frontpage`.
-Pages (`global.title_tag`/`global.description_tag` metafields — Page has no native `seo`
-field in the Admin API): contact, data-sharing-opt-out, about-us, review.
-Verified by curling each live URL: all now render a title (49-64 chars) and a meta
-description. `/collections/all` previously had NO meta description at all.
+- `sections/product-hero.liquid` — one `sr-only` `<h1>` outside both layout trees; the two
+  visible titles are now styled `<p>`. Chosen over demoting one in place, which would have
+  left desktop (or mobile) screen-reader users with no H1 at all. Verified 1 H1 at both
+  viewports, styling byte-identical (28px Inter, -0.28px tracking on mobile).
+- `templates/index.json` — space before `<br>`; textContent now "Balm for", was "Balmfor".
+- `snippets/meta-tags.liquid` — breadcrumb uses `blog.title`/`blog.url` (verified: renders
+  "Ingredients" on ingredient articles, "Editorial" on editorial ones); author uses a real
+  byline but falls back to Organization for the shop name and for "Shopify API"; publisher
+  logo prefixed `https:`.
+- `sections/blog-hero.liquid` — alt: `image.alt → heading → blog.title → 'Editorial'`.
+- `config/settings_schema.json` — was `[]`. Now defines all 5 referenced global settings.
+  Caught during verification that Shopify **requires** `theme_documentation_url` in
+  `theme_info`; without it the theme fails to upload. Fixed before commit.
+- `layout/theme.liquid` — `sameAs` builds a valid JSON array and includes TikTok.
 
-## Task 10 — no action needed, verified
+Regression checked: all page types return 200 with exactly one H1 and no Liquid errors;
+editorial articles still emit Article + BreadcrumbList + FAQPage + Organization cleanly.
 
-All 7 GSC-reported 404s already 301 correctly and resolve 200, with no redirect chains:
-/editorial/marathon-chafing, /editorial/100-mile-blister-prevention (+/index.html),
-/about, /contact, /product/aura-stride (-> /products/aura-full),
-/editorial/anti-chafing-cream-runners. GSC's report is stale (last crawled Apr-Jun 2026).
-Only outstanding item is asking GSC to re-validate so the stale report clears.
+## Store data (tasks 8-9) — live now, no deploy needed
 
-The 8th reported 404, literal `https://aura-running.com/${t}`, is an un-evaluated template
-literal. Not reproducible in the current theme (no backtick literals in any liquid file);
-it is a leftover from the old Lovable React site. 404s harmlessly, will age out.
+- 16/16 Ingredients articles: `global.title_tag` (50-60 chars), `global.description_tag`
+  (150-160), `custom.faq_json` (4-5 FAQs as literal Google queries, grounded only in each
+  article's own body). Independently verified on the live site: all render valid FAQPage
+  JSON-LD, correct counts, on-topic per ingredient, no drug-claim terms, no duration claims.
+- 2 collections + 4 pages: SEO title and description set and verified live.
+  `/collections/all` previously shipped with no meta description at all.
 
-## Changes so far (all local, uncommitted → branch)
+## Verification notes worth keeping
 
-- `sections/product-hero.liquid` — added single `<h1 class="sr-only">`, demoted the two
-  visible (mobile + desktop) titles to `<p>` with identical classes. Verified `.sr-only` is
-  already in the compiled Tailwind CSS, and that `body`/`h1` share a font stack and both
-  headings already override letter-spacing, so the tag swap is visually identical.
-- `templates/index.json` — space before `<br>` in hero heading.
-- `snippets/meta-tags.liquid` — breadcrumb now uses `blog.title`/`blog.url`; article author
-  uses real `article.author` when set; publisher logo URL now absolute (`https:` prefix).
-- `sections/blog-hero.liquid` — alt now `image.alt → heading → blog.title → 'Editorial'`.
-- `config/settings_schema.json` — was `[]`. Added theme_info + social/promo/analytics
-  settings so they are settable at all. Defaults empty = no behavior change.
-- `layout/theme.liquid` — `sameAs` now builds a real JSON array incl. TikTok.
+- Task 6 could not be proven on the local preview: `shopify theme dev` rewrites CDN asset
+  URLs to local relative paths, so the `https:` prefix is invisible locally. Proved instead
+  against production, where the identical pre-existing pattern on the Organization logo
+  renders `https://aura-running.com/cdn/...` while the unfixed one renders `//aura-running...`.
+- Two subagents briefly collided on a scratchpad filename. That is why every one of the 16
+  articles was re-checked for cross-contamination against its own ingredient. None found.
+- GSC "Referring page: None detected" for /blogs/ingredients is NOT an orphaned-page problem
+  — the hub is linked from every page checked. GSC simply has never crawled it (Last crawl:
+  N/A). Requested indexing for it.
 
-## Notes / carry-forward
+## Open items for the user
 
-- Social URLs left blank on purpose — I don't know the real Instagram/TikTok handles and
-  won't invent them. `sameAs` stays `[]` until filled in Theme Settings. See BLOCKED.
-- GA field intentionally exposed but documented as "leave blank" — GA4 already runs via the
-  Shopify Google & YouTube pixel; filling it would double-count.
+1. Social URLs for `sameAs` — deliberately left blank, not invented.
+2. Task 11 duplicate-content pairs — needs a call.
+3. Pre-existing body copy worth a decision (all pre-date tonight, none introduced by me):
+   - `squalane`: visible FAQ heading "Is squalane vegan and cruelty-free?"
+   - `tea-tree-oil`: "A product worn for six hours against sweating skin..."
+   - `microcrystalline-paraffin-wax`: "...still on your skin at hour six."
+4. `/collections` renders live with zero H1 and "No products found" (confirmed). Not in the
+   sitemap and not linked from the homepage, so exposure is low.
