@@ -25,6 +25,15 @@
 
   <link rel="canonical" href="{{ canonical_url }}">
 
+  {%- comment -%}
+    The /collections list page is not part of the store's structure: the shop is
+    /collections/all. Shopify will not let a URL redirect override this built-in route,
+    so it is kept out of the index instead. "follow" so any links on it still pass through.
+  {%- endcomment -%}
+  {%- if template == 'list-collections' -%}
+    <meta name="robots" content="noindex, follow">
+  {%- endif -%}
+
   {%- comment -%} Google Search Console verification {%- endcomment -%}
   <meta name="google-site-verification" content="4l2s_UX9GlAuNODklEOzJ0ZRDwj-ZdYKC_u-hvlrZf0" />
 
