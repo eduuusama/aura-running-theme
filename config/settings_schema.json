@@ -1,1 +1,63 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Aura Running",
+    "theme_version": "1.0.0",
+    "theme_author": "Aura Running",
+    "theme_documentation_url": "https://aura-running.com/pages/contact",
+    "theme_support_url": "https://aura-running.com/pages/contact"
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "These links appear in the footer and mobile menu, and are also published as the brand's official profiles in the site's Organization structured data (sameAs), which helps Google connect the site to its social accounts. Leave blank to hide."
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "info": "Full URL, e.g. https://www.instagram.com/yourhandle"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL",
+        "info": "Full URL, e.g. https://www.tiktok.com/@yourhandle"
+      }
+    ]
+  },
+  {
+    "name": "Promo banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "promo_banner_enabled",
+        "label": "Show promo banner",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "promo_banner_text",
+        "label": "Default promo banner text",
+        "info": "Used when an individual Promo Banner section does not set its own text."
+      }
+    ]
+  },
+  {
+    "name": "Analytics",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Leave this blank. GA4 is already installed through the Shopify Google & YouTube channel (Settings > Customer events), which also tracks checkout and purchase events. Entering an ID here would load a second GA tag and double-count every visit and sale."
+      },
+      {
+        "type": "text",
+        "id": "google_analytics_id",
+        "label": "Google Analytics measurement ID (legacy — leave blank)",
+        "info": "Only use this if the Google & YouTube channel is ever disconnected."
+      }
+    ]
+  }
+]

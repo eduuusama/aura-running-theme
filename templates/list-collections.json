@@ -1,8 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "collection-grid",
-      "settings": {}
+      "type": "collection-hero",
+      "settings": {
+        "heading": "Shop"
+      }
     }
   },
   "order": ["main"]
