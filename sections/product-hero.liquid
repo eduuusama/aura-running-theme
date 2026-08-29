@@ -5,6 +5,13 @@
   Description pulls from Shopify product editor (product.description)
 {%- endcomment -%}
 
+{%- comment -%}
+  Single page H1. The mobile and desktop layouts below are separate DOM trees, only one
+  of which is displayed at a time, so the visible product title in each is a styled <p>.
+  This sr-only H1 keeps exactly one H1 in the DOM and in the a11y tree at every viewport.
+{%- endcomment -%}
+<h1 class="sr-only">{{ product.title }}</h1>
+
 {%- comment -%} Mobile Layout {%- endcomment -%}
 <div class="lg:hidden">
   {%- comment -%} Image Gallery - Mobile {%- endcomment -%}
@@ -39,9 +46,9 @@
         {{ section.settings.ref_label }}
       </p>
     {%- endif -%}
-    <h1 class="font-light text-[28px] md:text-[36px] tracking-[-0.01em] leading-[1.2] mb-1">
+    <p class="font-light text-[28px] md:text-[36px] tracking-[-0.01em] leading-[1.2] mb-1">
       {{ product.title }}
-    </h1>
+    </p>
     <p class="text-lg md:text-xl font-light text-muted-foreground mb-3">
       {{ section.settings.subtitle }}
     </p>
@@ -200,9 +207,9 @@
           </p>
         {%- endif -%}
 
-        <h1 class="font-light text-[36px] lg:text-[42px] tracking-[-0.02em] leading-[1.1] mb-2">
+        <p class="font-light text-[36px] lg:text-[42px] tracking-[-0.02em] leading-[1.1] mb-2">
           {{ product.title }}
-        </h1>
+        </p>
         <p class="text-xl lg:text-2xl font-light text-muted-foreground mb-6">
           {{ section.settings.subtitle }}
         </p>

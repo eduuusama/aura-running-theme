@@ -117,16 +117,32 @@
       {%- endif -%}
       "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S' | json }},
       "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S' | json }},
+      {%- comment -%}
+        Use the real per-article author, but only when it is genuinely a person's byline.
+        Articles created through the Admin API carry author "Shopify API", and articles
+        published under the brand carry the shop name -- neither is a Person, so both fall
+        back to Organization. Set a real byline in Shopify admin to have it used here.
+      {%- endcomment -%}
+      {%- assign article_author = article.author | strip -%}
+      {%- assign author_is_person = true -%}
+      {%- if article_author == blank or article_author == shop.name or article_author == 'Shopify API' -%}
+        {%- assign author_is_person = false -%}
+      {%- endif -%}
       "author": {
+        {%- if author_is_person -%}
+        "@type": "Person",
+        "name": {{ article_author | json }}
+        {%- else -%}
         "@type": "Organization",
         "name": {{ shop.name | json }}
+        {%- endif -%}
       },
       "publisher": {
         "@type": "Organization",
         "name": {{ shop.name | json }},
         "logo": {
           "@type": "ImageObject",
-          "url": "{{ 'logo.png' | asset_url }}"
+          "url": "https:{{ 'logo.png' | asset_url }}"
         }
       }
     }
@@ -147,8 +163,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Editorial",
-          "item": "{{ shop.url }}/blogs/editorial"
+          "name": {{ blog.title | json }},
+          "item": "{{ shop.url }}{{ blog.url }}"
         },
         {
           "@type": "ListItem",

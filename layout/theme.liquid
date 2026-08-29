@@ -65,9 +65,11 @@
       "url": "{{ shop.url }}",
       "logo": "https:{{ 'favicon.png' | asset_url }}",
       "description": "{{ shop.description | escape }}",
-      "sameAs": [
-        {%- if settings.social_instagram != blank -%}"{{ settings.social_instagram }}"{%- endif -%}
-      ]
+      {%- capture social_csv -%}
+        {%- if settings.social_instagram != blank -%}{{ settings.social_instagram }}{%- endif -%}
+        {%- if settings.social_tiktok != blank -%}{%- if settings.social_instagram != blank -%},{%- endif -%}{{ settings.social_tiktok }}{%- endif -%}
+      {%- endcapture -%}
+      "sameAs": {{ social_csv | strip | split: ',' | json }}
     }
   </script>
 
