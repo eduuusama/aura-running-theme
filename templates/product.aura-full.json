@@ -22,41 +22,6 @@
         "cross_sell_text": "Going past the marathon? For ultra distance, extreme heat, or extreme cold, see <a href=\"/products/aura-ultra\" class=\"text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors\">Aura Ultra</a>."
       }
     },
-    "value_props": {
-      "type": "product-value-props",
-      "blocks": {
-        "natural": {
-          "type": "value_prop",
-          "settings": {
-            "title": "All natural",
-            "text": "Eight ingredients, all plant- or animal-derived. No petrolatum, no mineral oil, no synthetic fragrance, no parabens."
-          }
-        },
-        "elite": {
-          "type": "value_prop",
-          "settings": {
-            "title": "Elite formula",
-            "text": "A lanolin-forward barrier engineered specifically for running, paired with shea, coconut, jojoba, and castor oil for glide and conditioning."
-          }
-        },
-        "everyday": {
-          "type": "value_prop",
-          "settings": {
-            "title": "Everyday use",
-            "text": "Gentle enough for daily training, not reserved for race day only."
-          }
-        },
-        "distance": {
-          "type": "value_prop",
-          "settings": {
-            "title": "Marathon distance",
-            "text": "Designed to hold for the full 26.2 miles, from the start line to the finish."
-          }
-        }
-      },
-      "block_order": ["natural", "elite", "everyday", "distance"],
-      "settings": {}
-    },
     "ingredients": {
       "type": "product-ingredients",
       "blocks": {
@@ -355,7 +320,6 @@
   },
   "order": [
     "main",
-    "value_props",
     "ingredients",
     "usage",
     "data",
