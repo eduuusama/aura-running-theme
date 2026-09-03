@@ -189,7 +189,7 @@
           "type": "question",
           "settings": {
             "title": "Is Aura Full better than Vaseline for running?",
-            "answer": "They solve different problems. Aura Full pairs a water-repellent lanolin barrier with butters and oils that condition skin through hours of motion, in one formula built specifically for running. For extreme heat, cold, or ultra distance, Aura Ultra is engineered for those conditions."
+            "answer": "They solve different problems. Aura Full pairs a water-repellent lanolin barrier with butters and oils that condition skin through hours of motion, in one formula built specifically for running. For extreme heat, cold, or ultra distance, Aura Full is engineered for those conditions."
           }
         },
         "q5": {
@@ -203,7 +203,7 @@
           "type": "question",
           "settings": {
             "title": "How often should I reapply anti-chafe balm during a marathon?",
-            "answer": "One thorough application before the start covers most marathon-distance efforts. On hot days, or in a spot that's chafed before, carry a travel-size amount for the halfway point."
+            "answer": "One thorough application before the start covers most marathon-distance efforts."
           }
         },
         "q7": {
@@ -247,6 +247,13 @@
             "title": "What's the difference between Aura Full and Aura Ultra?",
             "answer": "Distance and conditions. Aura Full is natural-inspired, built for marathon distance and daily training in moderate conditions. Aura Ultra is engineered for ultra distance, extreme heat, extreme cold, and multi-hour sweat exposure."
           }
+        },
+        "q13": {
+          "type": "question",
+          "settings": {
+            "title": "Will it feel greasy or stain my clothes?",
+            "answer": "No, it goes on smoothly, absorbs well, and is designed not to leave a heavy or greasy feel. Because it's 100% natural, it will not stain your clothing."
+          }
         }
       },
       "block_order": [
@@ -261,7 +268,8 @@
         "q9",
         "q10",
         "q11",
-        "q12"
+        "q12",
+        "q13"
       ]
     },
     "related-products": {
