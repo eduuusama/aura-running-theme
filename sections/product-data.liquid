@@ -28,7 +28,7 @@
     </div>
 
     {%- comment -%} One row: stat rings + chart {%- endcomment -%}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-14 items-center">
+    <div class="grid grid-cols-1 sm:grid-cols-2 {% if section.settings.show_chart %}lg:grid-cols-4{% else %}lg:grid-cols-3 justify-items-center lg:max-w-3xl lg:mx-auto{% endif %} gap-x-6 gap-y-14 items-center">
       {%- for block in section.blocks -%}
         <div class="flex flex-col items-center pd-fade" style="transition-delay: {{ forloop.index0 | times: 150 }}ms" {{ block.shopify_attributes }}>
           <div class="relative w-[220px] h-[220px]">

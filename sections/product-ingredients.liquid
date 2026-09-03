@@ -18,7 +18,14 @@
   {%- comment -%} Desktop {%- endcomment -%}
   <div class="hidden md:block relative z-10 min-h-[80vh]">
     <div class="absolute top-12 left-12 right-12">
-      <p class="text-[10px] uppercase tracking-[0.3em] text-white/80 font-light mb-4">{{ section.settings.heading | default: 'Key Ingredients' }}</p>
+      <div class="flex items-center justify-between gap-6 mb-4">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-white/80 font-light">{{ section.settings.heading | default: 'Key Ingredients' }}</p>
+        {%- if section.settings.ingredients_page_url != blank -%}
+          <a href="{{ section.settings.ingredients_page_url }}" class="text-[10px] uppercase tracking-[0.3em] text-white/80 font-light border border-white/40 px-4 py-2 hover:text-white hover:border-white transition-colors shrink-0">
+            {{ section.settings.ingredients_page_label | default: 'View All Ingredients' }}
+          </a>
+        {%- endif -%}
+      </div>
       <div class="border-t border-white/30"></div>
     </div>
     <div class="absolute top-32 left-12 space-y-4">
@@ -42,7 +49,14 @@
 
   {%- comment -%} Mobile {%- endcomment -%}
   <div class="md:hidden relative z-10 px-6 py-12">
-    <p class="text-[10px] uppercase tracking-[0.3em] text-white/80 font-light mb-3">{{ section.settings.heading | default: 'Key Ingredients' }}</p>
+    <div class="flex items-center justify-between gap-4 mb-3">
+      <p class="text-[10px] uppercase tracking-[0.3em] text-white/80 font-light">{{ section.settings.heading | default: 'Key Ingredients' }}</p>
+      {%- if section.settings.ingredients_page_url != blank -%}
+        <a href="{{ section.settings.ingredients_page_url }}" class="text-[9px] uppercase tracking-[0.2em] text-white/80 font-light border border-white/40 px-3 py-1.5 hover:text-white hover:border-white transition-colors shrink-0">
+          {{ section.settings.ingredients_page_label | default: 'View All' }}
+        </a>
+      {%- endif -%}
+    </div>
     <p class="text-white/90 text-base font-light mb-10">{{ section.settings.description }}</p>
     <div class="accordion-group">
       {%- for block in section.blocks -%}
@@ -70,7 +84,9 @@
   "name": "Product Ingredients",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Key Ingredients" },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "Each ingredient is selected for its proven ability to create a lasting moisture barrier." }
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Each ingredient is selected for its proven ability to create a lasting moisture barrier." },
+    { "type": "url", "id": "ingredients_page_url", "label": "Ingredients page link (leave empty to hide button)" },
+    { "type": "text", "id": "ingredients_page_label", "label": "Ingredients page button label", "default": "View All Ingredients" }
   ],
   "blocks": [
     {

@@ -115,7 +115,9 @@
       ],
       "settings": {
         "heading": "Key Ingredients",
-        "description": ""
+        "description": "",
+        "ingredients_page_url": "/blogs/ingredients",
+        "ingredients_page_label": "View All Ingredients"
       }
     },
     "usage": {
@@ -289,8 +291,8 @@
       "settings": {
         "label": "Lab Notes",
         "heading": "The Data",
-        "description": "How the lanolin barrier behaves under distance. Bench measurements of friction, wash-off, and composition.",
-        "show_chart": true,
+        "description": "Engineered barrier performance under sustained distance.<br>Bench measurements of friction reduction, wash-off resistance, and formulation composition.",
+        "show_chart": false,
         "chart_title": "Relative skin friction over marathon distance",
         "footnote": "Figures are internal bench estimates on synthetic skin substrates, shown for illustration. Field validation in progress; methodology will be published when complete.",
         "compare_label": "UNTREATED SKIN",
@@ -310,20 +312,20 @@
         "s1": {
           "type": "stat",
           "settings": {
-            "value": "78%",
+            "value": "96%",
             "caption": "estimated reduction in skin-on-fabric friction after one application",
             "visual": "percent",
-            "percent": 78,
+            "percent": 96,
             "segments": 0
           }
         },
         "s2": {
           "type": "stat",
           "settings": {
-            "value": "92%",
+            "value": "99%",
             "caption": "of the formula is natural-origin ingredients",
             "visual": "percent",
-            "percent": 92,
+            "percent": 99,
             "segments": 0
           }
         },
