@@ -16,12 +16,13 @@
   </title>
 
   {%- if template == 'index' -%}
-    <meta name="description" content="Elite anti-chafe balm and skin protection for long distance runners. Sweat-proof performance engineered for marathons and ultras, plus post-run skin barrier recovery.">
+    {%- assign home_description = "Elite anti-chafe balm and skin protection for long distance runners. Sweat-proof performance engineered for marathons and ultras, plus post-run skin barrier recovery." -%}
+    <meta name="description" content="{{ home_description }}">
   {%- elsif page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
-  {% render 'meta-tags' %}
+  {% render 'meta-tags', home_description: home_description %}
 
   <link rel="canonical" href="{{ canonical_url }}">
 
