@@ -75,6 +75,20 @@
       "url": "{{ shop.url }}",
       "logo": "https:{{ 'favicon.png' | asset_url }}",
       "description": "{{ shop.description | default: home_description | escape }}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-303-907-1409",
+        "email": "hello@aura-running.com",
+        "contactType": "customer service"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2100 S New Rd #2202",
+        "addressLocality": "Waco",
+        "addressRegion": "TX",
+        "postalCode": "76711",
+        "addressCountry": "US"
+      },
       {%- capture social_csv -%}
         {%- if settings.social_instagram != blank -%}{{ settings.social_instagram }}{%- endif -%}
         {%- if settings.social_tiktok != blank -%}{%- if settings.social_instagram != blank -%},{%- endif -%}{{ settings.social_tiktok }}{%- endif -%}
