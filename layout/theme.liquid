@@ -15,8 +15,8 @@
     {%- endif -%}
   </title>
 
+  {%- assign home_description = "Elite anti-chafe balm and skin protection for long distance runners. Sweat-proof performance engineered for marathons and ultras, plus post-run skin barrier recovery." -%}
   {%- if template == 'index' -%}
-    {%- assign home_description = "Elite anti-chafe balm and skin protection for long distance runners. Sweat-proof performance engineered for marathons and ultras, plus post-run skin barrier recovery." -%}
     <meta name="description" content="{{ home_description }}">
   {%- elsif page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
@@ -74,7 +74,7 @@
       "name": "Aura Running",
       "url": "{{ shop.url }}",
       "logo": "https:{{ 'favicon.png' | asset_url }}",
-      "description": "{{ shop.description | escape }}",
+      "description": "{{ shop.description | default: home_description | escape }}",
       {%- capture social_csv -%}
         {%- if settings.social_instagram != blank -%}{{ settings.social_instagram }}{%- endif -%}
         {%- if settings.social_tiktok != blank -%}{%- if settings.social_instagram != blank -%},{%- endif -%}{{ settings.social_tiktok }}{%- endif -%}
