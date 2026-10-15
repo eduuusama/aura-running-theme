@@ -9,7 +9,12 @@
     {%- if template == 'index' -%}
       Aura Running — Elite Anti-Chafe Balm for Long Distance Runners
     {%- elsif page_title -%}
-      {{ page_title }} | {{ shop.name }}
+      {%- assign branded_title = page_title | append: ' | ' | append: shop.name -%}
+      {%- if template contains 'article' and branded_title.size > 60 -%}
+        {{ page_title }}
+      {%- else -%}
+        {{ branded_title }}
+      {%- endif -%}
     {%- else -%}
       {{ shop.name }}
     {%- endif -%}

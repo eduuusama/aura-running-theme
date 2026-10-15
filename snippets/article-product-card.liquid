@@ -1,0 +1,27 @@
+{%- comment -%}
+  Article Product Card — featured product promo shown inside blog articles.
+  Params: heading, text (strings). Hidden when the product is missing or sold out,
+  so traffic is never sent to a dead end.
+{%- endcomment -%}
+{%- assign cta_product = all_products['aura-full'] -%}
+{%- if cta_product != blank and cta_product.available -%}
+  <aside class="article-product-card" aria-label="Featured product">
+    <a href="{{ cta_product.url }}" class="article-product-card__image">
+      {%- if cta_product.featured_image -%}
+        <img
+          src="{{ cta_product.featured_image | image_url: width: 400 }}"
+          alt="{{ cta_product.featured_image.alt | default: cta_product.title | escape }}"
+          width="200" height="200" loading="lazy">
+      {%- endif -%}
+    </a>
+    <div class="article-product-card__body">
+      <p class="article-product-card__label">{{ cta_product.title }}</p>
+      <p class="article-product-card__heading">{{ heading }}</p>
+      <p class="article-product-card__text">{{ text }}</p>
+      <div class="article-product-card__row">
+        <a href="{{ cta_product.url }}" class="article-product-card__button">Shop {{ cta_product.title }}</a>
+        <span class="article-product-card__price">{{ cta_product.price | money }}</span>
+      </div>
+    </div>
+  </aside>
+{%- endif -%}

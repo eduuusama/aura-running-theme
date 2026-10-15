@@ -57,7 +57,33 @@
 
     {%- comment -%} Article Body {%- endcomment -%}
     <div class="article-body space-y-12">
-      {{ article.content }}
+      {%- comment -%}
+        Split at <h2 so the mid-article product card lands between sections,
+        never inside a list, table or quote. Needs 5+ sections to avoid crowding short posts.
+      {%- endcomment -%}
+      {%- comment -%}
+        Legacy copy links to /products/aura-recover (404); the product handle is aura-recovery.
+      {%- endcomment -%}
+      {%- assign article_html = article.content | replace: '/products/aura-recover"', '/products/aura-recovery"' | replace: '>Aura Recover</a>', '>Aura Recovery</a>' -%}
+      {%- assign h2_parts = article_html | split: '<h2' -%}
+      {%- assign h2_count = h2_parts.size | minus: 1 -%}
+      {%- if h2_count >= 5 -%}
+        {%- assign mid_index = h2_count | divided_by: 2 -%}
+        {%- for part in h2_parts -%}
+          {%- if forloop.first -%}
+            {{ part }}
+          {%- else -%}
+            {%- if forloop.index0 == mid_index -%}
+              {%- render 'article-product-card', heading: 'Protection built for the long run.', text: 'Aura Full is a 100% natural anti-chafe balm, engineered for the marathon distance and daily training.' -%}
+            {%- endif -%}
+            <h2{{ part }}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {{ article_html }}
+      {%- endif -%}
+
+      {%- render 'article-product-card', heading: 'Go the distance without the rub.', text: 'One application before the start. A water-repellent natural barrier that holds through heat, sweat, and hours of repetitive motion.' -%}
     </div>
 
     {%- comment -%} Chart.js Container — renders if article has chart metafields {%- endcomment -%}
